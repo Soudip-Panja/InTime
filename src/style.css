@@ -1,0 +1,199 @@
+/* 1. FONTS & ROOT VARIABLES */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --font-figtree: 'Figtree', sans-serif;
+  --bg-black: #080808;
+  --text-white: #ffffff;
+  --text-grey: #b0b0b0;
+  
+  --grad-start: #6ee7b7; 
+  --grad-mid: #818cf8; 
+  --grad-end: #c084fc;
+}
+
+/* 2. GLOBAL STYLES */
+body {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3. NAVBAR STYLES (UNCHANGED) */
+.custom-navbar {
+  background-color: var(--bg-black) !important;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #1a1a1a;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-logo { height: 52px; width: auto; }
+.custom-navbar .nav-link {
+  color: var(--text-white) !important;
+  font-size: 0.92rem;
+  margin: 0 18px; 
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+.ai-link { display: flex !important; align-items: center; gap: 10px; }
+.ai-sparkle-icon { animation: ai-float 3s ease-in-out infinite; }
+
+@keyframes ai-float {
+  0%, 100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 2px rgba(110, 231, 183, 0.3)); }
+  50% { transform: translateY(-2px) scale(1.1); filter: drop-shadow(0 0 6px rgba(192, 132, 252, 0.5)); }
+}
+
+/* 4. HERO SECTION & INTERACTIVE GRID GLOW */
+.hero-section {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-black);
+  /* Static Subtle Grid */
+  background-image: 
+    linear-gradient(to right, #161616 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, #161616 1.5px, transparent 1.5px);
+  background-size: 100px 100px; /* Large grid matching GeekyAnts */
+}
+
+.grid-glow-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* Apply the grid mask to the entire container */
+  -webkit-mask-image: 
+    linear-gradient(to right, white 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, white 1.5px, transparent 1.5px);
+  -webkit-mask-size: 100px 100px;
+  mask-image: 
+    linear-gradient(to right, white 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, white 1.5px, transparent 1.5px);
+  mask-size: 100px 100px;
+}
+
+.spotlight-beam {
+  position: absolute;
+  width: 1500px; /* Size of the rotating beam element */
+  height: 1500px;
+  /* Centering the element on the mouse */
+  top: calc(var(--mouse-y, 0px) - 750px);
+  left: calc(var(--mouse-x, 0px) - 750px);
+  
+  /* Conic gradient for the "traveling" light animation */
+  background: conic-gradient(
+    transparent, 
+    var(--grad-start), 
+    var(--grad-mid), 
+    var(--grad-end), 
+    transparent 40%
+  );
+  
+  /* Second Mask: Limits the rotating beam to a spotlight radius around the mouse */
+  -webkit-mask-image: radial-gradient(350px circle at 50% 50%, black 10%, transparent 100%);
+  mask-image: radial-gradient(350px circle at 50% 50%, black 10%, transparent 100%);
+  
+  animation: rotate-beam 3s linear infinite;
+  filter: blur(8px); /* Softening the beam for a "glow" feel */
+  opacity: 0.8;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 0;
+  max-width: 1000px;
+}
+
+.hero-label {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: var(--text-grey);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: 4.2rem;
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.hero-title strong { font-weight: 700; }
+
+.gradient-text {
+  background: linear-gradient(to right, var(--grad-start), var(--grad-mid), var(--grad-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-description {
+  font-size: 1.5rem;
+  color: var(--text-grey);
+  line-height: 1.5;
+  margin-bottom: 3rem;
+}
+
+/* 5. BUTTONS */
+.nav-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 28px;
+  color: white !important;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 50px;
+  position: relative;
+  z-index: 1;
+  background: var(--bg-black);
+  overflow: hidden;
+  border: 1px solid transparent;
+  background-image: linear-gradient(var(--bg-black), var(--bg-black)), 
+                    linear-gradient(to right, var(--grad-start), var(--grad-mid), var(--grad-end));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: transform 0.3s ease;
+}
+
+.hero-cta { padding: 16px 36px; font-size: 1.1rem; }
+
+.nav-cta-btn::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%; top: -50%; width: 200%; height: 200%;
+  background-image: conic-gradient(transparent, var(--grad-start), var(--grad-mid), var(--grad-end), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-cta-btn::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 1.5px;
+  background: var(--bg-black);
+  border-radius: 50px;
+}
+
+.nav-cta-btn:hover { transform: scale(1.05); background-image: none; background-color: transparent; box-shadow: 0 0 25px rgba(129, 140, 248, 0.2); }
+.nav-cta-btn:hover::before { opacity: 1; animation: rotate-beam 2.5s linear infinite; }
+
+@keyframes rotate-beam { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.arrow { margin-left: 10px; transition: transform 0.3s ease; }
+.nav-cta-btn:hover .arrow { transform: translateX(5px); }
+
+/* 6. RESPONSIVE OPTIMIZATION */
+@media (max-width: 991px) {
+  .hero-title { font-size: 2.8rem; }
+  .grid-glow-container { display: none; }
+}
