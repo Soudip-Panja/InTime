@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { 
   ChevronDown, 
   Cpu, 
@@ -6,17 +6,35 @@ import {
   BarChart3, 
   Zap, 
   Users, 
-  GraduationCap 
+  GraduationCap,
+  Sun,
+  Moon
 } from "lucide-react";
 import logo from "../assets/Intime.png";
+import logoLight from "../assets/Intime Light.png";
 
 export default function Navbar() {
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    setTheme(savedTheme);
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
       <div className="container">
         {/* Logo Section */}
         <a className="navbar-brand" href="#">
-          <img src={logo} alt="InTime Logo" className="nav-logo" />
+          <img src={theme === "light" ? logoLight : logo} alt="InTime Logo" className="nav-logo" />
         </a>
 
         <button
@@ -40,9 +58,9 @@ export default function Navbar() {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="ai-sparkle-icon">
                   <defs>
                     <linearGradient id="sparkle-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#6ee7b7" />
-                      <stop offset="50%" stopColor="#818cf8" />
-                      <stop offset="100%" stopColor="#c084fc" />
+                      <stop offset="0%" stopColor="#00d2ff" />
+                      <stop offset="50%" stopColor="#00a8fd" />
+                      <stop offset="100%" stopColor="#0072ff" />
                     </linearGradient>
                   </defs>
                   <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" stroke="url(#sparkle-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -104,7 +122,15 @@ export default function Navbar() {
             <li className="nav-item"><a className="nav-link" href="#">About</a></li>
           </ul>
 
-          <div className="d-flex">
+          <div className="d-flex align-items-center gap-3">
+            <button 
+              onClick={toggleTheme} 
+              className="theme-toggle-btn"
+              style={{ background: 'transparent', border: 'none', color: 'var(--text-white)', cursor: 'pointer', padding: '0 5px', display: 'flex' }}
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             <a href="#" className="nav-cta-btn">
               Contact Us <span className="arrow">→</span>
             </a>

@@ -1,5 +1,8 @@
 import React, { useRef } from "react";
 import Navbar from "../Components/Navbar";
+import Carousel from "../Components/TrustedByCarousel";
+import HomeBody from "../Components/HomeBody";
+import Footer from "../Components/Footer";
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -35,14 +38,13 @@ export default function Home() {
             <p className="hero-label">ENGINEERING FOR THE AI ERA.</p>
             
             <h1 className="hero-title">
-              Turning Ambitious <strong>Technology Strategies</strong> 
+              Turning Complex <strong>Business Challenges</strong> 
               <br />
-              <span className="gradient-text">into Production-Grade Reality.</span>
+              <span className="gradient-text">Into Intelligent Enterprise Solutions.</span>
             </h1>
 
             <p className="hero-description">
-              From AI adoption to legacy modernization to product scale 
-              — we bring the thinking and the team.
+              From SAP transformation and business intelligence to AI engineering — we help organizations streamline operations, unlock insights, and scale smarter.
             </p>
 
             <div className="hero-action">
@@ -53,6 +55,10 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      <Carousel />
+      <HomeBody />
+      <Footer />
     </div>
   );
 }
