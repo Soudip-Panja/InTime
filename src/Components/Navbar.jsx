@@ -88,11 +88,13 @@ export default function Navbar() {
                         icon={<Database size={20} />} 
                         title="SAP Digital Core & Cloud" 
                         desc="Modernize legacy systems with scalable architectures." 
+                        to="/sap"
                       />
                       <MegaMenuItem 
                         icon={<BarChart3 size={20} />} 
                         title="Business Intelligence & Analytics" 
                         desc="Turn raw data into actionable strategic insights." 
+                        to="/bi-analytics"
                       />
                     </div>
                     <div className="col-md-6">
@@ -100,16 +102,19 @@ export default function Navbar() {
                         icon={<Zap size={20} />} 
                         title="Smart Application Development" 
                         desc="Ideate, validate, and build digital products quickly." 
+                        to="/smart-app"
                       />
                       <MegaMenuItem 
                         icon={<Users size={20} />} 
                         title="Smart Technology Talent" 
                         desc="Scale your team with elite engineering experts." 
+                        to="/smart-tech"
                       />
                       <MegaMenuItem 
                         icon={<GraduationCap size={20} />} 
-                        title="Enterprise Training" 
-                        desc="Upskill your workforce with modern tech capabilities." 
+                        title="Enterprise Training & Upskilling" 
+                        desc="Empower your workforce with latest technologies." 
+                        to="/enterprise-training"
                       />
                     </div>
                   </div>
@@ -120,7 +125,7 @@ export default function Navbar() {
             <li className="nav-item"><Link className="nav-link" to="/industries">Industries</Link></li>
             <li className="nav-item"><a className="nav-link" href="#">Engineering</a></li>
             <li className="nav-item"><a className="nav-link" href="#">Insights</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">About</a></li>
+            <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
           </ul>
 
           <div className="d-flex align-items-center gap-3">
@@ -142,14 +147,28 @@ export default function Navbar() {
   );
 }
 
-function MegaMenuItem({ icon, title, desc }) {
+function MegaMenuItem({ icon, title, desc, to = "#" }) {
+  const isExternal = to.startsWith('http');
+  
+  if (isExternal) {
+    return (
+      <a href={to} className="mega-menu-item">
+        <div className="icon-wrapper">{icon}</div>
+        <div className="content-wrapper">
+          <h4 className="item-title">{title}</h4>
+          <p className="item-desc">{desc}</p>
+        </div>
+      </a>
+    );
+  }
+
   return (
-    <a href="#" className="mega-menu-item">
+    <Link to={to} className="mega-menu-item">
       <div className="icon-wrapper">{icon}</div>
       <div className="content-wrapper">
         <h4 className="item-title">{title}</h4>
         <p className="item-desc">{desc}</p>
       </div>
-    </a>
+    </Link>
   );
 }
