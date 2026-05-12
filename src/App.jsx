@@ -3,6 +3,7 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import ROI from "./Pages/ROI";
 import WhyInTimePage from "./Pages/WhyInTime";
+import Industries from "./Pages/Industries";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/why-intime",
     element: <WhyInTimePage />,
+  },
+  {
+    path: "/industries",
+    element: <Industries />,
   },
 ]);
 

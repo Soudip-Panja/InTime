@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowUpRight, Cloud, Triangle, Activity, GitBranch, ShieldCheck, CheckCircle, Star, Award, Medal, Cpu, CloudLightning, BarChart3, Database, Server, Box } from 'lucide-react';
+import { ArrowUpRight, Cloud, Triangle, Activity, GitBranch, ShieldCheck, CheckCircle, Star, Award, Medal, Cpu, CloudLightning, BarChart3, Database, Server, Box, Trophy, Target, CheckCircle2 } from 'lucide-react';
 import WhyInTime from './Home/WhyInTime';
+import ColorBends from './Home/ColorBends';
 
 export default function HomeBody() {
   const handleMouseMove = (e) => {
@@ -16,51 +17,51 @@ export default function HomeBody() {
 
   const outcomesData = [
     {
-      badge: "Public Sector • Middle East",
-      title: "Complete SAP Digital Transformation",
-      result: "500+ SAP objects, 150+ KPIs implemented",
+      category: "PUBLIC SECTOR",
+      highlight: "500+",
+      title: "SAP Objects & KPIs Implemented",
+      description: "Complete digital transformation and SAP landscape modernization for EGCB in the Middle East.",
       client: "EGCB",
-      tags: ["SAP", "Digital Transformation", "Government"],
       link: "#"
     },
     {
-      badge: "Manufacturing • UAE",
+      category: "MANUFACTURING",
+      highlight: "70%",
       title: "Invoice Automation Revolution",
-      result: "70% invoice automation achieved",
+      description: "Achieved significant invoice automation and finance process streamlining for a leading FMCG manufacturer.",
       client: "FMCG Leader",
-      tags: ["AI", "Automation", "Finance"],
       link: "#"
     },
     {
-      badge: "Manufacturing • Asia",
-      title: "Order-to-Cash Optimization",
-      result: "$M savings in O2C processes",
+      category: "MANUFACTURING",
+      highlight: "$M",
+      title: "O2C Process Optimization",
+      description: "Delivered millions in savings through strategic Order-to-Cash process optimization for major garment makers.",
       client: "Garments Manufacturer",
-      tags: ["SAP", "Process Optimization", "Cost Reduction"],
       link: "#"
     },
     {
-      badge: "Entertainment • Middle East",
-      title: "Integrated Smart Operations",
-      result: "ERP, IoT, AI ecosystem integration",
+      category: "ENTERTAINMENT",
+      highlight: "IoT",
+      title: "Integrated AI Ecosystem",
+      description: "Seamless ERP, IoT, and AI ecosystem integration for large-scale sports city operations.",
       client: "Sports City",
-      tags: ["IoT", "AI", "Smart Systems"],
       link: "#"
     },
     {
-      badge: "Retail • UAE",
+      category: "RETAIL",
+      highlight: "30%",
       title: "Inventory Optimization Success",
-      result: "30% inventory optimization achieved",
+      description: "Implemented advanced analytics to achieve 30% inventory optimization for a major UAE retailer.",
       client: "UAE Retailer",
-      tags: ["BI", "Analytics", "Inventory"],
       link: "#"
     },
     {
-      badge: "Construction • Middle East",
-      title: "Project Lifecycle Management",
-      result: "25% faster project delivery",
+      category: "CONSTRUCTION",
+      highlight: "25%",
+      title: "Faster Project Delivery",
+      description: "Streamlined project lifecycle management and digital tool integration for construction giants.",
       client: "Construction Giant",
-      tags: ["Project Management", "Digital Tools"],
       link: "#"
     }
   ];
@@ -147,8 +148,24 @@ export default function HomeBody() {
         </div>
       </section>
 
-      <section className="outcomes-section bg-shade-1">
-        <div className="container">
+      <section className="outcomes-section bg-shade-1" style={{ position: 'relative', overflow: 'hidden' }}>
+        <ColorBends 
+          colors={['#00d2ff', '#00a8fd', '#0072ff']} 
+          rotation={90}
+          speed={0.2}
+          scale={1}
+          frequency={1}
+          warpStrength={1}
+          mouseInfluence={1}
+          noise={0.15}
+          parallax={0.5}
+          iterations={1}
+          intensity={1.5}
+          bandWidth={6}
+          transparent={true}
+          style={{ position: 'absolute', inset: 0, opacity: 0.4 }}
+        />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="outcomes-header">
             <div className="unified-section-label">OUTCOMES</div>
             <h2 className="outcomes-heading">
@@ -163,22 +180,16 @@ export default function HomeBody() {
                 <div className="card-border-glow"></div>
                 <div className="card-crosshairs" aria-hidden="true"></div>
                 
-                <div className="outcome-card-top">
-                  <span className="outcome-badge">{item.badge}</span>
+                <div className="outcome-card-content">
+                  <span className="outcome-category">{item.category}</span>
+                  <div className="outcome-highlight">{item.highlight}</div>
                   <h3 className="outcome-title">{item.title}</h3>
-                  <p className="outcome-result">{item.result}</p>
-                  <p className="outcome-client">Client: {item.client}</p>
+                  <p className="outcome-description">{item.description}</p>
                 </div>
 
-                <div className="outcome-card-bottom">
-                  <div className="outcome-tags">
-                    {item.tags.map((tag, idx) => (
-                      <span key={idx} className="outcome-tag">{tag}</span>
-                    ))}
-                  </div>
-                  <a href={item.link} className="outcome-case-link">
-                    View Full Case Study <ArrowUpRight size={16} />
-                  </a>
+                <div className="outcome-card-footer">
+                  <span className="outcome-client">{item.client}</span>
+                  <ArrowUpRight className="outcome-arrow" size={20} />
                 </div>
               </div>
             ))}
@@ -226,12 +237,12 @@ export default function HomeBody() {
             <div className="partner-card">
               <ArrowUpRight className="partner-arrow" size={24} />
               <div className="partner-logo">
-                <Cloud size={40} strokeWidth={1} />
+                <CloudLightning size={40} strokeWidth={1} />
               </div>
-              <h3 className="partner-title">AWS</h3>
-              <p className="partner-subtitle">STRATEGIC PARTNER</p>
+              <h3 className="partner-title">Azure</h3>
+              <p className="partner-subtitle">GOLD PARTNER</p>
               <p className="partner-desc">
-                Instant GraphQL APIs, real-time data access, and accelerated backend engineering for data-driven applications.
+                Enterprise cloud solutions, hybrid infrastructure, and advanced AI services powered by Microsoft's global ecosystem.
               </p>
             </div>
 
@@ -250,42 +261,42 @@ export default function HomeBody() {
 
           <div className="certifications-row">
             <div className="cert-item">
-              <ShieldCheck size={20} className="cert-icon" />
+              <Trophy size={20} className="cert-icon" style={{ color: '#10b981' }} />
               <div className="cert-text">
-                <h4>ISO Certified</h4>
-                <p>Information Security Management</p>
+                <h4>$50M GCC Success</h4>
+                <p>Financial Transformation</p>
               </div>
             </div>
             
             <div className="cert-item">
-              <CheckCircle size={20} className="cert-icon" />
+              <Medal size={20} className="cert-icon" style={{ color: '#FFD700' }} />
               <div className="cert-text">
-                <h4>Cyber Essentials</h4>
-                <p>UK Government Backed</p>
+                <h4>SAP Partner</h4>
+                <p>Excellence - Middle East 2024</p>
               </div>
             </div>
 
             <div className="cert-item">
-              <Star size={20} className="cert-icon" />
+              <ShieldCheck size={20} className="cert-icon" style={{ color: '#FFD700' }} />
               <div className="cert-text">
-                <h4>Clutch 4.8 ★</h4>
-                <p>112 Verified Reviews</p>
+                <h4>UAE Central Bank</h4>
+                <p>Digital Transformation Partner</p>
               </div>
             </div>
 
             <div className="cert-item">
-              <Award size={20} className="cert-icon" />
+              <Award size={20} className="cert-icon" style={{ color: '#FFD700' }} />
               <div className="cert-text">
-                <h4>GoodFirms</h4>
-                <p>Top Development Company</p>
+                <h4>Microsoft AI</h4>
+                <p>Innovation Partner</p>
               </div>
             </div>
 
             <div className="cert-item">
-              <Medal size={20} className="cert-icon" />
+              <BarChart3 size={20} className="cert-icon" style={{ color: '#3b82f6' }} />
               <div className="cert-text">
-                <h4>RightFirms</h4>
-                <p>Top Service Provider 2026</p>
+                <h4>98% Satisfaction</h4>
+                <p>Independently Verified</p>
               </div>
             </div>
           </div>

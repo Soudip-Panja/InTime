@@ -117,7 +117,7 @@ export default function Navbar() {
               </div>
             </li>
 
-            <li className="nav-item"><a className="nav-link" href="#">Industries</a></li>
+            <li className="nav-item"><Link className="nav-link" to="/industries">Industries</Link></li>
             <li className="nav-item"><a className="nav-link" href="#">Engineering</a></li>
             <li className="nav-item"><a className="nav-link" href="#">Insights</a></li>
             <li className="nav-item"><a className="nav-link" href="#">About</a></li>
