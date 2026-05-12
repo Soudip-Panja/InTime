@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowUpRight, Cloud, Triangle, Activity, GitBranch, ShieldCheck, CheckCircle, Star, Award, Medal, Search, Cpu, Wrench, Heart, Quote, Database, Server, Box, CloudLightning } from 'lucide-react';
+import { ArrowUpRight, Cloud, Triangle, Activity, GitBranch, ShieldCheck, CheckCircle, Star, Award, Medal, Cpu, CloudLightning, BarChart3, Database, Server, Box } from 'lucide-react';
+import WhyInTime from './Home/WhyInTime';
 
 export default function HomeBody() {
   const handleMouseMove = (e) => {
@@ -15,32 +16,15 @@ export default function HomeBody() {
 
   return (
     <>
-      <section className="home-body-section">
-        <div className="container">
-          <div className="home-body-content">
-            <p className="perspective-label">OUR PERSPECTIVE.</p>
-            <h2 className="perspective-heading">
-              The Companies that will Lead the Next Decade are <br />
-              <span className="gradient-text">Being Engineered Right Now.</span>
-            </h2>
-            <p className="perspective-subheading">
-              Enterprise is being <span className="underline-gradient">Reimagined.</span> Products are being <br />
-              <span className="underline-gradient">Reinvented.</span> We engineer <span className="underline-gradient">Both.</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="practices-section">
         <div className="container">
           <div className="practices-header">
-            <p className="perspective-label">FOUR PRACTICES.</p>
+            <div className="unified-section-label">OUR PRACTICES</div>
             <h2 className="practices-heading">
               One <span className="gradient-text">Engineering Standard.</span>
             </h2>
             <p className="practices-subheading">
-              Every practice combines strategic consulting with hands-on engineering - because <br />
-              advice without execution is just a slide deck.
+              Every practice combines strategic consulting with hands-on engineering - because advice without execution is just a slide deck.
             </p>
           </div>
 
@@ -48,6 +32,9 @@ export default function HomeBody() {
             {/* Card 1 */}
             <div className="practice-card">
               <div className="practice-content">
+                <div className="practice-icon-box">
+                  <Cpu size={32} strokeWidth={1.5} />
+                </div>
                 <h3 className="practice-title">AI & Intelligent Systems</h3>
                 <p className="practice-desc">
                   From AI strategy to production-grade LLM integration, autonomous agents, and intelligent workflows - we take AI from experiment to enterprise.
@@ -62,55 +49,47 @@ export default function HomeBody() {
                   <span>AI Developer</span>
                 </div>
               </div>
-              <div className="practice-footer">
-                <a href="#" className="practice-link">
-                  Explore AI & Intelligent Systems <ArrowUpRight size={18} />
-                </a>
-              </div>
             </div>
 
             {/* Card 2 */}
             <div className="practice-card">
               <div className="practice-content">
-                <h3 className="practice-title">AI-Powered Product Engineering</h3>
+                <div className="practice-icon-box">
+                  <BarChart3 size={32} strokeWidth={1.5} />
+                </div>
+                <h3 className="practice-title">Business Intelligence & Power BI</h3>
                 <p className="practice-desc">
-                  From idea to prototype to production - we build products at AI speed with the engineering discipline that makes them last.
+                  Unlock actionable insights with enterprise-grade Power BI dashboards and data storytelling. We transform raw data into strategic assets for real-time decision making.
                 </p>
                 <div className="practice-tags">
-                  <span>Prototype to Production</span>
-                  <span>AI Native Engineering</span>
-                  <span>Fractional Engineering Team</span>
-                  <span>Code Quality Engineering Excellence</span>
-                  <span>Scaling MVP to Market</span>
-                  <span>Product studio AI era</span>
+                  <span>Power BI Dashboards</span>
+                  <span>DAX Optimization</span>
+                  <span>Data Modeling</span>
+                  <span>Enterprise Reporting</span>
+                  <span>Real-time Analytics</span>
+                  <span>ETL Processes</span>
                 </div>
-              </div>
-              <div className="practice-footer">
-                <a href="#" className="practice-link">
-                  Explore Product Engineering <ArrowUpRight size={18} />
-                </a>
               </div>
             </div>
 
             {/* Card 3 */}
             <div className="practice-card">
               <div className="practice-content">
-                <h3 className="practice-title">Enterprise Modernization & Managed Engineering</h3>
+                <div className="practice-icon-box">
+                  <CloudLightning size={32} strokeWidth={1.5} />
+                </div>
+                <h3 className="practice-title">SAP Solutions & Digital Transformation</h3>
                 <p className="practice-desc">
-                  We re-architect legacy systems for AI-readiness, scale, and speed - then stay to manage and evolve them.
+                  From S/4HANA migrations to BTP extensions and custom ABAP development - we modernize your SAP landscape for the AI-driven future.
                 </p>
                 <div className="practice-tags">
-                  <span>App Modernization</span>
-                  <span>Data & Integration Modernization</span>
-                  <span>Process & Delivery Transformation</span>
-                  <span>Cloud & Infrastructure Modernization</span>
-                  <span>Performance & Security</span>
+                  <span>S/4HANA Transformation</span>
+                  <span>SAP BTP Development</span>
+                  <span>Custom ABAP Solutions</span>
+                  <span>Fiori UX Modernization</span>
+                  <span>SAP AI Integration</span>
+                  <span>Migration Strategy</span>
                 </div>
-              </div>
-              <div className="practice-footer">
-                <a href="#" className="practice-link">
-                  Explore Enterprise & Managed Engineering <ArrowUpRight size={18} />
-                </a>
               </div>
             </div>
           </div>
@@ -120,7 +99,7 @@ export default function HomeBody() {
       <section className="outcomes-section bg-shade-1">
         <div className="container">
           <div className="outcomes-header">
-            <p className="perspective-label">OUTCOMES.</p>
+            <div className="unified-section-label">OUTCOMES</div>
             <h2 className="outcomes-heading">
               We Measure Success in Business Impact, Not Lines<br />
               <span className="gradient-text">of Code.</span>
@@ -128,7 +107,6 @@ export default function HomeBody() {
           </div>
 
           <div className="outcomes-grid">
-            {/* Card 1 - FINTECH */}
             <div className="outcome-card">
               <div className="card-border-glow"></div>
               <div className="card-crosshairs" aria-hidden="true"></div>
@@ -145,7 +123,6 @@ export default function HomeBody() {
               </div>
             </div>
 
-            {/* Card 2 - HEALTHTECH */}
             <div className="outcome-card">
               <div className="card-border-glow"></div>
               <div className="card-crosshairs" aria-hidden="true"></div>
@@ -162,7 +139,6 @@ export default function HomeBody() {
               </div>
             </div>
 
-            {/* Card 3 - E-COMMERCE */}
             <div className="outcome-card">
               <div className="card-border-glow"></div>
               <div className="card-crosshairs" aria-hidden="true"></div>
@@ -179,7 +155,6 @@ export default function HomeBody() {
               </div>
             </div>
 
-            {/* Card 4 - BANKING */}
             <div className="outcome-card">
               <div className="card-border-glow"></div>
               <div className="card-crosshairs" aria-hidden="true"></div>
@@ -202,7 +177,7 @@ export default function HomeBody() {
       <section className="partnerships-section bg-shade-2">
         <div className="container">
           <div className="partnerships-header">
-            <p className="perspective-label">PARTNERSHIPS.</p>
+            <div className="unified-section-label">PARTNERSHIPS</div>
             <h2 className="partnerships-heading">
               Partnered With the Platforms That Power <span className="gradient-text" style={{ display: 'inline' }}>Modern<br/>Enterprise.</span>
             </h2>
@@ -212,7 +187,6 @@ export default function HomeBody() {
           </div>
 
           <div className="partnerships-grid">
-            {/* Card 1 */}
             <div className="partner-card">
               <ArrowUpRight className="partner-arrow" size={24} />
               <div className="partner-logo">
@@ -225,7 +199,6 @@ export default function HomeBody() {
               </p>
             </div>
 
-            {/* Card 2 */}
             <div className="partner-card">
               <ArrowUpRight className="partner-arrow" size={24} />
               <div className="partner-logo">
@@ -238,7 +211,6 @@ export default function HomeBody() {
               </p>
             </div>
 
-            {/* Card 3 */}
             <div className="partner-card">
               <ArrowUpRight className="partner-arrow" size={24} />
               <div className="partner-logo">
@@ -251,7 +223,6 @@ export default function HomeBody() {
               </p>
             </div>
 
-            {/* Card 4 */}
             <div className="partner-card">
               <ArrowUpRight className="partner-arrow" size={24} />
               <div className="partner-logo">
@@ -309,112 +280,7 @@ export default function HomeBody() {
         </div>
       </section>
 
-
-      <section className="pov-section bg-shade-3">
-        <div className="container">
-          <div className="pov-header">
-            <p className="perspective-label">WHY INTIME.</p>
-            <h2 className="pov-heading">
-              We Bring a Point <span className="gradient-text">of View.</span>
-            </h2>
-          </div>
-
-          <div className="pov-main-grid">
-            <div className="pov-item">
-              <div className="pov-icon-box">
-                <Search size={24} className="pov-icon" />
-              </div>
-              <div className="pov-text">
-                <h3>We diagnose before we build.</h3>
-                <p>Our assessments often reveal the most important problem isn't the one the client came to us with. This saves months of misdirected effort and significant wasted investment.</p>
-              </div>
-            </div>
-
-            <div className="pov-item">
-              <div className="pov-icon-box">
-                <Cpu size={24} className="pov-icon" />
-              </div>
-              <div className="pov-text">
-                <h3>AI-native engineering, grounded in 20 years of discipline.</h3>
-                <p>We use AI to accelerate delivery. But we never ship without the testing, security, and architecture that production demands. Speed without rigor is just faster failure.</p>
-              </div>
-            </div>
-
-            <div className="pov-item">
-              <div className="pov-icon-box">
-                <Wrench size={24} className="pov-icon" />
-              </div>
-              <div className="pov-text">
-                <h3>We build tools the industry depends on.</h3>
-                <p>NativeBase, gluestack-ui, React Native core contributions. React Summit 2024 Productivity Award. Thousands of developers trust our foundations.</p>
-              </div>
-            </div>
-
-            <div className="pov-item">
-              <div className="pov-icon-box">
-                <Heart size={24} className="pov-icon" />
-              </div>
-              <div className="pov-text">
-                <h3>We stay. We don't ship and disappear.</h3>
-                <p>550+ engagements. Clients who've been with us for 5+ years. We're invested in long-term success, not just the current project scope.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <Quote className="quote-icon" size={32} />
-              <p className="testimonial-text">
-                "Their code is clean and easy to implement. The app has great ratings across devices."
-              </p>
-              <div className="testimonial-divider"></div>
-              <div className="testimonial-footer">
-                <div className="client-avatar" style={{ background: '#0047bb' }}>
-                  <span style={{ fontSize: '10px', color: 'white', fontWeight: '800' }}>PayPoint</span>
-                </div>
-                <div className="client-info">
-                  <h4>Head of Product Management</h4>
-                  <p>PayPoint plc.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="testimonial-card">
-              <Quote className="quote-icon" size={32} />
-              <p className="testimonial-text">
-                "Exceptional responsiveness and professionalism. Highly positive feedback from beta customers."
-              </p>
-              <div className="testimonial-divider"></div>
-              <div className="testimonial-footer">
-                <div className="client-avatar" style={{ background: 'white', border: '4px solid #333' }}>
-                  <div style={{ width: '20px', height: '20px', background: '#e31e24', borderRadius: '50%' }}></div>
-                </div>
-                <div className="client-info">
-                  <h4>Verified Review — 4.8/5 rating</h4>
-                  <p>Clutch (112 reviews)</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="testimonial-card">
-              <Quote className="quote-icon" size={32} />
-              <p className="testimonial-text">
-                "They anticipated potential problems and recommended solutions. This a rare skill."
-              </p>
-              <div className="testimonial-divider"></div>
-              <div className="testimonial-footer">
-                <div className="client-avatar" style={{ background: '#111' }}>
-                  <Activity size={20} color="#666" />
-                </div>
-                <div className="client-info">
-                  <h4>Project Director, Digital Transformation</h4>
-                  <p>AirOps</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhyInTime handleMouseMove={handleMouseMove} />
 
       <section className="final-cta-section bg-shade-2">
         <div className="tech-carousel-container">

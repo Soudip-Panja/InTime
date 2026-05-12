@@ -1,13 +1,28 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home";
-import Navbar from "./Components/Navbar";
+import About from "./Pages/About";
+import ROI from "./Pages/ROI";
+import WhyInTimePage from "./Pages/WhyInTime";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
   },
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/roi",
+    element: <ROI />,
+  },
+  {
+    path: "/why-intime",
+    element: <WhyInTimePage />,
+  },
 ]);
+
 
 function App() {
   return (

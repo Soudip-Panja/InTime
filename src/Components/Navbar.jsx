@@ -10,6 +10,7 @@ import {
   Sun,
   Moon
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "../assets/Intime.png";
 import logoLight from "../assets/Intime Light.png";
 
@@ -33,9 +34,9 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg custom-navbar">
       <div className="container">
         {/* Logo Section */}
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           <img src={theme === "light" ? logoLight : logo} alt="InTime Logo" className="nav-logo" />
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler"

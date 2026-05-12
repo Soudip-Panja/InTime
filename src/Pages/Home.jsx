@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import Navbar from "../Components/Navbar";
 import Carousel from "../Components/TrustedByCarousel";
+import CompanyOverView from "../Components/Home/CompanyOverView";
+import OurPerspective from "../Components/Home/OurPerspective";
 import HomeBody from "../Components/HomeBody";
 import Footer from "../Components/Footer";
 
@@ -10,14 +12,14 @@ export default function Home() {
   const handleMouseMove = (e) => {
     if (!heroRef.current) return;
     const rect = heroRef.current.getBoundingClientRect();
-    
-    // Calculate precise mouse position relative to the hero container
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
     heroRef.current.style.setProperty("--mouse-x", `${x}px`);
     heroRef.current.style.setProperty("--mouse-y", `${y}px`);
   };
+
+
+
 
   return (
     <div className="page-wrapper">
@@ -35,7 +37,7 @@ export default function Home() {
 
         <div className="container">
           <div className="hero-content">
-            <p className="hero-label">ENGINEERING FOR THE AI ERA.</p>
+            <p className="hero-label">ENGINEERING FOR THE AI ERA</p>
             
             <h1 className="hero-title">
               Turning Complex <strong>Business Challenges</strong> 
@@ -57,6 +59,10 @@ export default function Home() {
       </main>
 
       <Carousel />
+      <CompanyOverView />
+      <div className="section-separator"></div>
+      <OurPerspective />
+      <div className="section-separator"></div>
       <HomeBody />
       <Footer />
     </div>
