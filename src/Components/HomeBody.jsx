@@ -14,6 +14,57 @@ export default function HomeBody() {
     }
   };
 
+  const outcomesData = [
+    {
+      badge: "Public Sector • Middle East",
+      title: "Complete SAP Digital Transformation",
+      result: "500+ SAP objects, 150+ KPIs implemented",
+      client: "EGCB",
+      tags: ["SAP", "Digital Transformation", "Government"],
+      link: "#"
+    },
+    {
+      badge: "Manufacturing • UAE",
+      title: "Invoice Automation Revolution",
+      result: "70% invoice automation achieved",
+      client: "FMCG Leader",
+      tags: ["AI", "Automation", "Finance"],
+      link: "#"
+    },
+    {
+      badge: "Manufacturing • Asia",
+      title: "Order-to-Cash Optimization",
+      result: "$M savings in O2C processes",
+      client: "Garments Manufacturer",
+      tags: ["SAP", "Process Optimization", "Cost Reduction"],
+      link: "#"
+    },
+    {
+      badge: "Entertainment • Middle East",
+      title: "Integrated Smart Operations",
+      result: "ERP, IoT, AI ecosystem integration",
+      client: "Sports City",
+      tags: ["IoT", "AI", "Smart Systems"],
+      link: "#"
+    },
+    {
+      badge: "Retail • UAE",
+      title: "Inventory Optimization Success",
+      result: "30% inventory optimization achieved",
+      client: "UAE Retailer",
+      tags: ["BI", "Analytics", "Inventory"],
+      link: "#"
+    },
+    {
+      badge: "Construction • Middle East",
+      title: "Project Lifecycle Management",
+      result: "25% faster project delivery",
+      client: "Construction Giant",
+      tags: ["Project Management", "Digital Tools"],
+      link: "#"
+    }
+  ];
+
   return (
     <>
       <section className="practices-section">
@@ -107,69 +158,30 @@ export default function HomeBody() {
           </div>
 
           <div className="outcomes-grid">
-            <div className="outcome-card">
-              <div className="card-border-glow"></div>
-              <div className="card-crosshairs" aria-hidden="true"></div>
-              <p className="outcome-industry">FINTECH</p>
-              <h3 className="outcome-stat">$400M+</h3>
-              <p className="outcome-metric">Global payments processed annually</p>
-              <p className="outcome-desc">
-                Unified a fragmented payment ecosystem into a single admin platform serving global operations.
-              </p>
-              <div className="outcome-footer">
-                <a href="#" className="outcome-link">
-                  Flowcash <ArrowUpRight size={16} />
-                </a>
-              </div>
-            </div>
+            {outcomesData.map((item, index) => (
+              <div className="outcome-card" key={index}>
+                <div className="card-border-glow"></div>
+                <div className="card-crosshairs" aria-hidden="true"></div>
+                
+                <div className="outcome-card-top">
+                  <span className="outcome-badge">{item.badge}</span>
+                  <h3 className="outcome-title">{item.title}</h3>
+                  <p className="outcome-result">{item.result}</p>
+                  <p className="outcome-client">Client: {item.client}</p>
+                </div>
 
-            <div className="outcome-card">
-              <div className="card-border-glow"></div>
-              <div className="card-crosshairs" aria-hidden="true"></div>
-              <p className="outcome-industry">HEALTHTECH</p>
-              <h3 className="outcome-stat">100</h3>
-              <p className="outcome-metric">Performance score - 1,200+ outlets</p>
-              <p className="outcome-desc">
-                Transformed a legacy diagnostic platform into a high-speed digital engine at national scale.
-              </p>
-              <div className="outcome-footer">
-                <a href="#" className="outcome-link">
-                  Diagnostic Leader <ArrowUpRight size={16} />
-                </a>
+                <div className="outcome-card-bottom">
+                  <div className="outcome-tags">
+                    {item.tags.map((tag, idx) => (
+                      <span key={idx} className="outcome-tag">{tag}</span>
+                    ))}
+                  </div>
+                  <a href={item.link} className="outcome-case-link">
+                    View Full Case Study <ArrowUpRight size={16} />
+                  </a>
+                </div>
               </div>
-            </div>
-
-            <div className="outcome-card">
-              <div className="card-border-glow"></div>
-              <div className="card-crosshairs" aria-hidden="true"></div>
-              <p className="outcome-industry">E-COMMERCE</p>
-              <h3 className="outcome-stat">80%</h3>
-              <p className="outcome-metric">Design consistency improvement</p>
-              <p className="outcome-desc">
-                Built a comprehensive design system reducing fragmentation and saving 300+ design hours.
-              </p>
-              <div className="outcome-footer">
-                <a href="#" className="outcome-link">
-                  Pepperfry <ArrowUpRight size={16} />
-                </a>
-              </div>
-            </div>
-
-            <div className="outcome-card">
-              <div className="card-border-glow"></div>
-              <div className="card-crosshairs" aria-hidden="true"></div>
-              <p className="outcome-industry">BANKING</p>
-              <h3 className="outcome-stat">56%</h3>
-              <p className="outcome-metric">Latency reduction for US bank</p>
-              <p className="outcome-desc">
-                Modernized legacy systems using Strangler Fig pattern while maintaining full regulatory compliance.
-              </p>
-              <div className="outcome-footer">
-                <a href="#" className="outcome-link">
-                  US Banking Client <ArrowUpRight size={16} />
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
