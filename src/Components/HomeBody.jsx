@@ -329,7 +329,7 @@ export default function HomeBody() {
               <a href="#" className="nav-cta-btn">
                 Schedule a Strategy Conversation <span className="arrow">→</span>
               </a>
-              <a href="#" className="explore-link">
+              <a href="/why-intime" className="explore-link">
                 Or Explore Our Thinking <span className="arrow">→</span>
               </a>
             </div>

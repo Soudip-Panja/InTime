@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import { 
-  Search, 
-  Cpu, 
-  Wrench, 
+import {
+  Search,
+  Cpu,
+  Wrench,
   Heart,
   Target,
   Award,
@@ -98,7 +98,7 @@ export default function WhyInTimePage() {
   return (
     <div className="why-page-wrapper" ref={contentRef}>
       <Navbar />
-      
+
       <main className="why-main-content">
         {/* Hero Section */}
         <section className="why-hero-section">
@@ -158,7 +158,7 @@ export default function WhyInTimePage() {
                 <h2>Head-to-Head Comparison: InTime Global vs Market Leaders</h2>
                 <p>Based on independent analysis of 50+ enterprise implementations</p>
               </div>
-              
+
               <div className="comparison-table-wrapper">
                 <div className="comparison-table">
                   <div className="c-row c-header">

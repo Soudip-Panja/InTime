@@ -2131,19 +2131,6 @@ body {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.cta-actions .explore-link {
-  color: var(--text-grey);
-  font-size: 0.95rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: color 0.3s ease;
-}
-
-.cta-actions .explore-link:hover {
-  color: var(--text-white);
-}
 
 .cta-footer-text {
   margin-top: 20px;
@@ -2991,168 +2978,68 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 2.5rem;
 }
 
-/* Home Page Component Styles */
-.pov-learn-more {
-  margin-top: 4rem;
-  display: flex;
-  justify-content: center;
-}
-
-@media (max-width: 992px) {
-  .philosophy-layout {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-  .philosophy-visual {
-    flex-direction: row;
-  }
-  .philosophy-content h2 {
-    font-size: 2.8rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .why-pillar-card {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .philosophy-visual {
-    flex-direction: column;
-  }
-  .why-cta-box h2 {
-    font-size: 2.5rem;
-  }
-  .cta-btns {
-    flex-direction: column;
-    gap: 2rem;
-  }
-}
-
-.why-philosophy-section {
-  padding: 10rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.philosophy-layout {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 5rem;
+.explore-link {
+  display: inline-flex;
   align-items: center;
-}
-
-.philosophy-content h2 {
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
-}
-
-.philosophy-content p {
-  font-size: 1.2rem;
-  color: var(--text-grey);
-  line-height: 1.7;
-  margin-bottom: 4rem;
-}
-
-.philosophy-stats {
-  display: flex;
-  gap: 4rem;
-}
-
-.phil-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.stat-value {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--text-white);
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--text-grey);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 600;
-}
-
-.philosophy-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.philosophy-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 2.5rem;
-  border-radius: 24px;
-  transition: all 0.3s ease;
-}
-
-.philosophy-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--grad-mid);
-  transform: translateX(10px);
-}
-
-.phil-icon {
-  color: var(--grad-mid);
-  margin-bottom: 1.5rem;
-}
-
-.philosophy-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
-
-.philosophy-card p {
-  color: var(--text-grey);
-  line-height: 1.6;
-}
-
-.why-cta-section {
-  padding: 10rem 0;
-  text-align: center;
-}
-
-.why-cta-box {
-  background: linear-gradient(145deg, rgba(0, 168, 253, 0.05), rgba(0, 0, 0, 0.2));
-  border: 1px solid rgba(0, 168, 253, 0.2);
-  padding: 6rem 4rem;
-  border-radius: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 12px;
+  color: var(--grad-start);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 50px;
+  background: rgba(0, 210, 255, 0.03);
+  border: 1px solid rgba(0, 210, 255, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
+  overflow: hidden;
 }
 
-.cta-zap-icon {
-  color: var(--grad-mid);
-  margin-bottom: 2rem;
-  animation: pulse-glow 2s infinite alternate;
+.explore-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--grad-start), var(--grad-end));
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
 }
 
-.why-cta-box h2 {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
+.explore-link:hover {
+  background: rgba(0, 210, 255, 0.08);
+  border-color: rgba(0, 210, 255, 0.3);
+  transform: translateY(-3px);
+  color: var(--text-white);
+  box-shadow: 0 10px 20px rgba(0, 168, 253, 0.1);
 }
 
-.why-cta-box p {
-  font-size: 1.25rem;
-  color: var(--text-grey);
-  margin-bottom: 4rem;
+.explore-link:hover::after {
+  width: 100%;
 }
 
-.cta-btns {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
+.explore-link .arrow {
+  transition: transform 0.3s ease;
+}
+
+.explore-link:hover .arrow {
+  transform: translateX(6px);
+}
+
+:root[data-theme='light'] .explore-link {
+  background: rgba(0, 114, 255, 0.05);
+  border-color: rgba(0, 114, 255, 0.15);
+  color: var(--icon-blue);
+}
+
+:root[data-theme='light'] .explore-link:hover {
+  background: rgba(0, 114, 255, 0.1);
+  color: var(--icon-blue);
 }
 
 /* Home Page Component Styles */
@@ -3160,36 +3047,6 @@ body {
   margin-top: 4rem;
   display: flex;
   justify-content: center;
-}
-
-@media (max-width: 992px) {
-  .philosophy-layout {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-  .philosophy-visual {
-    flex-direction: row;
-  }
-  .philosophy-content h2 {
-    font-size: 2.8rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .why-pillar-card {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .philosophy-visual {
-    flex-direction: column;
-  }
-  .why-cta-box h2 {
-    font-size: 2.5rem;
-  }
-  .cta-btns {
-    flex-direction: column;
-    gap: 2rem;
-  }
 }
 
 /* Competitive Analysis Styles */
@@ -3378,6 +3235,155 @@ body {
   margin-bottom: 6rem !important;
   display: flex !important;
   justify-content: flex-start !important;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN FOR WHY INTIME & ROI PAGES
+   ============================================================ */
+
+@media (max-width: 1200px) {
+  .philosophy-layout {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .metrics-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .philosophy-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .philosophy-visual {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-hero-section {
+    padding: 4rem 0 2rem;
+  }
+  
+  .why-title {
+    font-size: 2.4rem;
+  }
+  
+  .why-subtitle {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+  
+  .metrics-summary-grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 4rem;
+  }
+  
+  .metric-summary-card {
+    padding: 2rem;
+  }
+  
+  .metric-summary-card h3 {
+    font-size: 2.2rem;
+  }
+  
+  .why-pillars-grid {
+    gap: 4rem;
+  }
+  
+  .why-pillar-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .pillar-icon-wrapper {
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .pillar-title {
+    font-size: 1.8rem;
+  }
+  
+  .pillar-feature-list {
+    grid-template-columns: 1fr;
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .philosophy-content h2 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+  
+  .philosophy-content p {
+    font-size: 1.05rem;
+    text-align: center;
+  }
+  
+  .philosophy-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  
+  .philosophy-visual {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .philosophy-card {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .why-cta-box {
+    padding: 4rem 1.5rem;
+    margin: 0 1rem;
+    border-radius: 30px;
+  }
+  
+  .why-cta-box h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-btns {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .comparison-header-box h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+  
+  .comparison-table-wrapper {
+    padding: 1rem;
+    margin: 0 -1rem;
+    width: calc(100% + 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .why-title {
+    font-size: 2rem;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+  }
+  
+  .metric-summary-card h3 {
+    font-size: 1.8rem;
+  }
 }
 
 
