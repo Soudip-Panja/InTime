@@ -5929,3 +5929,179 @@ body {
     align-items: stretch;
   }
 }
+
+/* ============================================================
+   STRATEGIC TECH PAGE STYLES
+   ============================================================ */
+.st-section {
+  padding: 6rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.st-section-title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.st-section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-grey);
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.st-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  height: 100%;
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.st-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.st-card-icon-orange {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+}
+
+.st-card-icon-blue {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #7F00FF, #E100FF);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-right: 1.2rem;
+  flex-shrink: 0;
+}
+
+.st-card-icon-center {
+  margin: 0 auto 1.5rem;
+}
+
+.st-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+}
+
+.st-card-text {
+  font-size: 0.95rem;
+  color: var(--text-grey);
+  line-height: 1.6;
+}
+
+.st-pills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.st-role-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: #a0a0b0;
+}
+
+.st-banner {
+  background: linear-gradient(135deg, rgba(70,20,100,0.8), rgba(20,50,120,0.8));
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: 3rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.st-banner-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.st-banner-text {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.8);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Light mode for Strategic Tech */
+:root[data-theme='light'] .st-section-title {
+  color: var(--text-white);
+}
+
+:root[data-theme='light'] .st-section-subtitle {
+  color: var(--text-grey);
+}
+
+:root[data-theme='light'] .st-card {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme='light'] .st-card:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+:root[data-theme='light'] .st-card-title {
+  color: var(--text-white);
+}
+
+:root[data-theme='light'] .st-card-text {
+  color: var(--text-grey);
+}
+
+:root[data-theme='light'] .st-role-pill {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #444;
+}
+
+:root[data-theme='light'] .st-banner {
+  background: linear-gradient(135deg, rgba(70,20,100,0.1), rgba(20,50,120,0.1));
+  border-color: rgba(0,0,0,0.1);
+}
+
+:root[data-theme='light'] .st-banner-title {
+  color: var(--text-white);
+}
+
+:root[data-theme='light'] .st-banner-text {
+  color: var(--text-grey);
+}
+
+/* Make sure the section backgrounds toggle properly */
+.st-section-dark {
+  background-color: var(--bg-black);
+}
+
+.st-section-alt {
+  background-color: var(--bg-shade-2);
+}

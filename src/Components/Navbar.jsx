@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { 
-  ChevronDown, 
-  Cpu, 
-  Database, 
-  BarChart3, 
-  Zap, 
-  Users, 
+import {
+  ChevronDown,
+  Cpu,
+  Database,
+  BarChart3,
+  Zap,
+  Users,
   GraduationCap,
   Sun,
   Moon
@@ -74,46 +74,46 @@ export default function Navbar() {
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                 What We Do <ChevronDown size={14} className="dropdown-chevron" />
               </a>
-              
+
               <div className="dropdown-menu mega-menu-container">
                 <div className="container-fluid">
                   <div className="row g-4">
                     <div className="col-md-6">
-                      <MegaMenuItem 
-                        icon={<Cpu size={20} />} 
-                        title="AI & Intelligent Automation" 
-                        desc="Harness AI to transform your business operations." 
+                      <MegaMenuItem
+                        icon={<Cpu size={20} />}
+                        title="AI & Intelligent Automation"
+                        desc="Harness AI to transform your business operations."
                       />
-                      <MegaMenuItem 
-                        icon={<Database size={20} />} 
-                        title="SAP Digital Core & Cloud" 
-                        desc="Modernize legacy systems with scalable architectures." 
+                      <MegaMenuItem
+                        icon={<Database size={20} />}
+                        title="SAP Digital Core & Cloud"
+                        desc="Modernize legacy systems with scalable architectures."
                         to="/sap"
                       />
-                      <MegaMenuItem 
-                        icon={<BarChart3 size={20} />} 
-                        title="Business Intelligence & Analytics" 
-                        desc="Turn raw data into actionable strategic insights." 
+                      <MegaMenuItem
+                        icon={<BarChart3 size={20} />}
+                        title="Business Intelligence & Analytics"
+                        desc="Turn raw data into actionable strategic insights."
                         to="/bi-analytics"
                       />
                     </div>
                     <div className="col-md-6">
-                      <MegaMenuItem 
-                        icon={<Zap size={20} />} 
-                        title="Smart Application Development" 
-                        desc="Ideate, validate, and build digital products quickly." 
+                      <MegaMenuItem
+                        icon={<Zap size={20} />}
+                        title="Smart Application Development"
+                        desc="Ideate, validate, and build digital products quickly."
                         to="/smart-app"
                       />
-                      <MegaMenuItem 
-                        icon={<Users size={20} />} 
-                        title="Smart Technology Talent" 
-                        desc="Scale your team with elite engineering experts." 
-                        to="/smart-tech"
+                      <MegaMenuItem
+                        icon={<Users size={20} />}
+                        title="Strategic Technology Talent"
+                        desc="Scale your team with elite engineering experts."
+                        to="/strategic-tech"
                       />
-                      <MegaMenuItem 
-                        icon={<GraduationCap size={20} />} 
-                        title="Enterprise Training & Upskilling" 
-                        desc="Empower your workforce with latest technologies." 
+                      <MegaMenuItem
+                        icon={<GraduationCap size={20} />}
+                        title="Enterprise Training & Upskilling"
+                        desc="Empower your workforce with latest technologies."
                         to="/enterprise-training"
                       />
                     </div>
@@ -129,8 +129,8 @@ export default function Navbar() {
           </ul>
 
           <div className="d-flex align-items-center gap-3">
-            <button 
-              onClick={toggleTheme} 
+            <button
+              onClick={toggleTheme}
               className="theme-toggle-btn"
               style={{ background: 'transparent', border: 'none', color: 'var(--text-white)', cursor: 'pointer', padding: '0 5px', display: 'flex' }}
               aria-label="Toggle theme"
@@ -149,7 +149,7 @@ export default function Navbar() {
 
 function MegaMenuItem({ icon, title, desc, to = "#" }) {
   const isExternal = to.startsWith('http');
-  
+
   if (isExternal) {
     return (
       <a href={to} className="mega-menu-item">

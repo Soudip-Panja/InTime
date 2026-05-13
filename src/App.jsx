@@ -7,7 +7,7 @@ import Industries from "./Pages/Industries";
 import BIAnalytics from "./Pages/BIAnalytics";
 import SAP from "./Pages/SAP";
 import SmartApp from "./Pages/SmartApp";
-import SmartTech from "./Pages/SmartTech";
+import StrategicTech from "./Pages/StrategicTech";
 import EnterpriseTraining from "./Pages/EnterpriseTraining";
 
 const router = createBrowserRouter([
@@ -44,8 +44,8 @@ const router = createBrowserRouter([
     element: <SmartApp />,
   },
   {
-    path: "/smart-tech",
-    element: <SmartTech />,
+    path: "/strategic-tech",
+    element: <StrategicTech />,
   },
   {
     path: "/enterprise-training",
