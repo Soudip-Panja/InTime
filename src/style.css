@@ -5406,3 +5406,526 @@ body {
 .challenge-text {
   color: rgba(255, 255, 255, 0.9) !important;
 }
+
+/* ============================================================
+   8. SMART APPLICATION DEVELOPMENT PAGE STYLES
+   ============================================================ */
+.sa-page-wrapper {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.sa-atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sa-blob {
+  position: absolute;
+  filter: blur(100px);
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.sa-blob-1 { width: 500px; height: 500px; background: #3b82f6; top: -100px; right: -100px; }
+.sa-blob-2 { width: 400px; height: 400px; background: #06b6d4; bottom: 10%; left: -50px; }
+
+.sa-main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero Section */
+.sa-hero-section {
+  padding: 180px 0 100px;
+  text-align: center;
+  background: radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.08), transparent 40%),
+              radial-gradient(circle at 85% 50%, rgba(0, 114, 255, 0.08), transparent 40%),
+              var(--bg-black);
+}
+
+.sa-header {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sa-title {
+  font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 24px 0;
+  letter-spacing: -0.03em;
+}
+
+.sa-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-grey);
+  max-width: 750px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+/* Assessment Section */
+.sa-assessment-section {
+  padding: 100px 0;
+  background: radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.06), transparent 40%),
+              radial-gradient(circle at 80% 50%, rgba(244, 114, 182, 0.06), transparent 40%),
+              var(--bg-black);
+}
+
+.sa-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.sa-assessment-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex !important;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.sa-assessment-card:hover {
+  border-color: rgba(239, 68, 68, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.sa-assessment-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0;
+}
+
+.sa-icon-red {
+  width: 44px;
+  height: 44px;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+}
+
+/* Solutions Section */
+.sa-solutions-section {
+  padding: 100px 0;
+  background: radial-gradient(circle at 10% 30%, rgba(59, 130, 246, 0.08), transparent 40%),
+              radial-gradient(circle at 90% 70%, rgba(6, 182, 212, 0.08), transparent 40%),
+              var(--bg-black);
+}
+
+.sa-solution-card {
+  background: #0f0f12;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 48px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sa-solution-header {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.sa-solution-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #00d2ff, #0072ff);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.sa-solution-title h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #3b82f6;
+}
+
+.sa-solution-focus {
+  font-size: 1.05rem;
+  color: var(--text-grey);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.sa-capability-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.sa-capability-list li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.sa-check { color: #10b981; margin-top: 4px; }
+
+.sa-benefit-box {
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.sa-benefit-label {
+  font-weight: 800;
+  color: #3b82f6;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.sa-benefit-text {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Methodology Section */
+.sa-methodology-section {
+  padding: 100px 0;
+  background: radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.08), transparent 40%),
+              radial-gradient(circle at 85% 50%, rgba(5, 150, 105, 0.08), transparent 40%),
+              var(--bg-black);
+}
+
+.sa-methodology-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.sa-methodology-card {
+  background: #0f0f12;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  gap: 24px;
+  transition: all 0.3s ease;
+}
+
+.sa-methodology-card:hover {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.02);
+}
+
+.sa-icon-green {
+  width: 48px;
+  height: 48px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.sa-methodology-info h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #10b981;
+}
+
+.sa-methodology-info p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Differentiator Banner */
+.sa-diff-banner {
+  margin: 80px 0;
+  background: linear-gradient(90deg, #1e3a8a, #1d4ed8);
+  border-radius: 20px;
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.sa-diff-text {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+}
+
+/* Success Stories */
+.sa-success-section {
+  padding: 100px 0;
+  background: radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.08), transparent 40%),
+              radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.08), transparent 40%),
+              var(--bg-black);
+}
+
+.sa-success-card {
+  background: #0f0f12;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sa-success-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(168, 85, 247, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a855f7;
+  margin-bottom: 24px;
+}
+
+.sa-success-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #a855f7;
+}
+
+.sa-success-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
+
+.sa-impact-badge {
+  background: rgba(168, 85, 247, 0.05);
+  border-left: 3px solid #a855f7;
+  padding: 12px 16px;
+  border-radius: 4px 12px 12px 4px;
+}
+
+.sa-impact-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #a855f7;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.sa-impact-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Final CTA */
+.sa-final-cta {
+  padding: 140px 0;
+  text-align: center;
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.06), transparent 50%),
+              radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.05), transparent 40%),
+              radial-gradient(circle at 85% 50%, rgba(0, 114, 255, 0.05), transparent 40%),
+              var(--bg-black);
+  position: relative;
+  overflow: hidden;
+}
+
+:root[data-theme='light'] .sa-final-cta {
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12), transparent 50%),
+              radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.08), transparent 40%),
+              radial-gradient(circle at 85% 50%, rgba(0, 114, 255, 0.08), transparent 40%),
+              #ffffff;
+}
+
+:root[data-theme='dark'] .sa-final-cta {
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12), transparent 50%),
+              radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.06), transparent 40%),
+              radial-gradient(circle at 85% 50%, rgba(0, 114, 255, 0.06), transparent 40%),
+              var(--bg-black);
+}
+
+.sa-final-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  margin-bottom: 24px;
+  color: #111827;
+}
+
+.sa-final-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-grey);
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.sa-btn-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sa-btn-primary {
+  background: #0ea5e9;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.sa-btn-primary:hover {
+  background: #0284c7;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+}
+
+.sa-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sa-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Light Theme Overrides */
+:root[data-theme='light'] .sa-page-wrapper {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+:root[data-theme='light'] .sa-hero-section {
+  background: radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.05), transparent 40%),
+              radial-gradient(circle at 85% 50%, rgba(0, 114, 255, 0.05), transparent 40%),
+              #ffffff;
+}
+
+:root[data-theme='light'] .sa-assessment-section {
+  background: radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.04), transparent 40%),
+              radial-gradient(circle at 80% 50%, rgba(244, 114, 182, 0.04), transparent 40%),
+              #ffffff;
+}
+
+:root[data-theme='light'] .sa-solutions-section {
+  background: radial-gradient(circle at 10% 30%, rgba(59, 130, 246, 0.05), transparent 40%),
+              radial-gradient(circle at 90% 70%, rgba(6, 182, 212, 0.05), transparent 40%),
+              #ffffff;
+}
+
+:root[data-theme='light'] .sa-methodology-section {
+  background: radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.05), transparent 40%),
+              radial-gradient(circle at 85% 50%, rgba(5, 150, 105, 0.05), transparent 40%),
+              #ffffff;
+}
+
+:root[data-theme='light'] .sa-success-section {
+  background: radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.05), transparent 40%),
+              radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.05), transparent 40%),
+              #ffffff;
+}
+
+/* Dark mode overrides */
+
+:root[data-theme='dark'] .sa-assessment-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+:root[data-theme='dark'] .sa-assessment-text {
+  color: #e5e7eb !important;
+}
+
+:root[data-theme='dark'] .sa-assessment-card:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+:root[data-theme='dark'] .sa-final-title {
+  color: #ffffff;
+}
+
+:root[data-theme='light'] .sa-solution-card,
+:root[data-theme='light'] .sa-methodology-card,
+:root[data-theme='light'] .sa-success-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme='light'] .sa-subtitle,
+:root[data-theme='light'] .sa-methodology-info p,
+:root[data-theme='light'] .sa-success-desc,
+:root[data-theme='light'] .sa-capability-list li {
+  color: #4b5563;
+}
+
+:root[data-theme='light'] .sa-benefit-text,
+:root[data-theme='light'] .sa-impact-text {
+  color: #111827;
+}
+
+@media (max-width: 768px) {
+  .sa-methodology-grid,
+  .sa-grid {
+    grid-template-columns: 1fr;
+  }
+  .sa-btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
