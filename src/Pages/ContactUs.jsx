@@ -3,7 +3,7 @@ import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import {
   Phone, Mail, Calendar, Briefcase, MapPin, Clock,
-  Send, Linkedin, Twitter, ChevronDown
+  Send, Network, Rss
 } from 'lucide-react';
 
 export default function ContactUs() {
@@ -262,7 +262,7 @@ export default function ContactUs() {
             <div className="row g-4 mt-4 justify-content-center">
               <div className="col-lg-5 col-md-6">
                 <div onMouseMove={handleCardMouseMove} className="contact-social-card contact-social-blue">
-                  <Linkedin size={36} className="mb-3" style={{ color: '#6c8fff' }} />
+                  <Network size={36} className="mb-3" style={{ color: '#6c8fff' }} />
                   <h5 className="contact-channel-title">LinkedIn</h5>
                   <p className="contact-channel-desc mt-2">Connect with us professionally and stay updated with our latest enterprise solutions and thought leadership.</p>
                   <a href="#" className="contact-social-handle mt-3 d-block">@InTimeGlobal</a>
@@ -270,7 +270,7 @@ export default function ContactUs() {
               </div>
               <div className="col-lg-5 col-md-6">
                 <div onMouseMove={handleCardMouseMove} className="contact-social-card contact-social-cyan">
-                  <Twitter size={36} className="mb-3" style={{ color: '#00d2ff' }} />
+                  <Rss size={36} className="mb-3" style={{ color: '#00d2ff' }} />
                   <h5 className="contact-channel-title">Twitter/X</h5>
                   <p className="contact-channel-desc mt-2">Follow us for real-time updates, industry insights, and quick tips on AI, SAP, and BI technologies.</p>
                   <a href="#" className="contact-social-handle mt-3 d-block">@InTimeGlobal</a>
