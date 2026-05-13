@@ -54,7 +54,7 @@ export default function Navbar() {
           <ul className="navbar-nav mx-auto">
             {/* InTime AI Link */}
             <li className="nav-item">
-              <a className="nav-link ai-link" href="#">
+              <Link className="nav-link ai-link" to="/boss-ai">
                 InTime AI
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="ai-sparkle-icon">
                   <defs>
@@ -66,11 +66,11 @@ export default function Navbar() {
                   </defs>
                   <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" stroke="url(#sparkle-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </a>
+              </Link>
             </li>
 
             {/* What We Do - Mega Menu */}
-            <li className="nav-item dropdown mega-dropdown">
+            <li className="nav-item dropdown mega-dropdown hover-dropdown">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                 What We Do <ChevronDown size={14} className="dropdown-chevron" />
               </a>
@@ -83,6 +83,7 @@ export default function Navbar() {
                         icon={<Cpu size={20} />}
                         title="AI & Intelligent Automation"
                         desc="Harness AI to transform your business operations."
+                        to="/boss-ai"
                       />
                       <MegaMenuItem
                         icon={<Database size={20} />}
@@ -123,8 +124,35 @@ export default function Navbar() {
             </li>
 
             <li className="nav-item"><Link className="nav-link" to="/industries">Industries</Link></li>
-            <li className="nav-item"><a className="nav-link" href="#">Engineering</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Insights</a></li>
+            {/* Insights - Mega Menu */}
+            <li className="nav-item dropdown mega-dropdown hover-dropdown">
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                Insights <ChevronDown size={14} className="dropdown-chevron" />
+              </a>
+              <div className="dropdown-menu mega-menu-container">
+                <div className="container-fluid">
+                  <div className="row g-4">
+                    <div className="col-md-6">
+                      <MegaMenuItem
+                        icon={<Zap size={20} />}
+                        title="Engineering"
+                        desc="Explore our engineering capabilities and technology ROI insights."
+                        to="/roi"
+                      />
+                    </div>
+                    <div className="col-md-6">
+                      <MegaMenuItem
+                        icon={<BarChart3 size={20} />}
+                        title="Why InTime"
+                        desc="Discover what makes InTime the right technology partner for you."
+                        to="/why-intime"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li className="nav-item"><a className="nav-link" href="#">Careers</a></li>
             <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
           </ul>
 

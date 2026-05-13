@@ -270,18 +270,18 @@ export default function EnterpriseTraining() {
       {/* FINAL CTA SECTION */}
       <section className="st-section st-section-alt" style={{ paddingBottom: '8rem' }}>
         <div className="container">
-          <div className="st-banner" style={{ marginTop: 0, padding: '4rem 2rem', background: 'linear-gradient(135deg, #0f2c25, #1e3a8a)' }}>
-            <h2 className="st-banner-title" style={{ fontSize: '2.2rem', marginBottom: '1.5rem' }}>
+          <div className="st-banner" style={{ marginTop: 0, padding: '4rem 2rem', background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)', border: '1px solid #bbf7d0', boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
+            <h2 className="st-banner-title" style={{ fontSize: '2.2rem', marginBottom: '1.5rem', color: '#064e3b' }}>
               Invest in Your People
             </h2>
-            <p className="st-banner-text mx-auto" style={{ maxWidth: '800px', fontSize: '1.1rem', marginBottom: '2.5rem' }}>
+            <p className="st-banner-text mx-auto" style={{ maxWidth: '800px', fontSize: '1.1rem', marginBottom: '2.5rem', color: '#065f46' }}>
               Elevate capabilities with our comprehensive training programs. Transform your workforce into technology leaders who drive innovation and competitive advantage.
             </p>
             <div className="d-flex align-items-center justify-content-center gap-4 flex-wrap">
-              <a href="#" className="btn btn-light rounded-pill px-4 py-3 d-flex align-items-center gap-2" style={{ fontWeight: 600, border: 'none', color: '#000' }}>
+              <a href="#" className="btn rounded-pill px-4 py-3 d-flex align-items-center gap-2" style={{ fontWeight: 600, background: '#10b981', color: 'white', border: 'none', boxShadow: '0 4px 6px rgba(16,185,129,0.2)' }}>
                 <Users size={18} /> Request a Training Consultation <span className="arrow">→</span>
               </a>
-              <a href="#" className="btn btn-dark rounded-pill px-4 py-3 d-flex align-items-center gap-2" style={{ fontWeight: 600, border: '1px solid rgba(255,255,255,0.2)' }}>
+              <a href="#" className="btn rounded-pill px-4 py-3 d-flex align-items-center gap-2" style={{ fontWeight: 600, background: 'transparent', color: '#064e3b', border: '1px solid rgba(6,78,59,0.3)' }}>
                 <FileText size={18} /> Download Training Catalog
               </a>
             </div>

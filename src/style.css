@@ -6105,3 +6105,726 @@ body {
 .st-section-alt {
   background-color: var(--bg-shade-2);
 }
+
+/* ============================================================
+   SAP PAGE STYLES (LIGHT MODE REDESIGN)
+   ============================================================ */
+
+/* Hero Section */
+.sap-hero-section {
+  padding: 8rem 0 6rem;
+  background: radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.05) 0%, transparent 40%), 
+              radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 40%), #ffffff;
+}
+
+.sap-hero-title {
+  font-size: 3.5rem; font-weight: 800; line-height: 1.2;
+  margin-bottom: 1.5rem; color: #0f172a;
+}
+.sap-gradient-text {
+  background: linear-gradient(90deg, #0ea5e9, #8b5cf6, #ec4899);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.sap-hero-description {
+  font-size: 1.15rem; color: #475569; max-width: 800px; line-height: 1.6;
+}
+.sap-hero-cta {
+  background: linear-gradient(90deg, #0ea5e9, #6366f1);
+  color: white; border: none; padding: 14px 32px; border-radius: 8px;
+  font-weight: 600; font-size: 1.1rem; transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+}
+.sap-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5); }
+
+/* Assessment Section */
+.sap-assessment-section {
+  padding: 6rem 0; background-color: #f8fafc;
+}
+.sap-badge {
+  display: inline-block; padding: 4px 16px; border-radius: 50px;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px;
+}
+.sap-badge-orange { background-color: rgba(249, 115, 22, 0.1); color: #ea580c; }
+.sap-badge-blue { background-color: rgba(14, 165, 233, 0.1); color: #0ea5e9; border: 1px solid rgba(14, 165, 233, 0.2); }
+.sap-section-title { font-size: 2.5rem; font-weight: 800; line-height: 1.2; color: #0f172a; }
+.sap-text-orange { color: #f97316; }
+.sap-text-cyan { color: #0ea5e9; }
+.sap-assessment-card {
+  background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px;
+  padding: 2rem; height: 100%; display: flex; align-items: flex-start; gap: 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.sap-assessment-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+.sap-icon-box {
+  width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+}
+.sap-icon-orange { background-color: rgba(249, 115, 22, 0.1); color: #ea580c; }
+
+/* Capabilities Section */
+.sap-capabilities-section {
+  padding: 6rem 0; background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+}
+.sap-section-subtitle { color: #64748b; font-size: 1.1rem; max-width: 600px; }
+.sap-tabs-container {
+  display: flex; background-color: #ffffff; border: 1px solid #e2e8f0;
+  border-radius: 12px; padding: 6px; max-width: 900px; overflow-x: auto; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+.sap-tab-btn {
+  flex: 1; background: transparent; border: none; color: #64748b; padding: 12px 20px;
+  border-radius: 8px; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center;
+  justify-content: center; white-space: nowrap; transition: all 0.3s ease;
+}
+.sap-tab-btn:hover { color: #0f172a; background-color: #f8fafc; }
+.sap-tab-btn.active-tab-1 { background-color: #3b82f6; color: white; box-shadow: 0 2px 8px rgba(59,130,246,0.3); }
+.sap-tab-btn.active-tab-2 { background-color: #06b6d4; color: white; box-shadow: 0 2px 8px rgba(6,182,212,0.3); }
+.sap-tab-btn.active-tab-3 { background-color: #8b5cf6; color: white; box-shadow: 0 2px 8px rgba(139,92,246,0.3); }
+.sap-tab-btn.active-tab-4 { background-color: #10b981; color: white; box-shadow: 0 2px 8px rgba(16,185,129,0.3); }
+
+.sap-tab-content-card {
+  background-color: #ffffff; border-radius: 16px; padding: 3rem;
+  border: 1px solid #e2e8f0; max-width: 900px; margin: 0 auto; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+}
+.sap-feature-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+.bg-blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.bg-teal { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.bg-purple { background: linear-gradient(135deg, #a855f7, #9333ea); }
+.bg-green { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.sap-feature-title { font-size: 1.5rem; font-weight: 700; color: #0f172a; }
+.sap-feature-subtitle { color: #64748b; font-size: 1.05rem; }
+.sap-divider { border-color: #e2e8f0; margin: 2rem 0; }
+.sap-list-title { color: #0f172a; font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; display: flex; align-items: center; }
+.sap-feature-list { list-style: none; padding-left: 0; margin: 0; }
+.sap-feature-list li { color: #334155; margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px; line-height: 1.5; font-weight: 500; }
+.sap-check { margin-top: 3px; flex-shrink: 0; }
+.icon-blue { color: #3b82f6; }
+.icon-teal { color: #06b6d4; }
+.icon-purple { color: #a855f7; }
+.icon-green { color: #22c55e; }
+.sap-benefit-box {
+  background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem;
+  height: 100%; display: flex; flex-direction: column;
+}
+.sap-benefit-text { color: #475569; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1; }
+.sap-benefit-link { font-weight: 600; text-decoration: none; display: flex; align-items: center; transition: opacity 0.3s ease; }
+.sap-benefit-link:hover { opacity: 0.8; }
+.text-blue { color: #2563eb; }
+.text-teal { color: #0891b2; }
+.text-purple { color: #9333ea; }
+.text-green { color: #16a34a; }
+
+/* Engagement Models Section */
+.sap-engagement-section {
+  padding: 6rem 0; background-color: #ffffff;
+}
+.sap-model-card {
+  background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px;
+  padding: 2rem 1.5rem; height: 100%; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: relative; overflow: hidden;
+}
+.sap-model-card-1::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background-color: #3b82f6; }
+.sap-model-card-2::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background-color: #f97316; }
+.sap-model-card-3::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background-color: #a855f7; }
+.sap-model-card-4::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background-color: #14b8a6; }
+.sap-model-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px -5px rgba(0,0,0,0.1); }
+.sap-model-icon-box {
+  width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+.sap-model-icon-box-1 { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.sap-model-icon-box-2 { background: linear-gradient(135deg, #f97316, #ea580c); }
+.sap-model-icon-box-3 { background: linear-gradient(135deg, #a855f7, #9333ea); }
+.sap-model-icon-box-4 { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+.sap-model-badge {
+  display: inline-block; padding: 4px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem;
+}
+.badge-essential { background-color: #eff6ff; color: #1d4ed8; }
+.badge-popular { background-color: #fff7ed; color: #c2410c; }
+.badge-premium { background-color: #faf5ff; color: #7e22ce; }
+.badge-flexible { background-color: #f0fdfa; color: #0f766e; }
+
+.sap-model-title { color: #0f172a; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; }
+.sap-model-desc { color: #64748b; font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.5; min-height: 60px; }
+.sap-model-features { list-style: none; padding: 0; text-align: left; }
+.sap-model-features li { color: #334155; font-size: 0.9rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; line-height: 1.4; font-weight: 500;}
+.sap-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.sap-dot-1 { background-color: #3b82f6; }
+.sap-dot-2 { background-color: #f97316; }
+.sap-dot-3 { background-color: #a855f7; }
+.sap-dot-4 { background-color: #14b8a6; }
+
+/* Proof Section */
+.sap-proof-section {
+  padding: 6rem 0; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+.sap-proof-subtitle { color: #475569; font-size: 1.1rem; max-width: 600px; }
+.sap-proof-card {
+  background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px;
+  padding: 2rem; height: 100%; text-align: center; transition: box-shadow 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+.sap-proof-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+.sap-proof-icon-box {
+  width: 60px; height: 60px; border-radius: 14px; background: linear-gradient(135deg, #60a5fa, #2563eb);
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(37,99,235,0.2);
+}
+.sap-proof-title { color: #0f172a; font-size: 1.15rem; font-weight: 800; margin-bottom: 1rem; }
+.sap-proof-desc { color: #475569; font-size: 0.95rem; line-height: 1.6; }
+
+/* CTA Section */
+.sap-cta-section { padding: 4rem 0 6rem; background-color: #ffffff; }
+.sap-cta-card {
+  background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6); border-radius: 16px;
+  padding: 4rem 2rem; text-align: center; box-shadow: 0 20px 25px -5px rgba(99,102,241,0.3);
+}
+.sap-cta-title { color: white; font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; }
+.sap-cta-desc { color: rgba(255,255,255,0.9); font-size: 1.1rem; max-width: 700px; margin-bottom: 2.5rem; line-height: 1.6;}
+.sap-cta-btn-light {
+  background-color: white; color: #0f172a; border: none; padding: 14px 28px;
+  border-radius: 8px; font-weight: 700; font-size: 1rem; display: inline-flex;
+  align-items: center; justify-content: center; transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.sap-cta-btn-light:hover { transform: translateY(-2px); box-shadow: 0 10px 15px rgba(0,0,0,0.15); }
+.sap-cta-btn-dark {
+  background-color: rgba(15,23,42,0.9); color: white; border: 1px solid rgba(255,255,255,0.2);
+  padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem; display: inline-flex;
+  align-items: center; justify-content: center; transition: background-color 0.3s ease;
+}
+.sap-cta-btn-dark:hover { background-color: #0f172a; }
+
+.fade-in { animation: fadeIn 0.4s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 768px) {
+  .sap-tabs-container { flex-direction: column; }
+  .sap-tab-content-card { padding: 2rem; }
+  .sap-hero-title { font-size: 2.5rem; }
+}
+
+/* ============================================================
+   BOSS AI PAGE STYLES
+   ============================================================ */
+.boss-page-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-black);
+}
+
+.boss-ambient-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-image: 
+    linear-gradient(to right, rgba(0, 168, 253, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 168, 253, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.boss-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  z-index: 0;
+  animation: float 10s infinite ease-in-out alternate;
+}
+
+.orb-1 { width: 500px; height: 500px; background: rgba(0, 210, 255, 0.15); top: -100px; left: -100px; }
+.orb-2 { width: 600px; height: 600px; background: rgba(0, 114, 255, 0.1); top: 30%; right: -200px; animation-delay: -3s; }
+.orb-3 { width: 400px; height: 400px; background: rgba(0, 168, 253, 0.15); bottom: -100px; left: 20%; animation-delay: -6s; }
+
+.boss-section { padding: 6rem 0; position: relative; z-index: 2; }
+
+.boss-hero-section {
+  padding: 8rem 0 6rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boss-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 168, 253, 0.1);
+  border: 1px solid rgba(0, 168, 253, 0.3);
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: var(--text-white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(0, 168, 253, 0.2);
+}
+
+.boss-hero-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.boss-text-gradient {
+  background: linear-gradient(to right, #00d2ff, #00a8fd, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.boss-hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-grey);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.boss-hero-cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.boss-hero-btn { font-size: 1.1rem; padding: 14px 32px; }
+
+.boss-secondary-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.boss-secondary-btn:hover {
+  border-color: var(--icon-blue);
+  background: rgba(0, 168, 253, 0.05);
+}
+
+.boss-neural-graphic {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.neural-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px; height: 100px;
+  background: rgba(0, 168, 253, 0.1);
+  border: 2px solid rgba(0, 168, 253, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(0, 168, 253, 0.3), inset 0 0 20px rgba(0, 168, 253, 0.2);
+  z-index: 2;
+  animation: pulse-ring 2s infinite;
+}
+
+.neural-node {
+  position: absolute;
+  width: 50px; height: 50px;
+  background: var(--bg-black);
+  border: 1px solid rgba(0, 168, 253, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-blue);
+  z-index: 1;
+}
+
+.neural-node.node-1 { top: 0; left: 50%; transform: translateX(-50%); }
+.neural-node.node-2 { top: 25%; right: 0; }
+.neural-node.node-3 { bottom: 25%; right: 0; }
+.neural-node.node-4 { bottom: 0; left: 50%; transform: translateX(-50%); }
+.neural-node.node-5 { bottom: 25%; left: 0; }
+.neural-node.node-6 { top: 25%; left: 0; }
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(0, 168, 253, 0.4), inset 0 0 20px rgba(0, 168, 253, 0.2); }
+  70% { box-shadow: 0 0 0 20px rgba(0, 168, 253, 0), inset 0 0 20px rgba(0, 168, 253, 0.2); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 168, 253, 0), inset 0 0 20px rgba(0, 168, 253, 0.2); }
+}
+
+.boss-section-title { font-size: 2.8rem; font-weight: 600; color: var(--text-white); margin-bottom: 1rem; }
+.boss-section-desc { font-size: 1.15rem; color: var(--text-grey); line-height: 1.6; }
+
+.boss-glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--card-border-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+:root[data-theme='light'] .boss-glass-card { background: rgba(255, 255, 255, 0.7); }
+:root[data-theme='light'] .boss-gov-item { color: #080808; }
+:root[data-theme='light'] .boss-module-title,
+:root[data-theme='light'] .boss-card-title,
+:root[data-theme='light'] .boss-section-title,
+:root[data-theme='light'] .boss-hero-title { color: #080808; }
+:root[data-theme='light'] .boss-feature-list li { color: #444; }
+
+
+.boss-glass-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 168, 253, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 168, 253, 0.1);
+}
+
+.boss-feature-card { height: 100%; display: flex; flex-direction: column; align-items: center; }
+
+.boss-icon-wrapper {
+  width: 64px; height: 64px;
+  background: rgba(0, 168, 253, 0.1);
+  border: 1px solid rgba(0, 168, 253, 0.2);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.boss-icon-wrapper-small {
+  width: 48px; height: 48px;
+  background: rgba(0, 168, 253, 0.1);
+  border: 1px solid rgba(0, 168, 253, 0.2);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.boss-card-title { font-size: 1.25rem; font-weight: 600; color: var(--text-white); margin-bottom: 0.8rem; }
+.boss-card-text { font-size: 0.95rem; color: var(--text-grey); line-height: 1.5; margin: 0; }
+
+.boss-badge {
+  display: inline-block;
+  color: var(--icon-blue);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.boss-integration-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.boss-db-pill {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: var(--text-white);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+:root[data-theme='light'] .boss-db-pill { color: #080808; border-color: rgba(0,0,0,0.1); }
+
+.boss-db-pill:hover {
+  background: rgba(0, 168, 253, 0.1);
+  border-color: var(--icon-blue);
+  color: var(--icon-blue);
+  transform: translateY(-2px);
+}
+
+.boss-integration-visual {
+  height: 350px; display: flex; align-items: center; justify-content: center;
+}
+
+.visual-ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(0, 168, 253, 0.2);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+
+.visual-ring.ring-1 { width: 250px; height: 250px; animation: spin 20s linear infinite; border-style: dashed; }
+.visual-ring.ring-2 { width: 180px; height: 180px; animation: spin 15s linear infinite reverse; }
+.visual-ring.ring-3 { width: 120px; height: 120px; border-color: rgba(0, 168, 253, 0.4); }
+
+.visual-core {
+  width: 80px; height: 80px; background: var(--bg-black);
+  border: 2px solid var(--icon-blue);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 2; box-shadow: 0 0 20px rgba(0, 168, 253, 0.3);
+}
+
+@keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.boss-module-title { font-size: 1.5rem; font-weight: 600; color: var(--text-white); margin-bottom: 1rem; }
+.boss-module-desc { font-size: 1rem; color: var(--text-grey); margin-bottom: 1.5rem; line-height: 1.6; }
+
+.boss-feature-list { list-style: none; padding: 0; margin: 0; }
+.boss-feature-list li {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--text-white); font-size: 0.95rem; margin-bottom: 12px;
+}
+.boss-feature-list li svg { color: var(--icon-blue); flex-shrink: 0; }
+
+.boss-gov-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 12px 16px; border-radius: 8px;
+  color: var(--text-white); font-size: 0.95rem;
+  display: flex; align-items: center; gap: 12px;
+}
+
+.gov-glow {
+  width: 200px; height: 200px; background: rgba(0, 168, 253, 0.15);
+  filter: blur(50px); right: -50px; top: -50px; border-radius: 50%;
+}
+
+.boss-cta-banner {
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(0, 114, 255, 0.2));
+  border: 1px solid rgba(0, 168, 253, 0.3);
+}
+
+.boss-cta-bg {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300a8fd' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+.cta-hover-glow:hover { box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
+
+@media (max-width: 991px) {
+  .boss-hero-title { font-size: 3rem; }
+  .boss-section-title { font-size: 2.2rem; }
+  .boss-hero-cta-group { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto 3rem; }
+  .boss-hero-cta-group button { width: 100%; }
+}
+
+/* AI Mouse Hover & Background Effects */
+.ai-bg-spotlight {
+  position: fixed;
+  width: 800px;
+  height: 800px;
+  top: calc(var(--bg-mouse-y, 0px) - 400px);
+  left: calc(var(--bg-mouse-x, 0px) - 400px);
+  background: 
+    radial-gradient(circle at 40% 40%, rgba(0, 210, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 60% 60%, rgba(138, 43, 226, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(255, 0, 128, 0.15) 0%, transparent 50%);
+  filter: blur(50px);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: rotate-colors 8s linear infinite;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes rotate-colors {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+:root[data-theme='light'] .ai-bg-spotlight {
+  background: 
+    radial-gradient(circle at 40% 40%, rgba(0, 114, 255, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 60% 60%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(255, 0, 128, 0.08) 0%, transparent 50%);
+}
+
+.boss-glass-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+.boss-glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 300px at var(--mouse-x) var(--mouse-y), rgba(0, 168, 253, 0.08), transparent 100%);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.boss-glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(circle 250px at var(--mouse-x) var(--mouse-y), rgba(0, 210, 255, 1), transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.boss-glass-card:hover::before,
+.boss-glass-card:hover::after {
+  opacity: 1;
+}
+
+:root[data-theme='light'] .boss-glass-card::before {
+  background: radial-gradient(circle 300px at var(--mouse-x) var(--mouse-y), rgba(0, 114, 255, 0.05), transparent 100%);
+}
+
+:root[data-theme='light'] .boss-glass-card::after {
+  background: radial-gradient(circle 250px at var(--mouse-x) var(--mouse-y), rgba(0, 114, 255, 0.8), transparent 100%);
+}
+
+.boss-glass-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Image 1: Enterprise Data Connected */
+.boss-db-pill-alt {
+  display: flex; align-items: center; gap: 8px;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  padding: 8px 16px;
+  border-radius: 50px;
+  color: #333333;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.boss-db-pill-alt svg {
+  color: #333333;
+}
+
+.boss-integration-visual-alt {
+  height: 350px;
+  width: 100%;
+  background: #ffffff !important;
+  border: 1px solid #eaeaea !important;
+}
+
+.image1-dashed-ring {
+  position: absolute;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 114, 255, 0.2);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image1-icon-circle {
+  position: absolute;
+  width: 70px; height: 70px;
+  background: #ffffff;
+  border: 2px solid #0072ff;
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 40px rgba(0, 114, 255, 0.15);
+}
+
+.image1-icon-circle::before {
+  content: '';
+  position: absolute;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 114, 255, 0.3);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: breathe-ring 3s ease-in-out infinite;
+}
+
+@keyframes breathe-ring {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.3; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.3; }
+}
+
+/* Image 2: CTA Banner */
+.boss-cta-banner-alt {
+  background: linear-gradient(135deg, #e6f0ff, #cce0ff);
+  border: 1px solid #b3d1ff;
+}
+
+.boss-cta-bg-alt {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 4v16m-8-8h16' stroke='%230072ff' stroke-opacity='0.08' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 32px 32px;
+  z-index: 0;
+}
+
+.boss-cta-title {
+  font-size: 2.8rem; font-weight: 600; color: #080808; margin-bottom: 1rem;
+}
+
+.boss-cta-desc {
+  font-size: 1.15rem; color: #555555; line-height: 1.6;
+}
+
+.boss-cta-button {
+  box-shadow: 0 10px 30px rgba(0, 114, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.boss-cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 114, 255, 0.3);
+}
+
+.boss-cta-button .text-dark, .boss-cta-button .arrow {
+  color: #080808 !important;
+}
+
+/* Navbar Simple Dropdown */
+.boss-simple-dropdown {
+  background: var(--bg-black);
+  border: 1px solid rgba(0, 168, 253, 0.2);
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.boss-simple-dropdown .dropdown-item {
+  color: var(--text-white);
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.boss-simple-dropdown .dropdown-item:hover {
+  background: rgba(0, 168, 253, 0.1);
+  color: #00d2ff;
+}
+
+:root[data-theme='light'] .boss-simple-dropdown {
+  background: #ffffff;
+  border: 1px solid rgba(0, 114, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 114, 255, 0.1);
+}
+
+:root[data-theme='light'] .boss-simple-dropdown .dropdown-item {
+  color: #333333;
+}
+
+:root[data-theme='light'] .boss-simple-dropdown .dropdown-item:hover {
+  background: rgba(0, 114, 255, 0.05);
+  color: #0072ff;
+}

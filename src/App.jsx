@@ -9,6 +9,7 @@ import SAP from "./Pages/SAP";
 import SmartApp from "./Pages/SmartApp";
 import StrategicTech from "./Pages/StrategicTech";
 import EnterpriseTraining from "./Pages/EnterpriseTraining";
+import BossAi from "./Pages/BossAi";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: "/enterprise-training",
     element: <EnterpriseTraining />,
+  },
+  {
+    path: "/boss-ai",
+    element: <BossAi />,
   },
 ]);
 
