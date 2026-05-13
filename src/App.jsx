@@ -10,6 +10,8 @@ import SmartApp from "./Pages/SmartApp";
 import StrategicTech from "./Pages/StrategicTech";
 import EnterpriseTraining from "./Pages/EnterpriseTraining";
 import BossAi from "./Pages/BossAi";
+import Carrers from "./Pages/Carrers";
+import ContactUs from "./Pages/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
   {
     path: "/boss-ai",
     element: <BossAi />,
+  },
+  {
+    path: "/careers",
+    element: <Carrers />,
+  },
+  {
+    path: "/contact",
+    element: <ContactUs />,
   },
 ]);
 

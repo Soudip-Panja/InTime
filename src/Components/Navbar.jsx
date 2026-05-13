@@ -152,7 +152,7 @@ export default function Navbar() {
                 </div>
               </div>
             </li>
-            <li className="nav-item"><a className="nav-link" href="#">Careers</a></li>
+            <li className="nav-item"><Link className="nav-link" to="/careers">Careers</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
           </ul>
 
@@ -165,9 +165,9 @@ export default function Navbar() {
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <a href="#" className="nav-cta-btn">
+            <Link to="/contact" className="nav-cta-btn">
               Contact Us <span className="arrow">→</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
