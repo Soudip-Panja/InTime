@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { 
@@ -16,12 +16,158 @@ import {
   Award,
   Cpu
 } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import SoumojitDas from "../assets/Soumojit Das.png";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function About() {
+  const heroRef = useRef(null);
+  const mvpRefs = useRef([]);
+  const autonomousRef = useRef(null);
+  const founderRef = useRef(null);
+  const timelineRefs = useRef([]);
+  const globalStatsRefs = useRef([]);
+  const officeRefs = useRef([]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Hero Animation
+    if (heroRef.current) {
+      const heroElements = heroRef.current.children;
+      gsap.fromTo(heroElements,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power3.out" }
+      );
+    }
+
+    // Mission, Vision & Philosophy Cards
+    mvpRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+    });
+
+    // Autonomous Section
+    if (autonomousRef.current) {
+      gsap.fromTo(autonomousRef.current.children,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: autonomousRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    }
+
+    // Founder Section
+    if (founderRef.current) {
+      gsap.fromTo(founderRef.current,
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: founderRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    }
+
+    // Timeline Section
+    timelineRefs.current.forEach((item, index) => {
+      if (item) {
+        gsap.fromTo(item,
+          { opacity: 0, x: -30 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            delay: index * 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+    });
+
+    // Global Stats
+    globalStatsRefs.current.forEach((stat, index) => {
+      if (stat) {
+        gsap.fromTo(stat,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: index * 0.1,
+            ease: "back.out(1.5)",
+            scrollTrigger: {
+              trigger: stat,
+              start: "top 90%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+    });
+
+    // Global Offices
+    officeRefs.current.forEach((office, index) => {
+      if (office) {
+        gsap.fromTo(office,
+          { opacity: 0, scale: 0.9 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            delay: index * 0.15,
+            ease: "back.out(1.2)",
+            scrollTrigger: {
+              trigger: office,
+              start: "top 90%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   return (
@@ -31,7 +177,7 @@ export default function About() {
       {/* Hero Section */}
       <section className="hero-section about-hero">
         <div className="container">
-          <div className="hero-content mx-auto text-center">
+          <div className="hero-content mx-auto text-center" ref={heroRef}>
             <span className="trusted-badge mx-auto mb-4" style={{ textTransform: 'none', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
               <Award size={14} className="me-2" />
               Since 2013 - Trusted by 20+ Top Companies
@@ -48,7 +194,13 @@ export default function About() {
               <a href="#vision" className="nav-cta-btn hero-cta">
                 Discover Our Vision <span className="arrow">→</span>
               </a>
-              <a href="#team" className="nav-cta-btn hero-cta" style={{ backgroundImage: 'none', border: '1px solid var(--card-border-color)' }}>
+              <a href="#team" className="nav-cta-btn hero-cta" style={{ 
+                background: 'rgba(255, 255, 255, 0.05)', 
+                backdropFilter: 'blur(10px)', 
+                border: '1px solid rgba(255, 255, 255, 0.1)', 
+                color: 'white',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+              }}>
                 Meet Our Team
               </a>
             </div>
@@ -91,17 +243,17 @@ export default function About() {
           </div>
 
           <div className="mission-vision-grid">
-            <div className="mvp-card">
+            <div className="mvp-card" ref={el => mvpRefs.current[0] = el}>
               <div className="mvp-icon-container"><Target size={28} /></div>
               <h3>Our Mission</h3>
               <p>Enabling enterprises to become self-reliant and data-driven through intelligent automation and strategic insight.</p>
             </div>
-            <div className="mvp-card">
+            <div className="mvp-card" ref={el => mvpRefs.current[1] = el}>
               <div className="mvp-icon-container"><Rocket size={28} /></div>
               <h3>Our Vision</h3>
               <p>To be the global leader in driving the next generation of enterprise excellence through innovative technology.</p>
             </div>
-            <div className="mvp-card">
+            <div className="mvp-card" ref={el => mvpRefs.current[2] = el}>
               <div className="mvp-icon-container"><Lightbulb size={28} /></div>
               <h3>Our Philosophy</h3>
               <p>Innovation is at the heart of everything we do. We believe in the power of technology to change the world for the better.</p>
@@ -123,7 +275,7 @@ export default function About() {
             </h2>
           </div>
 
-          <div className="autonomous-grid">
+          <div className="autonomous-grid" ref={autonomousRef}>
             <div className="autonomous-content">
               <div className="challenge-box">
                 <h4 className="d-flex align-items-center gap-2 mb-3">
@@ -178,7 +330,7 @@ export default function About() {
             <h2 className="perspective-main-title">A Perspective From Our Founder</h2>
           </div>
 
-          <div className="founder-card">
+          <div className="founder-card" ref={founderRef}>
             <div className="founder-image-wrapper">
               <img src={SoumojitDas} alt="Soumojit Das" />
               <div style={{
@@ -238,7 +390,7 @@ export default function About() {
           <div className="timeline-container">
             <div className="timeline-line"></div>
             
-            <div className="timeline-item">
+            <div className="timeline-item" ref={el => timelineRefs.current[0] = el}>
               <div className="timeline-dot"></div>
               <div className="timeline-card">
                 <span className="timeline-date">2013</span>
@@ -247,7 +399,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="timeline-item">
+            <div className="timeline-item" ref={el => timelineRefs.current[1] = el}>
               <div className="timeline-dot"></div>
               <div className="timeline-card">
                 <span className="timeline-date">2017</span>
@@ -256,7 +408,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="timeline-item">
+            <div className="timeline-item" ref={el => timelineRefs.current[2] = el}>
               <div className="timeline-dot"></div>
               <div className="timeline-card">
                 <span className="timeline-date">2019</span>
@@ -265,7 +417,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="timeline-item">
+            <div className="timeline-item" ref={el => timelineRefs.current[3] = el}>
               <div className="timeline-dot"></div>
               <div className="timeline-card">
                 <span className="timeline-date">2021</span>
@@ -274,7 +426,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="timeline-item">
+            <div className="timeline-item" ref={el => timelineRefs.current[4] = el}>
               <div className="timeline-dot"></div>
               <div className="timeline-card">
                 <span className="timeline-date">2023</span>
@@ -283,7 +435,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="timeline-item">
+            <div className="timeline-item" ref={el => timelineRefs.current[5] = el}>
               <div className="timeline-dot"></div>
               <div className="timeline-card">
                 <span className="timeline-date">2024</span>
@@ -310,49 +462,49 @@ export default function About() {
           </div>
 
           <div className="global-stats-grid">
-            <div className="stat-card">
+            <div className="stat-card" ref={el => globalStatsRefs.current[0] = el}>
               <div className="stat-icon"><TrendingUp /></div>
               <div className="stat-value">50+</div>
               <div className="stat-label">Projects Completed</div>
             </div>
-            <div className="stat-card">
+            <div className="stat-card" ref={el => globalStatsRefs.current[1] = el}>
               <div className="stat-icon"><Globe2 /></div>
               <div className="stat-value">20+</div>
               <div className="stat-label">Countries Served</div>
             </div>
-            <div className="stat-card">
+            <div className="stat-card" ref={el => globalStatsRefs.current[2] = el}>
               <div className="stat-icon"><Layers /></div>
               <div className="stat-value">2</div>
               <div className="stat-label">Global Offices</div>
             </div>
-            <div className="stat-card">
+            <div className="stat-card" ref={el => globalStatsRefs.current[3] = el}>
               <div className="stat-icon"><Award /></div>
               <div className="stat-value">8+</div>
               <div className="stat-label">Certifications</div>
             </div>
           </div>
 
-          <div className="text-center mb-4">
+          <div className="text-center mb-4 mt-5">
             <h4 className="fw-bold">Our Global Offices</h4>
           </div>
 
           <div className="office-grid">
-            <div className="office-card">
+            <div className="office-card" ref={el => officeRefs.current[0] = el}>
               <span className="office-flag">🇮🇳</span>
               <span className="office-name">India</span>
               <p className="small text-muted mb-0">Delivery Center</p>
             </div>
-            <div className="office-card">
+            <div className="office-card" ref={el => officeRefs.current[1] = el}>
               <span className="office-flag">🇺🇸</span>
               <span className="office-name">USA</span>
               <p className="small text-muted mb-0">Strategic Office</p>
             </div>
-            <div className="office-card">
+            <div className="office-card" ref={el => officeRefs.current[2] = el}>
               <span className="office-flag">🇸🇬</span>
               <span className="office-name">Singapore</span>
               <p className="small text-muted mb-0">Regional Hub</p>
             </div>
-            <div className="office-card">
+            <div className="office-card" ref={el => officeRefs.current[3] = el}>
               <span className="office-flag">🇦🇪</span>
               <span className="office-name">UAE</span>
               <p className="small text-muted mb-0">Middle East Hub</p>

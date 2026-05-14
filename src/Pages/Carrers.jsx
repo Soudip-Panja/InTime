@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import {
   Rocket, TrendingUp, Globe, BookOpen, Lightbulb,
   MapPin, Clock, Briefcase, Search, Upload, Users, ChevronDown
 } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const allJobs = [
   {
@@ -78,11 +82,104 @@ export default function Carrers() {
   const [category, setCategory] = useState('All Categories');
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
+  const heroRef = useRef(null);
+  const whyCardsRef = useRef([]);
+  const pillarCardsRef = useRef([]);
+  const jobCardsRef = useRef([]);
+  const openCardRef = useRef(null);
+  const joinBannerRef = useRef(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const handleMouse = (e) => setMousePos({ x: e.clientX, y: e.clientY });
     window.addEventListener('mousemove', handleMouse);
-    return () => window.removeEventListener('mousemove', handleMouse);
+
+    // GSAP Animations
+    if (heroRef.current) {
+      gsap.fromTo(heroRef.current.children,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power3.out" }
+      );
+    }
+
+    whyCardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+    });
+
+    pillarCardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, scale: 0.95 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            delay: index * 0.15,
+            ease: "back.out(1.2)",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+    });
+
+    if (openCardRef.current) {
+      gsap.fromTo(openCardRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: openCardRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    }
+
+    if (joinBannerRef.current) {
+      gsap.fromTo(joinBannerRef.current,
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: joinBannerRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouse);
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   const filteredJobs = allJobs.filter((job) => {
@@ -95,11 +192,36 @@ export default function Carrers() {
     return matchSearch && matchLocation && matchCategory;
   });
 
+  useEffect(() => {
+    jobCardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: index * 0.05,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+    });
+  }, [filteredJobs]);
+
   const handleCardMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
     e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
   };
+
+  // Reset job refs before rendering
+  jobCardsRef.current = [];
 
   return (
     <>
@@ -115,7 +237,7 @@ export default function Carrers() {
         <section className="careers-hero text-center">
           <div className="careers-hero-orb orb-a" />
           <div className="careers-hero-orb orb-b" />
-          <div className="container position-relative" style={{ zIndex: 1 }}>
+          <div className="container position-relative" style={{ zIndex: 1 }} ref={heroRef}>
             <div className="careers-badge mb-4">We're Hiring</div>
             <h1 className="careers-hero-title">
               Shape the Future<br />
@@ -147,7 +269,7 @@ export default function Carrers() {
                 { icon: <Users size={26} />, title: 'Collaborative Culture', desc: 'Work alongside passionate experts in a team-first environment.' },
               ].map((item, i) => (
                 <div key={i} className="col-lg-4 col-md-6">
-                  <div onMouseMove={handleCardMouseMove} className="careers-why-card">
+                  <div onMouseMove={handleCardMouseMove} className="careers-why-card" ref={el => whyCardsRef.current[i] = el}>
                     <div className="careers-icon-box">{item.icon}</div>
                     <h4 className="careers-card-title mt-3">{item.title}</h4>
                     <p className="careers-card-desc mt-2">{item.desc}</p>
@@ -172,7 +294,7 @@ export default function Carrers() {
                 { title: 'Integrity', desc: 'We operate with transparency, honesty, and ethical practices in everything we do.' },
               ].map((item, i) => (
                 <div key={i} className="col-lg-4">
-                  <div onMouseMove={handleCardMouseMove} className="careers-pillar-card">
+                  <div onMouseMove={handleCardMouseMove} className="careers-pillar-card" ref={el => pillarCardsRef.current[i] = el}>
                     <h4 className="careers-pillar-title">{item.title}</h4>
                     <p className="careers-card-desc mt-2">{item.desc}</p>
                   </div>
@@ -213,9 +335,9 @@ export default function Carrers() {
             <div className="row g-4 mt-2">
               {filteredJobs.length === 0 ? (
                 <div className="col-12 text-center py-5 careers-no-results">No roles match your filters.</div>
-              ) : filteredJobs.map((job) => (
+              ) : filteredJobs.map((job, index) => (
                 <div key={job.id} className="col-lg-6">
-                  <div onMouseMove={handleCardMouseMove} className="careers-job-card">
+                  <div onMouseMove={handleCardMouseMove} className="careers-job-card" ref={el => jobCardsRef.current[index] = el}>
                     <h4 className="careers-job-title">{job.title}</h4>
                     <div className="careers-job-meta d-flex flex-wrap gap-3 mt-2">
                       <span><MapPin size={14} /> {job.location}</span>
@@ -239,7 +361,7 @@ export default function Carrers() {
         {/* ── DON'T SEE A ROLE ── */}
         <section className="careers-section">
           <div className="container">
-            <div onMouseMove={handleCardMouseMove} className="careers-open-card text-center">
+            <div onMouseMove={handleCardMouseMove} className="careers-open-card text-center" ref={openCardRef}>
               <h3 className="careers-open-title">Don't See the Perfect Role?</h3>
               <p className="careers-section-sub mx-auto mt-3">
                 Send your resume if no current role fits. We're always looking for exceptional talent to join our growing team and shape the future of enterprise technology.
@@ -254,7 +376,7 @@ export default function Carrers() {
         {/* ── JOIN OUR TEAM CTA ── */}
         <section className="careers-section pb-5">
           <div className="container">
-            <div className="careers-join-banner text-center">
+            <div className="careers-join-banner text-center" ref={joinBannerRef}>
               <div className="careers-join-bg" />
               <div className="position-relative" style={{ zIndex: 1 }}>
                 <h2 className="careers-section-title">Join Our Team</h2>
