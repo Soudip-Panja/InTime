@@ -3561,10 +3561,11 @@ body {
 }
 
 .industries-hero {
-  padding: 3rem 0 2rem;
-  background: radial-gradient(circle at 15% 40%, rgba(0, 210, 255, 0.08), transparent 45%),
-              radial-gradient(circle at 85% 40%, rgba(0, 114, 255, 0.08), transparent 45%),
-              var(--bg-black);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  background: linear-gradient(180deg, rgba(0, 168, 253, 0.1) 0%, rgba(0, 102, 204, 0.02) 100%), var(--bg-black);
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -3588,10 +3589,17 @@ body {
 
 .hero-heading {
   font-size: 4.8rem;
-  font-weight: 800;
+  font-weight: 300;
   line-height: 1.1;
   margin-bottom: 1.5rem;
+  color: var(--text-white);
 }
+
+.hero-heading .hero-heading-bold {
+  font-weight: 800;
+  display: block;
+}
+
 
 .hero-subtext {
   font-size: 1.4rem;
@@ -3825,9 +3833,7 @@ body {
 
 /* Light theme overrides */
 :root[data-theme='light'] .industries-hero {
-  background: radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.05), transparent 40%),
-              radial-gradient(circle at 85% 50%, rgba(0, 114, 255, 0.05), transparent 40%),
-              #fcfcfc;
+  background: linear-gradient(180deg, #f0f8ff 0%, #ffffff 100%);
 }
 
 :root[data-theme='light'] .focus-card {
@@ -3856,7 +3862,8 @@ body {
 
 @media (max-width: 768px) {
   .industries-hero {
-    padding: 3rem 0 2.5rem;
+    padding: 70px 0;
+    min-height: 100vh;
   }
   .hero-heading {
     font-size: 2.8rem;
@@ -3880,6 +3887,10 @@ body {
 }
 
 @media (max-width: 480px) {
+  .industries-hero {
+    padding: 60px 0;
+    min-height: 100vh;
+  }
   .hero-heading {
     font-size: 2.2rem;
   }

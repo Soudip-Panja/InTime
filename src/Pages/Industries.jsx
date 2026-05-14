@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { 
@@ -15,12 +15,162 @@ import {
   ArrowRight,
   ChevronRight
 } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Industries() {
   const sectionRef = React.useRef(null);
+  const heroRef = useRef(null);
+  const iconsRowRef = useRef(null);
+  const focusSectionHeaderRef = useRef(null);
+  const focusCardsRef = useRef([]);
+  const solutionsSectionHeaderRef = useRef(null);
+  const solutionCardsRef = useRef([]);
+  const ctaRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // ── Hero entrance (immediate, no scroll trigger)
+    if (heroRef.current) {
+      gsap.fromTo(
+        heroRef.current.children,
+        { opacity: 0, y: 35 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.18, ease: 'power3.out' }
+      );
+    }
+
+    // ── Industry icons row (stagger from below)
+    if (iconsRowRef.current) {
+      const icons = iconsRowRef.current.children;
+      gsap.fromTo(
+        icons,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'back.out(1.5)',
+          scrollTrigger: {
+            trigger: iconsRowRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    }
+
+    // ── Focus section header
+    if (focusSectionHeaderRef.current) {
+      gsap.fromTo(
+        focusSectionHeaderRef.current.children,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: focusSectionHeaderRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    }
+
+    // ── Focus area cards (y + opacity stagger)
+    focusCardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 45 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            delay: index * 0.08,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+    });
+
+    // ── Solutions section header
+    if (solutionsSectionHeaderRef.current) {
+      gsap.fromTo(
+        solutionsSectionHeaderRef.current.children,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: solutionsSectionHeaderRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    }
+
+    // ── Solution cards (scale + opacity stagger)
+    solutionCardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          { opacity: 0, scale: 0.92, y: 30 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.7,
+            delay: index * 0.1,
+            ease: 'back.out(1.2)',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+    });
+
+    // ── CTA section (scale in)
+    if (ctaRef.current) {
+      gsap.fromTo(
+        ctaRef.current,
+        { opacity: 0, scale: 0.95, y: 30 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: ctaRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   const handleMouseMove = (e) => {
@@ -52,17 +202,17 @@ export default function Industries() {
       {/* Hero Section */}
       <section className="industries-hero">
         <div className="container">
-          <div className="hero-content text-center">
+          <div className="hero-content text-center" ref={heroRef}>
             <div className="unified-section-label mx-auto">Industry Expertise</div>
             <h1 className="hero-heading mt-4">
-              Tailored Expertise for<br/>
-              <span className="gradient-text-primary">Your Industry</span>
+              Tailored Expertise for
+              <span className="hero-heading-bold gradient-text-primary">Your Industry</span>
             </h1>
             <p className="hero-subtext mx-auto mt-4">
               Custom AI, SAP, BI solutions designed for your specific sector requirements.
             </p>
 
-            <div className="industry-icons-row mt-5">
+            <div className="industry-icons-row mt-5" ref={iconsRowRef}>
               <IndustryIconItem icon={<Building2 size={44} />} label="Public Sector" />
               <IndustryIconItem icon={<Factory size={44} />} label="Manufacturing" />
               <IndustryIconItem icon={<HardHat size={44} />} label="Construction" />
@@ -77,7 +227,7 @@ export default function Industries() {
       {/* Focus Areas Section */}
       <section className="focus-areas-section bg-shade-1">
         <div className="container">
-          <div className="section-header text-center mb-5">
+          <div className="section-header text-center mb-5" ref={focusSectionHeaderRef}>
             <div className="unified-section-label mx-auto">Sector Specializations</div>
             <h2 className="section-heading mt-3">Our Industry Focus Areas</h2>
             <p className="section-subtext mx-auto mt-3">
@@ -87,6 +237,7 @@ export default function Industries() {
 
           <div className="focus-grid mt-5">
             <FocusCard 
+              ref={el => focusCardsRef.current[0] = el}
               icon={<Building2 size={32} />} 
               title="Public Sector & Utilities" 
               desc="Digital government initiatives and smart resource optimization strategies." 
@@ -94,6 +245,7 @@ export default function Industries() {
               color="blue"
             />
             <FocusCard 
+              ref={el => focusCardsRef.current[1] = el}
               icon={<Factory size={32} />} 
               title="Manufacturing" 
               desc="Smart factories and advanced automation for higher production efficiency." 
@@ -101,6 +253,7 @@ export default function Industries() {
               color="orange"
             />
             <FocusCard 
+              ref={el => focusCardsRef.current[2] = el}
               icon={<HardHat size={32} />} 
               title="Construction & Real Estate" 
               desc="Comprehensive project lifecycle management and digital twin integration." 
@@ -108,6 +261,7 @@ export default function Industries() {
               color="green"
             />
             <FocusCard 
+              ref={el => focusCardsRef.current[3] = el}
               icon={<Users size={32} />} 
               title="Consulting & Services" 
               desc="Data-driven advisory services powered by advanced predictive analytics." 
@@ -115,6 +269,7 @@ export default function Industries() {
               color="purple"
             />
             <FocusCard 
+              ref={el => focusCardsRef.current[4] = el}
               icon={<ShoppingBag size={32} />} 
               title="Retail & CPG" 
               desc="Personalized customer experiences and AI-driven inventory management." 
@@ -122,6 +277,7 @@ export default function Industries() {
               color="pink"
             />
             <FocusCard 
+              ref={el => focusCardsRef.current[5] = el}
               icon={<Globe size={32} />} 
               title="Energy & Resources" 
               desc="Operational efficiency gains and sustainable digital transformation." 
@@ -135,7 +291,7 @@ export default function Industries() {
       {/* Universal Solutions Section */}
       <section className="universal-solutions-section">
         <div className="container">
-          <div className="section-header text-center mb-5">
+          <div className="section-header text-center mb-5" ref={solutionsSectionHeaderRef}>
             <div className="unified-section-label mx-auto">Universal Solutions</div>
             <h2 className="section-heading mt-3">Universal Challenges,<br/><span className="gradient-text-primary">Tailored Solutions</span></h2>
             <p className="section-subtext mx-auto mt-3">
@@ -145,24 +301,28 @@ export default function Industries() {
 
           <div className="solutions-grid mt-5">
             <SolutionCard 
+              ref={el => solutionCardsRef.current[0] = el}
               icon={<Cpu size={32} />} 
               title="AI-Powered Intelligence" 
               desc="Intelligent automation that reduces manual overhead significantly." 
               badge="Reduces manual work by 85%"
             />
             <SolutionCard 
+              ref={el => solutionCardsRef.current[1] = el}
               icon={<Layers size={32} />} 
               title="SAP Excellence" 
               desc="Seamless implementations and modernizations for any scale." 
               badge="Accelerates ROI by 45%"
             />
             <SolutionCard 
+              ref={el => solutionCardsRef.current[2] = el}
               icon={<BarChart3 size={32} />} 
               title="BI Platforms" 
               desc="Real-time analytics tailored to specific industry KPIs." 
               badge="Improves decision speed by 50%"
             />
             <SolutionCard 
+              ref={el => solutionCardsRef.current[3] = el}
               icon={<Settings size={32} />} 
               title="Process Optimization" 
               desc="Streamlined workflows for maximum operational efficiency." 
@@ -175,7 +335,7 @@ export default function Industries() {
       {/* CTA Section */}
       <section className="industries-cta text-center">
         <div className="container">
-          <div className="cta-box-premium">
+          <div className="cta-box-premium" ref={ctaRef}>
             <div className="card-border-glow"></div>
             <div className="card-crosshairs" aria-hidden="true"></div>
             <h2 className="cta-heading">Ready to Transform<br/><span className="gradient-text-primary">Your Operations?</span></h2>
@@ -210,24 +370,25 @@ function IndustryIconItem({ icon, label }) {
   );
 }
 
-function FocusCard({ icon, title, desc, badge, color }) {
+const FocusCard = React.forwardRef(function FocusCard({ icon, title, desc, badge, color }, ref) {
   return (
-    <div className={`focus-card focus-card-${color}`}>
+    <div className={`focus-card focus-card-${color}`} ref={ref}>
       <div className="focus-card-icon">{icon}</div>
       <h3 className="focus-card-title">{title}</h3>
       <p className="focus-card-desc">{desc}</p>
       <div className="focus-card-badge">{badge}</div>
     </div>
   );
-}
+});
 
-function SolutionCard({ icon, title, desc, badge }) {
+const SolutionCard = React.forwardRef(function SolutionCard({ icon, title, desc, badge }, ref) {
   return (
-    <div className="solution-card">
+    <div className="solution-card" ref={ref}>
       <div className="solution-card-icon">{icon}</div>
       <h3 className="solution-card-title">{title}</h3>
       <p className="solution-card-desc">{desc}</p>
       <div className="solution-card-badge">{badge}</div>
     </div>
   );
-}
+});
+
