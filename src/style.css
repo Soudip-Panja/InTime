@@ -2549,7 +2549,7 @@ body {
 .roi-content-section {
   position: relative;
   z-index: 1;
-  padding: 10rem 0;
+  padding: 0 0 10rem 0;
   background-image: 
     radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
   background-size: 40px 40px;
@@ -2561,6 +2561,11 @@ body {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .roi-pill-enterprise {
@@ -2766,7 +2771,10 @@ body {
     grid-template-columns: 1fr;
   }
   .roi-content-section {
-    padding: 6rem 0;
+    padding: 0 0 6rem 0;
+  }
+  .roi-header {
+    min-height: 100vh;
   }
   .roi-title-xl {
     font-size: 2.8rem;
