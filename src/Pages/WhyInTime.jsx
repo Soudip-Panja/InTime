@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import {
@@ -19,6 +19,38 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const Counter = ({ end, prefix = "", suffix = "", duration = 2 }) => {
+  const [count, setCount] = useState(0);
+  const nodeRef = useRef(null);
+
+  useEffect(() => {
+    const node = nodeRef.current;
+    if (!node) return;
+
+    let obj = { val: 0 };
+    
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: node,
+        start: "top 80%",
+        onEnter: () => {
+          gsap.to(obj, {
+            val: end,
+            duration: duration,
+            ease: "power2.out",
+            onUpdate: () => setCount(Math.round(obj.val))
+          });
+        },
+        once: true
+      });
+    }, node);
+
+    return () => ctx.revert();
+  }, [end, duration]);
+
+  return <span ref={nodeRef}>{prefix}{count}{suffix}</span>;
+};
 
 export default function WhyInTimePage() {
   const heroRef = useRef(null);
@@ -109,7 +141,7 @@ export default function WhyInTimePage() {
               </div>
               <h1 className="why-title">
                 Why Fortune 500 Companies Choose InTime <br />
-                <span className="gradient-text">Over Traditional Providers</span>
+                <span className="gradient-text" style={{ fontWeight: 'bold' }}>Over Traditional Providers</span>
               </h1>
               <p className="why-subtitle">
                 Independent analysis shows we consistently outperform competitors across all key metrics that matter to enterprise clients.
@@ -124,25 +156,25 @@ export default function WhyInTimePage() {
             <div className="metrics-summary-grid">
               <div className="metric-summary-card">
                 <div className="m-icon icon-blue"><Database size={24} /></div>
-                <h3>$100M+</h3>
+                <h3><Counter end={100} prefix="$" suffix="M+" /></h3>
                 <p className="m-label">Client Value Created</p>
                 <p className="m-sub">Verified ROI across all clients</p>
               </div>
               <div className="metric-summary-card">
                 <div className="m-icon icon-purple"><Cpu size={24} /></div>
-                <h3>95%</h3>
+                <h3><Counter end={95} suffix="%" /></h3>
                 <p className="m-label">SAP Success Rate</p>
                 <p className="m-sub">vs 68% industry average</p>
               </div>
               <div className="metric-summary-card">
                 <div className="m-icon icon-blue"><Zap size={24} /></div>
-                <h3>90 Days</h3>
+                <h3><Counter end={90} suffix=" Days" /></h3>
                 <p className="m-label">Average Implementation</p>
                 <p className="m-sub">vs 6-12 months typical</p>
               </div>
               <div className="metric-summary-card">
                 <div className="m-icon icon-purple"><Award size={24} /></div>
-                <h3>30+</h3>
+                <h3><Counter end={30} suffix="+" /></h3>
                 <p className="m-label">Fortune 500 Clients</p>
                 <p className="m-sub">across 6 countries</p>
               </div>
@@ -323,15 +355,15 @@ export default function WhyInTimePage() {
                 </p>
                 <div className="philosophy-stats">
                   <div className="phil-stat">
-                    <span className="stat-value">550+</span>
+                    <span className="stat-value"><Counter end={550} suffix="+" /></span>
                     <span className="stat-label">Successful Engagements</span>
                   </div>
                   <div className="phil-stat">
-                    <span className="stat-value">15+</span>
+                    <span className="stat-value"><Counter end={15} suffix="+" /></span>
                     <span className="stat-label">Years of Innovation</span>
                   </div>
                   <div className="phil-stat">
-                    <span className="stat-value">95%</span>
+                    <span className="stat-value"><Counter end={95} suffix="%" /></span>
                     <span className="stat-label">Client Retention</span>
                   </div>
                 </div>
@@ -363,8 +395,8 @@ export default function WhyInTimePage() {
                 <a href="#" className="nav-cta-btn">
                   Schedule a Strategy Conversation <ArrowRight size={18} />
                 </a>
-                <a href="/roi" className="explore-link">
-                  View Our ROI Metrics <ArrowRight size={18} />
+                <a href="/roi" className="why-secondary-btn">
+                  View Our ROI Metrics <ArrowRight size={18} className="btn-arrow" />
                 </a>
               </div>
             </div>
