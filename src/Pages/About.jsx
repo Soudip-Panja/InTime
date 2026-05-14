@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 import { 
   Rocket, 
   Target, 
@@ -79,7 +80,7 @@ export default function About() {
       <section className="perspective-section">
         <div className="container">
           <div className="text-center mb-5">
-            <span className="unified-section-label">Our Foundation</span>
+            <span className="unified-section-label mx-auto mb-3">Our Foundation</span>
             <h2 className="perspective-main-title">
               Pioneering the Next Era of <br />
               <span className="gradient-highlight">Enterprise Excellence</span>
@@ -300,7 +301,7 @@ export default function About() {
       <section className="perspective-section">
         <div className="container">
           <div className="text-center mb-5">
-            <span className="unified-section-label">Global Reach</span>
+            <span className="unified-section-label mx-auto mb-3">Global Reach</span>
             <h2 className="perspective-main-title">
               Global Expertise, Local Insight, <br />
               <span className="gradient-highlight">Unified Delivery</span>
@@ -369,6 +370,7 @@ export default function About() {
           </a>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

@@ -875,6 +875,10 @@ body {
   .perspective-image-container { margin-top: 2rem; }
 }
 
+@media (max-width: 768px) {
+  .perspective-main-title { font-size: 2rem; }
+}
+
 /* ============================================================
    8. FOUR PRACTICES SECTION
    ============================================================ */
@@ -3822,7 +3826,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .stat-card {
@@ -4152,6 +4156,8 @@ body {
 /* Remove background grid for About Hero */
 .hero-section.about-hero {
   background-image: none;
+  padding-top: 60px;
+  align-items: flex-start;
 }
 
 .hero-section.about-hero .grid-glow-container {
