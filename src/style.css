@@ -17,7 +17,7 @@
 
   /* Theme variables */
   --nav-border: #1a1a1a;
-  --mega-bg: rgba(12, 12, 12, 0.75);
+  --mega-bg: rgba(12, 12, 12, 1);
   --mega-border: rgba(255, 255, 255, 0.1);
   --mega-hover: rgba(255, 255, 255, 0.03);
   --mega-shadow: rgba(0, 0, 0, 0.8);
@@ -56,7 +56,7 @@
   --icon-blue: #0072ff;
   
   --nav-border: #e5e5e5;
-  --mega-bg: rgba(255, 255, 255, 0.95);
+  --mega-bg: rgba(255, 255, 255, 1);
   --mega-border: rgba(0, 0, 0, 0.1);
   --mega-hover: rgba(0, 0, 0, 0.05);
   --mega-shadow: rgba(0, 0, 0, 0.1);
