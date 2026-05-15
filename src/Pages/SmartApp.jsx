@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { 
@@ -20,11 +20,79 @@ import {
   Tablet,
   Shield
 } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SmartApp() {
+  const heroRef = useRef(null);
+  const assessmentRefs = useRef([]);
+  const solutionRefs = useRef([]);
+  const methodRefs = useRef([]);
+  const successRefs = useRef([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    if (heroRef.current) {
+      gsap.fromTo(heroRef.current.children,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power3.out" }
+      );
+    }
+
+    assessmentRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.8, delay: index * 0.1, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    solutionRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, scale: 0.95 },
+          {
+            opacity: 1, scale: 1, duration: 0.8, delay: index * 0.15, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 80%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    methodRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, x: -30 },
+          {
+            opacity: 1, x: 0, duration: 0.8, delay: index * 0.15, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    successRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1, y: 0, duration: 0.8, delay: index * 0.15, ease: "back.out(1.2)",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   const assessments = [
@@ -157,7 +225,7 @@ export default function SmartApp() {
           </div>
 
           <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-            <div className="why-header text-center mx-auto" style={{ maxWidth: '900px' }}>
+            <div className="why-header text-center mx-auto" style={{ maxWidth: '900px' }} ref={heroRef}>
               <div className="competitive-badge" style={{ margin: '0 auto 1.5rem' }}>
                 <Smartphone size={14} /> Smart Application Development
               </div>
@@ -187,7 +255,7 @@ export default function SmartApp() {
             
             <div className="sa-grid">
               {assessments.map((item, idx) => (
-                <div key={idx} className="sa-assessment-card">
+                <div key={idx} className="sa-assessment-card" ref={el => assessmentRefs.current[idx] = el}>
                   <div className="sa-icon-red">{item.icon}</div>
                   <p className="sa-assessment-text">{item.text}</p>
                 </div>
@@ -206,7 +274,7 @@ export default function SmartApp() {
 
             <div className="sa-solutions-list">
               {solutions.map((sol, idx) => (
-                <div key={idx} className="sa-solution-card">
+                <div key={idx} className="sa-solution-card" ref={el => solutionRefs.current[idx] = el}>
                   <div className="sa-solution-header">
                     <div className="sa-solution-icon">{sol.icon}</div>
                     <div className="sa-solution-title">
@@ -244,7 +312,7 @@ export default function SmartApp() {
 
             <div className="sa-methodology-grid">
               {methodology.map((item, idx) => (
-                <div key={idx} className="sa-methodology-card">
+                <div key={idx} className="sa-methodology-card" ref={el => methodRefs.current[idx] = el}>
                   <div className="sa-icon-green">{item.icon}</div>
                   <div className="sa-methodology-info">
                     <h4>{item.title}</h4>
@@ -272,14 +340,14 @@ export default function SmartApp() {
             </div>
 
             <div className="sa-grid">
-              {successStories.map((story, idx) => (
-                <div key={idx} className="sa-success-card">
-                  <div className="sa-success-icon">{story.icon}</div>
-                  <h3 className="sa-success-title">{story.title}</h3>
-                  <p className="sa-success-desc">{story.desc}</p>
+              {successStories.map((item, idx) => (
+                <div key={idx} className="sa-success-card" ref={el => successRefs.current[idx] = el}>
+                  <div className="sa-success-icon">{item.icon}</div>
+                  <h3 className="sa-success-title">{item.title}</h3>
+                  <p className="sa-success-desc">{item.desc}</p>
                   <div className="sa-impact-badge">
                     <span className="sa-impact-label">IMPACT:</span>
-                    <span className="sa-impact-text">{story.impact}</span>
+                    <span className="sa-impact-text">{item.impact}</span>
                   </div>
                 </div>
               ))}

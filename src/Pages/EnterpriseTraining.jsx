@@ -5,9 +5,20 @@ import {
   GraduationCap, Users, BookOpen, Brain, Database, TrendingUp, Target,
   Monitor, Settings, Award, Focus, Headphones, FileText, BarChart3
 } from "lucide-react";
+import NumberCounter from "../Components/NumberCounter";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function EnterpriseTraining() {
   const contentRef = useRef(null);
+  const heroRef = useRef(null);
+  const assessmentRefs = useRef([]);
+  const offeringRefs = useRef([]);
+  const formatRefs = useRef([]);
+  const advantageRefs = useRef([]);
+  const bannerRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,8 +36,74 @@ export default function EnterpriseTraining() {
 
     window.addEventListener('mousemove', handleMouseMove);
 
+    if (heroRef.current) {
+      gsap.fromTo(heroRef.current.children,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power3.out" }
+      );
+    }
+
+    assessmentRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.8, delay: index * 0.1, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    offeringRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, scale: 0.95 },
+          {
+            opacity: 1, scale: 1, duration: 0.8, delay: index * 0.15, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 80%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    formatRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1, y: 0, duration: 0.8, delay: index * 0.15, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    advantageRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1, y: 0, duration: 0.8, delay: index * 0.15, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    if (bannerRef.current) {
+      gsap.fromTo(bannerRef.current,
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1, scale: 1, duration: 0.8, ease: "power2.out",
+          scrollTrigger: { trigger: bannerRef.current, start: "top 85%", toggleActions: "play none none reverse" }
+        }
+      );
+    }
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
 
@@ -51,7 +128,7 @@ export default function EnterpriseTraining() {
           </div>
 
           <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-            <div className="why-header text-center mx-auto" style={{ maxWidth: '900px' }}>
+            <div className="why-header text-center mx-auto" style={{ maxWidth: '900px' }} ref={heroRef}>
               <div className="competitive-badge" style={{ margin: '0 auto 1.5rem' }}>
                 <GraduationCap size={14} /> Enterprise Training & Capability Building
               </div>
@@ -65,15 +142,15 @@ export default function EnterpriseTraining() {
               
               <div className="trusted-stats d-flex gap-5 mt-5 pt-3 flex-wrap justify-content-center">
                 <div>
-                  <span className="stat-number" style={{ fontSize: '2.5rem' }}>40%</span>
+                  <NumberCounter end={40} suffix="%" className="stat-number" style={{ fontSize: '2.5rem' }} />
                   <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem', opacity: 0.8 }}>ADOPTION BOOST</p>
                 </div>
                 <div>
-                  <span className="stat-number" style={{ fontSize: '2.5rem' }}>500+</span>
+                  <NumberCounter end={500} suffix="+" className="stat-number" style={{ fontSize: '2.5rem' }} />
                   <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem', opacity: 0.8 }}>PROFESSIONALS TRAINED</p>
                 </div>
                 <div>
-                  <span className="stat-number gradient-text" style={{ fontSize: '2.5rem' }}>95%</span>
+                  <NumberCounter end={95} suffix="%" className="stat-number gradient-text" style={{ fontSize: '2.5rem' }} />
                   <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem', opacity: 0.8 }}>SATISFACTION RATE</p>
                 </div>
               </div>
@@ -109,25 +186,25 @@ export default function EnterpriseTraining() {
           </div>
           
           <div className="row g-4 justify-content-center">
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6" ref={el => assessmentRefs.current[0] = el}>
               <div className="st-card torch-glow-card flex-row align-items-center gap-3">
                 <div className="st-card-icon-orange"><Brain size={22} /></div>
                 <p className="st-card-text mb-0">Is your workforce prepared for AI adoption?</p>
               </div>
             </div>
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6" ref={el => assessmentRefs.current[1] = el}>
               <div className="st-card torch-glow-card flex-row align-items-center gap-3">
                 <div className="st-card-icon-orange"><Database size={22} /></div>
                 <p className="st-card-text mb-0">Are teams ready for SAP S/4HANA optimization?</p>
               </div>
             </div>
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6" ref={el => assessmentRefs.current[2] = el}>
               <div className="st-card torch-glow-card flex-row align-items-center gap-3">
                 <div className="st-card-icon-orange"><TrendingUp size={22} /></div>
                 <p className="st-card-text mb-0">Is data literacy a challenge in your organization?</p>
               </div>
             </div>
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6" ref={el => assessmentRefs.current[3] = el}>
               <div className="st-card torch-glow-card flex-row align-items-center gap-3">
                 <div className="st-card-icon-orange"><Target size={22} /></div>
                 <p className="st-card-text mb-0">Do you need role-specific training for immediate impact?</p>
@@ -151,7 +228,7 @@ export default function EnterpriseTraining() {
           </div>
 
           <div className="row g-4 justify-content-center">
-            <div className="col-12 col-md-4">
+            <div className="col-12 col-md-4" ref={el => offeringRefs.current[0] = el}>
               <div className="st-card torch-glow-card h-100">
                 <div className="st-card-icon-blue mb-4 d-inline-flex"><Brain size={24} /></div>
                 <h3 className="st-card-title mb-3">AI Enablement Workshops</h3>
@@ -164,7 +241,7 @@ export default function EnterpriseTraining() {
               </div>
             </div>
             
-            <div className="col-12 col-md-4">
+            <div className="col-12 col-md-4" ref={el => offeringRefs.current[1] = el}>
               <div className="st-card torch-glow-card h-100">
                 <div className="st-card-icon-blue mb-4 d-inline-flex"><Database size={24} /></div>
                 <h3 className="st-card-title mb-3">SAP Proficiency Programs</h3>
@@ -177,7 +254,7 @@ export default function EnterpriseTraining() {
               </div>
             </div>
 
-            <div className="col-12 col-md-4">
+            <div className="col-12 col-md-4" ref={el => offeringRefs.current[2] = el}>
               <div className="st-card torch-glow-card h-100">
                 <div className="st-card-icon-blue mb-4 d-inline-flex"><BarChart3 size={24} /></div>
                 <h3 className="st-card-title mb-3">BI & Data Literacy Workshops</h3>
@@ -206,28 +283,28 @@ export default function EnterpriseTraining() {
           </div>
 
           <div className="row g-4 justify-content-center text-center mb-5 pb-5">
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => formatRefs.current[0] = el}>
               <div className="st-card torch-glow-card align-items-center h-100">
                 <div className="st-card-icon-blue st-card-icon-center"><Monitor size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>Live Virtual Classrooms</h3>
                 <p className="st-card-text" style={{ fontSize: '0.9rem' }}>Interactive online sessions with real-time collaboration</p>
               </div>
             </div>
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => formatRefs.current[1] = el}>
               <div className="st-card torch-glow-card align-items-center h-100">
                 <div className="st-card-icon-blue st-card-icon-center"><Users size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>In-Person Bootcamps</h3>
                 <p className="st-card-text" style={{ fontSize: '0.9rem' }}>Intensive hands-on training at your location or ours</p>
               </div>
             </div>
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => formatRefs.current[2] = el}>
               <div className="st-card torch-glow-card align-items-center h-100">
                 <div className="st-card-icon-blue st-card-icon-center"><Settings size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>Customized Modules</h3>
                 <p className="st-card-text" style={{ fontSize: '0.9rem' }}>Tailored content to meet your specific business needs</p>
               </div>
             </div>
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => formatRefs.current[3] = el}>
               <div className="st-card torch-glow-card align-items-center h-100">
                 <div className="st-card-icon-blue st-card-icon-center"><BookOpen size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>LMS-Enabled Self-Paced Courses</h3>
@@ -248,28 +325,28 @@ export default function EnterpriseTraining() {
           </div>
 
           <div className="row g-4 justify-content-center text-center">
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => advantageRefs.current[0] = el}>
               <div className="st-card torch-glow-card align-items-center h-100">
                 <div className="st-card-icon-blue st-card-icon-center"><Award size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>Expert Instructors</h3>
                 <p className="st-card-text" style={{ fontSize: '0.9rem' }}>Certified professionals with real-world implementation experience</p>
               </div>
             </div>
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => advantageRefs.current[1] = el}>
               <div className="st-card torch-glow-card align-items-center h-100">
                 <div className="st-card-icon-blue st-card-icon-center"><Target size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>Industry-Aligned Curriculum</h3>
                 <p className="st-card-text" style={{ fontSize: '0.9rem' }}>Content designed to meet current market demands and best practices</p>
               </div>
             </div>
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => advantageRefs.current[2] = el}>
               <div className="st-card torch-glow-card align-items-center h-100">
                 <div className="st-card-icon-blue st-card-icon-center"><Focus size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>Practical Application Focus</h3>
                 <p className="st-card-text" style={{ fontSize: '0.9rem' }}>Hands-on exercises and real project scenarios for immediate impact</p>
               </div>
             </div>
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => advantageRefs.current[3] = el}>
               <div className="st-card torch-glow-card align-items-center h-100">
                 <div className="st-card-icon-blue st-card-icon-center"><Headphones size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>Post-Training Support</h3>
@@ -283,7 +360,7 @@ export default function EnterpriseTraining() {
       {/* FINAL CTA SECTION */}
       <section className="st-section st-section-alt" style={{ paddingBottom: '8rem' }}>
         <div className="container">
-          <div className="st-banner" style={{ marginTop: 0, padding: '4rem 2rem' }}>
+          <div className="st-banner" style={{ marginTop: 0, padding: '4rem 2rem' }} ref={bannerRef}>
             <h2 className="st-banner-title" style={{ fontSize: '2.2rem', marginBottom: '1.5rem' }}>
               Invest in Your People
             </h2>

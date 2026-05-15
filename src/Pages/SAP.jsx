@@ -1,16 +1,93 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import {
   AlertTriangle, Cloud, Database, Zap, MapPin, Brain, Headphones, CheckCircle2, ArrowRight,
   Shield, Rocket, Settings, Trophy, Users, Award, Target, Download
 } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SAP() {
   const [activeTab, setActiveTab] = useState(1);
+  const heroRef = useRef(null);
+  const assessmentRefs = useRef([]);
+  const capabilityRef = useRef(null);
+  const modelRefs = useRef([]);
+  const proofRefs = useRef([]);
+  const ctaRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    if (heroRef.current) {
+      gsap.fromTo(heroRef.current.children,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power3.out" }
+      );
+    }
+
+    assessmentRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.8, delay: index * 0.15, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    if (capabilityRef.current) {
+      gsap.fromTo(capabilityRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
+          scrollTrigger: { trigger: capabilityRef.current, start: "top 80%", toggleActions: "play none none reverse" }
+        }
+      );
+    }
+
+    modelRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, scale: 0.95 },
+          {
+            opacity: 1, scale: 1, duration: 0.8, delay: index * 0.15, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    proofRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1, y: 0, duration: 0.8, delay: index * 0.15, ease: "back.out(1.2)",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    if (ctaRef.current) {
+      gsap.fromTo(ctaRef.current,
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1, scale: 1, duration: 0.8, ease: "power2.out",
+          scrollTrigger: { trigger: ctaRef.current, start: "top 85%", toggleActions: "play none none reverse" }
+        }
+      );
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   return (
@@ -34,7 +111,7 @@ export default function SAP() {
         </div>
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="why-header">
+          <div className="why-header" ref={heroRef}>
             <div className="competitive-badge">
               <Award size={14} /> SAP Digital Core & Cloud
             </div>
@@ -68,7 +145,7 @@ export default function SAP() {
 
           <div className="row g-4 justify-content-center mt-4">
             {/* Card 1 */}
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6" ref={el => assessmentRefs.current[0] = el}>
               <div className="sap-assessment-card">
                 <div className="sap-icon-box sap-icon-orange">
                   <AlertTriangle size={20} />
@@ -79,7 +156,7 @@ export default function SAP() {
               </div>
             </div>
             {/* Card 2 */}
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6" ref={el => assessmentRefs.current[1] = el}>
               <div className="sap-assessment-card">
                 <div className="sap-icon-box sap-icon-orange">
                   <Cloud size={20} />
@@ -90,7 +167,7 @@ export default function SAP() {
               </div>
             </div>
             {/* Card 3 */}
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6" ref={el => assessmentRefs.current[2] = el}>
               <div className="sap-assessment-card">
                 <div className="sap-icon-box sap-icon-orange">
                   <Database size={20} />
@@ -101,7 +178,7 @@ export default function SAP() {
               </div>
             </div>
             {/* Card 4 */}
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6" ref={el => assessmentRefs.current[3] = el}>
               <div className="sap-assessment-card">
                 <div className="sap-icon-box sap-icon-orange">
                   <Zap size={20} />
@@ -116,7 +193,7 @@ export default function SAP() {
       </section>
 
       {/* CAPABILITIES TABS SECTION */}
-      <section className="sap-capabilities-section">
+      <section className="sap-capabilities-section" ref={capabilityRef}>
         <div className="container">
           <div className="text-center mb-5">
             <div className="sap-badge sap-badge-blue mx-auto mb-3">Core SAP Excellence</div>
@@ -319,7 +396,7 @@ export default function SAP() {
 
           <div className="row g-4 justify-content-center mt-4">
             {/* Model 1 */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => modelRefs.current[0] = el}>
               <div className="sap-model-card sap-model-card-1">
                 <div className="sap-model-icon-box sap-model-icon-box-1 mx-auto mb-4">
                   <Shield size={24} color="white" />
@@ -336,7 +413,7 @@ export default function SAP() {
             </div>
 
             {/* Model 2 */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => modelRefs.current[1] = el}>
               <div className="sap-model-card sap-model-card-2">
                 <div className="sap-model-icon-box sap-model-icon-box-2 mx-auto mb-4">
                   <Zap size={24} color="white" />
@@ -354,7 +431,7 @@ export default function SAP() {
             </div>
 
             {/* Model 3 */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => modelRefs.current[2] = el}>
               <div className="sap-model-card sap-model-card-3">
                 <div className="sap-model-icon-box sap-model-icon-box-3 mx-auto mb-4">
                   <Rocket size={24} color="white" />
@@ -372,7 +449,7 @@ export default function SAP() {
             </div>
 
             {/* Model 4 */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => modelRefs.current[3] = el}>
               <div className="sap-model-card sap-model-card-4">
                 <div className="sap-model-icon-box sap-model-icon-box-4 mx-auto mb-4">
                   <Settings size={24} color="white" />
@@ -407,7 +484,7 @@ export default function SAP() {
 
           <div className="row g-4 justify-content-center mt-4">
             {/* Stat Card 1 */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => proofRefs.current[0] = el}>
               <div className="sap-proof-card">
                 <div className="sap-proof-icon-box mx-auto mb-4">
                   <Trophy size={28} color="white" />
@@ -418,7 +495,7 @@ export default function SAP() {
             </div>
 
             {/* Stat Card 2 */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => proofRefs.current[1] = el}>
               <div className="sap-proof-card">
                 <div className="sap-proof-icon-box mx-auto mb-4">
                   <Users size={28} color="white" />
@@ -429,7 +506,7 @@ export default function SAP() {
             </div>
 
             {/* Stat Card 3 */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => proofRefs.current[2] = el}>
               <div className="sap-proof-card">
                 <div className="sap-proof-icon-box mx-auto mb-4">
                   <Award size={28} color="white" />
@@ -440,7 +517,7 @@ export default function SAP() {
             </div>
 
             {/* Stat Card 4 */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3" ref={el => proofRefs.current[3] = el}>
               <div className="sap-proof-card">
                 <div className="sap-proof-icon-box mx-auto mb-4">
                   <Target size={28} color="white" />
@@ -456,7 +533,7 @@ export default function SAP() {
       {/* CTA SECTION (DARK) */}
       <section className="sap-cta-section">
         <div className="container">
-          <div className="sap-cta-card">
+          <div className="sap-cta-card" ref={ctaRef}>
             <h2 className="sap-cta-title">Ready to Transform Your SAP Landscape into an Engine for Growth?</h2>
             <p className="sap-cta-desc mx-auto">
               Discuss your SAP challenges and modernization goals with our certified experts. Let us show you how to turn your SAP investment into a strategic advantage.

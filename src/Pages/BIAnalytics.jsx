@@ -47,7 +47,7 @@ export default function BIAnalytics() {
 
     const ctx = gsap.context(() => {
       // Hero Animations
-      gsap.from(".bi-header > *", {
+      gsap.from(".why-header > *", {
         y: 30,
         opacity: 0,
         duration: 1,
@@ -81,6 +81,29 @@ export default function BIAnalytics() {
             start: "top 85%"
           }
         });
+      });
+
+      // Services Stagger
+      gsap.from(".service-v2-card", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".services-v2-list",
+          start: "top 80%"
+        }
+      });
+
+      // Differentiator Animation
+      gsap.from(".diff-v2-box", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: ".diff-v2-box",
+          start: "top 85%"
+        }
       });
 
       // Case Study Stagger
