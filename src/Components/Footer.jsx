@@ -1,16 +1,16 @@
 import React from 'react';
-import { 
-  Globe, 
-  ChevronDown, 
-  Users, 
-  Send, 
-  Play, 
-  Camera, 
+import {
+  Globe,
+  ChevronDown,
+  Users,
+  Send,
+  Play,
+  Camera,
   GitBranch,
   MessageSquare
 } from 'lucide-react';
 import logo from "../assets/Intime.png";
-import logoLight from "../assets/Intime Light.png";
+import logoLight from "../assets/Intime Light.png"; ""
 
 export default function Footer() {
   const theme = document.documentElement.getAttribute("data-theme") || "dark";
@@ -21,10 +21,10 @@ export default function Footer() {
         {/* Top Footer: Logo and Tagline */}
         <div className="footer-top">
           <div className="footer-brand">
-            <img 
-              src={theme === 'light' ? logoLight : logo} 
-              alt="InTime Logo" 
-              className="footer-logo" 
+            <img
+              src={theme === 'light' ? logoLight : logo}
+              alt="InTime Logo"
+              className="footer-logo"
             />
             <p className="footer-tagline">Architects of the Autonomous Enterprise</p>
           </div>
@@ -115,7 +115,7 @@ export default function Footer() {
             <p>COPYRIGHT</p>
             <span>2026 © Intime. All rights reserved.</span>
           </div>
-          
+
           <div className="footer-locations">
             <p>LOCATIONS</p>
             <div className="location-list">
