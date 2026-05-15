@@ -34,54 +34,67 @@ export default function EnterpriseTraining() {
     <div className="page-wrapper" ref={contentRef}>
       <Navbar />
       
-      <main 
-        className="hero-section text-center" 
-        style={{ 
-          background: 'radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%)' 
-        }}
-      >
-        <div className="container">
-          <div className="hero-content mx-auto d-flex flex-column align-items-center">
-            <p className="hero-label d-flex align-items-center gap-2 justify-content-center">
-              <GraduationCap size={16} /> Enterprise Training & Capability Building
-            </p>
-            
-            <h1 className="hero-title">
-              Empower Your Workforce: <br />
-              <span className="gradient-text" style={{ background: 'linear-gradient(90deg, #4ade80, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Master Tomorrow's</span> <br />
-              Technologies
-            </h1>
+        {/* HERO SECTION */}
+        <section className="why-hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: '80px', paddingBottom: '40px' }}>
+          
+          {/* Abstract Ambient Background */}
+          <div className="boss-ambient-bg" style={{ opacity: 0.5 }}></div>
+          <div className="boss-glow-orb orb-1" style={{ background: 'rgba(59, 130, 246, 0.12)' }}></div>
+          <div className="boss-glow-orb orb-2" style={{ background: 'rgba(16, 185, 129, 0.08)' }}></div>
+          <div className="boss-glow-orb orb-3" style={{ background: 'rgba(0, 210, 255, 0.1)' }}></div>
+          
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.15, pointerEvents: 'none', width: '100%', height: '100%' }}>
+            <div className="visual-ring ring-1" style={{ width: '800px', height: '800px', borderStyle: 'dashed', borderColor: 'rgba(59, 130, 246, 0.4)' }}></div>
+            <div className="visual-ring ring-2" style={{ width: '600px', height: '600px', borderColor: 'rgba(16, 185, 129, 0.3)' }}></div>
+            <div className="visual-ring ring-3" style={{ width: '400px', height: '400px', borderStyle: 'dashed', borderColor: 'rgba(0, 210, 255, 0.4)' }}></div>
+            <div className="visual-ring" style={{ width: '1000px', height: '1000px', animation: 'spin 30s linear infinite reverse', border: '1px solid rgba(255,255,255,0.05)' }}></div>
+          </div>
 
-            <p className="hero-description text-center" style={{ maxWidth: '800px' }}>
-              InTime's training programs transform teams into innovators, mastering AI, SAP, and BI technologies for competitive advantage.
-            </p>
-
-            <div className="hero-action d-flex align-items-center gap-4 flex-wrap justify-content-center">
-              <a href="#" className="nav-cta-btn hero-cta" style={{ background: 'linear-gradient(90deg, #10b981, #3b82f6)', border: 'none' }}>
-                <Users size={20} className="me-2" /> Explore Training Programs <span className="arrow">→</span>
-              </a>
-              <a href="#" className="perspective-cta" style={{ borderBottom: 'none' }}>
-                Get Our Training Guide <span className="arrow">→</span>
-              </a>
-            </div>
-
-            <div className="trusted-stats d-flex gap-5 mt-5 pt-3 flex-wrap justify-content-center">
-              <div>
-                <span className="stat-number" style={{ fontSize: '2.5rem', color: '#4ade80' }}>40%</span>
-                <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem' }}>ADOPTION BOOST</p>
+          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="why-header text-center mx-auto" style={{ maxWidth: '900px' }}>
+              <div className="competitive-badge" style={{ margin: '0 auto 1.5rem' }}>
+                <GraduationCap size={14} /> Enterprise Training & Capability Building
               </div>
-              <div>
-                <span className="stat-number" style={{ fontSize: '2.5rem', color: '#3b82f6' }}>500+</span>
-                <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem' }}>PROFESSIONALS TRAINED</p>
+              <h1 className="why-title">
+                Empower Your Workforce: <br />
+                <span className="gradient-text" style={{ fontWeight: 'bold' }}>Master Tomorrow's Technologies</span>
+              </h1>
+              <p className="why-subtitle">
+                InTime's training programs transform teams into innovators, mastering AI, SAP, and BI technologies for competitive advantage.
+              </p>
+              
+              <div className="trusted-stats d-flex gap-5 mt-5 pt-3 flex-wrap justify-content-center">
+                <div>
+                  <span className="stat-number" style={{ fontSize: '2.5rem' }}>40%</span>
+                  <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem', opacity: 0.8 }}>ADOPTION BOOST</p>
+                </div>
+                <div>
+                  <span className="stat-number" style={{ fontSize: '2.5rem' }}>500+</span>
+                  <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem', opacity: 0.8 }}>PROFESSIONALS TRAINED</p>
+                </div>
+                <div>
+                  <span className="stat-number gradient-text" style={{ fontSize: '2.5rem' }}>95%</span>
+                  <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem', opacity: 0.8 }}>SATISFACTION RATE</p>
+                </div>
               </div>
-              <div>
-                <span className="stat-number" style={{ fontSize: '2.5rem', color: '#06b6d4' }}>95%</span>
-                <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem' }}>SATISFACTION RATE</p>
+
+              <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center mt-5">
+                <a href="#" className="nav-cta-btn hero-cta text-center">
+                  Explore Training Programs <span className="arrow">→</span>
+                </a>
+                <a href="#" className="nav-cta-btn hero-cta text-center" style={{ 
+                  background: 'rgba(255, 255, 255, 0.05)', 
+                  backdropFilter: 'blur(10px)', 
+                  border: '1px solid rgba(255, 255, 255, 0.1)', 
+                  color: 'white',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+                }}>
+                  Get Our Training Guide
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </main>
+        </section>
 
       <div className="section-separator"></div>
 
@@ -91,7 +104,7 @@ export default function EnterpriseTraining() {
           <div className="section-header text-center mb-5">
             <h2 className="section-title">
               Is Your Organization <br />
-              <span className="gradient-text" style={{ background: 'linear-gradient(90deg, #4ade80, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Equipped to Thrive?</span>
+              <span className="gradient-text">Equipped to Thrive?</span>
             </h2>
           </div>
           
@@ -130,7 +143,7 @@ export default function EnterpriseTraining() {
           <div className="section-header text-center mb-5">
             <h2 className="section-title">
               Our Key Enterprise <br />
-              <span className="gradient-text" style={{ background: 'linear-gradient(90deg, #4ade80, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Training Offerings</span>
+              <span className="gradient-text">Training Offerings</span>
             </h2>
             <p className="section-subtitle mt-3">
               Our trainers are SAP/AI practitioners, unlike academic providers, bringing real-world experience to every session.
@@ -140,39 +153,39 @@ export default function EnterpriseTraining() {
           <div className="row g-4 justify-content-center">
             <div className="col-12 col-md-4">
               <div className="st-card torch-glow-card h-100">
-                <div className="st-card-icon-blue mb-4 d-inline-flex" style={{ background: 'linear-gradient(135deg, #10b981, #3b82f6)' }}><Brain size={24} color="white" /></div>
+                <div className="st-card-icon-blue mb-4 d-inline-flex"><Brain size={24} /></div>
                 <h3 className="st-card-title mb-3">AI Enablement Workshops</h3>
                 <p className="st-card-text mb-3">
-                  <span style={{color: '#4ade80', fontWeight: 600}}>Focus:</span> Demystifying AI for business benefits
+                  <span style={{color: '#a070ff', fontWeight: 600}}>Focus:</span> Demystifying AI for business benefits
                 </p>
                 <p className="st-card-text">
-                  <span style={{color: '#3b82f6', fontWeight: 600}}>Modules:</span> AI for executives and teams, practical implementation strategies
+                  <span style={{color: '#a070ff', fontWeight: 600}}>Modules:</span> AI for executives and teams, practical implementation strategies
                 </p>
               </div>
             </div>
             
             <div className="col-12 col-md-4">
               <div className="st-card torch-glow-card h-100">
-                <div className="st-card-icon-blue mb-4 d-inline-flex" style={{ background: 'linear-gradient(135deg, #10b981, #3b82f6)' }}><Database size={24} color="white" /></div>
+                <div className="st-card-icon-blue mb-4 d-inline-flex"><Database size={24} /></div>
                 <h3 className="st-card-title mb-3">SAP Proficiency Programs</h3>
                 <p className="st-card-text mb-3">
-                  <span style={{color: '#4ade80', fontWeight: 600}}>Focus:</span> Maximizing SAP S/4HANA value
+                  <span style={{color: '#a070ff', fontWeight: 600}}>Focus:</span> Maximizing SAP S/4HANA value
                 </p>
                 <p className="st-card-text">
-                  <span style={{color: '#3b82f6', fontWeight: 600}}>Modules:</span> Pre-implementation, end-user, post-implementation training
+                  <span style={{color: '#a070ff', fontWeight: 600}}>Modules:</span> Pre-implementation, end-user, post-implementation training
                 </p>
               </div>
             </div>
 
             <div className="col-12 col-md-4">
               <div className="st-card torch-glow-card h-100">
-                <div className="st-card-icon-blue mb-4 d-inline-flex" style={{ background: 'linear-gradient(135deg, #10b981, #3b82f6)' }}><BarChart3 size={24} color="white" /></div>
+                <div className="st-card-icon-blue mb-4 d-inline-flex"><BarChart3 size={24} /></div>
                 <h3 className="st-card-title mb-3">BI & Data Literacy Workshops</h3>
                 <p className="st-card-text mb-3">
-                  <span style={{color: '#4ade80', fontWeight: 600}}>Focus:</span> Building a data-driven culture
+                  <span style={{color: '#a070ff', fontWeight: 600}}>Focus:</span> Building a data-driven culture
                 </p>
                 <p className="st-card-text">
-                  <span style={{color: '#3b82f6', fontWeight: 600}}>Modules:</span> Power BI, data storytelling, data literacy fundamentals
+                  <span style={{color: '#a070ff', fontWeight: 600}}>Modules:</span> Power BI, data storytelling, data literacy fundamentals
                 </p>
               </div>
             </div>
@@ -185,7 +198,7 @@ export default function EnterpriseTraining() {
         <div className="container">
           <div className="section-header text-center mb-5">
             <h2 className="section-title">
-              Flexible <span className="gradient-text" style={{ background: 'linear-gradient(90deg, #4ade80, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Delivery Formats</span>
+              Flexible <span className="gradient-text">Delivery Formats</span>
             </h2>
             <p className="section-subtitle mt-3">
               Scale training for projects of any size with our versatile delivery options.
@@ -227,7 +240,7 @@ export default function EnterpriseTraining() {
 
           <div className="section-header text-center mb-5 mt-5 pt-5">
             <h2 className="section-title">
-              The InTime <span className="gradient-text" style={{ background: 'linear-gradient(90deg, #4ade80, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Training Advantage</span>
+              The InTime <span className="gradient-text">Training Advantage</span>
             </h2>
             <p className="section-subtitle mt-3">
               Our training boosts adoption by 40% through proven methodologies and expert guidance.
@@ -237,28 +250,28 @@ export default function EnterpriseTraining() {
           <div className="row g-4 justify-content-center text-center">
             <div className="col-12 col-md-6 col-lg-3">
               <div className="st-card torch-glow-card align-items-center h-100">
-                <div className="st-card-icon-blue st-card-icon-center" style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}><Award size={24} color="white" /></div>
+                <div className="st-card-icon-blue st-card-icon-center"><Award size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>Expert Instructors</h3>
                 <p className="st-card-text" style={{ fontSize: '0.9rem' }}>Certified professionals with real-world implementation experience</p>
               </div>
             </div>
             <div className="col-12 col-md-6 col-lg-3">
               <div className="st-card torch-glow-card align-items-center h-100">
-                <div className="st-card-icon-blue st-card-icon-center" style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}><Target size={24} color="white" /></div>
+                <div className="st-card-icon-blue st-card-icon-center"><Target size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>Industry-Aligned Curriculum</h3>
                 <p className="st-card-text" style={{ fontSize: '0.9rem' }}>Content designed to meet current market demands and best practices</p>
               </div>
             </div>
             <div className="col-12 col-md-6 col-lg-3">
               <div className="st-card torch-glow-card align-items-center h-100">
-                <div className="st-card-icon-blue st-card-icon-center" style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}><Focus size={24} color="white" /></div>
+                <div className="st-card-icon-blue st-card-icon-center"><Focus size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>Practical Application Focus</h3>
                 <p className="st-card-text" style={{ fontSize: '0.9rem' }}>Hands-on exercises and real project scenarios for immediate impact</p>
               </div>
             </div>
             <div className="col-12 col-md-6 col-lg-3">
               <div className="st-card torch-glow-card align-items-center h-100">
-                <div className="st-card-icon-blue st-card-icon-center" style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}><Headphones size={24} color="white" /></div>
+                <div className="st-card-icon-blue st-card-icon-center"><Headphones size={24} /></div>
                 <h3 className="st-card-title" style={{ fontSize: '1.1rem' }}>Post-Training Support</h3>
                 <p className="st-card-text" style={{ fontSize: '0.9rem' }}>Ongoing mentorship and resources to ensure successful implementation</p>
               </div>
@@ -270,18 +283,18 @@ export default function EnterpriseTraining() {
       {/* FINAL CTA SECTION */}
       <section className="st-section st-section-alt" style={{ paddingBottom: '8rem' }}>
         <div className="container">
-          <div className="st-banner" style={{ marginTop: 0, padding: '4rem 2rem', background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)', border: '1px solid #bbf7d0', boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
-            <h2 className="st-banner-title" style={{ fontSize: '2.2rem', marginBottom: '1.5rem', color: '#064e3b' }}>
+          <div className="st-banner" style={{ marginTop: 0, padding: '4rem 2rem' }}>
+            <h2 className="st-banner-title" style={{ fontSize: '2.2rem', marginBottom: '1.5rem' }}>
               Invest in Your People
             </h2>
-            <p className="st-banner-text mx-auto" style={{ maxWidth: '800px', fontSize: '1.1rem', marginBottom: '2.5rem', color: '#065f46' }}>
+            <p className="st-banner-text mx-auto" style={{ maxWidth: '800px', fontSize: '1.1rem', marginBottom: '2.5rem' }}>
               Elevate capabilities with our comprehensive training programs. Transform your workforce into technology leaders who drive innovation and competitive advantage.
             </p>
             <div className="d-flex align-items-center justify-content-center gap-4 flex-wrap">
-              <a href="#" className="btn rounded-pill px-4 py-3 d-flex align-items-center gap-2" style={{ fontWeight: 600, background: '#10b981', color: 'white', border: 'none', boxShadow: '0 4px 6px rgba(16,185,129,0.2)' }}>
+              <a href="#" className="btn btn-light rounded-pill px-4 py-3 d-flex align-items-center gap-2" style={{ fontWeight: 600, border: 'none', color: '#000' }}>
                 <Users size={18} /> Request a Training Consultation <span className="arrow">→</span>
               </a>
-              <a href="#" className="btn rounded-pill px-4 py-3 d-flex align-items-center gap-2" style={{ fontWeight: 600, background: 'transparent', color: '#064e3b', border: '1px solid rgba(6,78,59,0.3)' }}>
+              <a href="#" className="btn btn-dark rounded-pill px-4 py-3 d-flex align-items-center gap-2" style={{ fontWeight: 600, border: '1px solid rgba(255,255,255,0.2)' }}>
                 <FileText size={18} /> Download Training Catalog
               </a>
             </div>

@@ -339,6 +339,10 @@ body {
 
 .hero-cta { padding: 16px 36px; font-size: 1.1rem; }
 
+@media (max-width: 768px) {
+  .hero-cta { padding: 12px 24px; font-size: 0.95rem; }
+}
+
 .nav-cta-btn::before {
   content: "";
   position: absolute;
@@ -1087,6 +1091,10 @@ body {
   border-bottom: 2px solid var(--grad-mid);
   padding-bottom: 6px;
   transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .perspective-cta { font-size: 0.9rem; gap: 6px; }
 }
 
 .perspective-cta:hover {
@@ -6852,9 +6860,9 @@ body {
 
 .boss-secondary-btn {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   color: var(--text-white);
-  padding: 14px 32px;
+  padding: 16px 36px;
   border-radius: 50px;
   font-size: 1.1rem;
   font-weight: 500;
@@ -6864,6 +6872,20 @@ body {
 .boss-secondary-btn:hover {
   border-color: var(--icon-blue);
   background: rgba(0, 168, 253, 0.05);
+}
+
+@media (max-width: 768px) {
+  .boss-secondary-btn { padding: 12px 24px; font-size: 0.95rem; }
+}
+
+:root[data-theme='light'] .boss-secondary-btn {
+  color: #0f172a;
+  border-color: rgba(0,0,0,0.2);
+}
+
+:root[data-theme='light'] .boss-secondary-btn:hover {
+  border-color: rgba(0, 114, 255, 0.4);
+  background: rgba(0, 114, 255, 0.05);
 }
 
 .boss-neural-graphic {

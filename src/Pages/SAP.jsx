@@ -19,13 +19,13 @@ export default function SAP() {
 
       {/* HERO SECTION */}
       <section className="why-hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: '80px', paddingBottom: '40px' }}>
-        
+
         {/* Abstract SAP Background */}
         <div className="boss-ambient-bg" style={{ opacity: 0.5 }}></div>
         <div className="boss-glow-orb orb-1" style={{ background: 'rgba(14, 165, 233, 0.12)' }}></div>
         <div className="boss-glow-orb orb-2" style={{ background: 'rgba(139, 92, 246, 0.08)' }}></div>
         <div className="boss-glow-orb orb-3" style={{ background: 'rgba(249, 115, 22, 0.1)' }}></div>
-        
+
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.15, pointerEvents: 'none', width: '100%', height: '100%' }}>
           <div className="visual-ring ring-1" style={{ width: '800px', height: '800px', borderStyle: 'dashed', borderColor: 'rgba(14, 165, 233, 0.4)' }}></div>
           <div className="visual-ring ring-2" style={{ width: '600px', height: '600px', borderColor: 'rgba(139, 92, 246, 0.3)' }}></div>

@@ -34,52 +34,67 @@ export default function StrategicTech() {
     <div className="page-wrapper" ref={contentRef}>
       <Navbar />
       
-      <main 
-        className="hero-section text-center" 
-        style={{ backgroundImage: 'none' }}
-      >
-        <div className="container">
-          <div className="hero-content mx-auto d-flex flex-column align-items-center">
-            <p className="hero-label d-flex align-items-center gap-2 justify-content-center">
-              <Users size={16} /> ELITE TECHNOLOGY TALENT NETWORK
-            </p>
-            
-            <h1 className="hero-title">
-              Elite Technology Talent: <br />
-              <span className="gradient-text">Your On-Demand Engine</span> <br />
-              for Innovation
-            </h1>
+        {/* HERO SECTION */}
+        <section className="why-hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: '80px', paddingBottom: '40px' }}>
+          
+          {/* Abstract Ambient Background */}
+          <div className="boss-ambient-bg" style={{ opacity: 0.5 }}></div>
+          <div className="boss-glow-orb orb-1" style={{ background: 'rgba(59, 130, 246, 0.12)' }}></div>
+          <div className="boss-glow-orb orb-2" style={{ background: 'rgba(16, 185, 129, 0.08)' }}></div>
+          <div className="boss-glow-orb orb-3" style={{ background: 'rgba(0, 210, 255, 0.1)' }}></div>
+          
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.15, pointerEvents: 'none', width: '100%', height: '100%' }}>
+            <div className="visual-ring ring-1" style={{ width: '800px', height: '800px', borderStyle: 'dashed', borderColor: 'rgba(59, 130, 246, 0.4)' }}></div>
+            <div className="visual-ring ring-2" style={{ width: '600px', height: '600px', borderColor: 'rgba(16, 185, 129, 0.3)' }}></div>
+            <div className="visual-ring ring-3" style={{ width: '400px', height: '400px', borderStyle: 'dashed', borderColor: 'rgba(0, 210, 255, 0.4)' }}></div>
+            <div className="visual-ring" style={{ width: '1000px', height: '1000px', animation: 'spin 30s linear infinite reverse', border: '1px solid rgba(255,255,255,0.05)' }}></div>
+          </div>
 
-            <p className="hero-description text-center" style={{ maxWidth: '800px' }}>
-              InTime provides deeply vetted SAP, AI, and BI experts to accelerate your projects and deliver measurable outcomes from day one.
-            </p>
-
-            <div className="hero-action d-flex align-items-center gap-4 flex-wrap justify-content-center">
-              <a href="#" className="nav-cta-btn hero-cta">
-                <Target size={20} className="me-2" /> Submit Your Talent Requirement <span className="arrow">→</span>
-              </a>
-              <a href="#" className="perspective-cta" style={{ borderBottom: 'none' }}>
-                Learn About Our Vetting Process <span className="arrow">→</span>
-              </a>
-            </div>
-
-            <div className="trusted-stats d-flex gap-5 mt-5 pt-3 flex-wrap justify-content-center">
-              <div>
-                <span className="stat-number" style={{ fontSize: '2.5rem' }}>95%</span>
-                <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem' }}>CLIENT RETENTION</p>
+          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="why-header text-center mx-auto" style={{ maxWidth: '900px' }}>
+              <div className="competitive-badge" style={{ margin: '0 auto 1.5rem' }}>
+                <Users size={14} /> ELITE TECHNOLOGY TALENT NETWORK
               </div>
-              <div>
-                <span className="stat-number" style={{ fontSize: '2.5rem' }}>48hrs</span>
-                <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem' }}>AVERAGE DEPLOYMENT</p>
+              <h1 className="why-title">
+                Elite Technology Talent: <br />
+                <span className="gradient-text" style={{ fontWeight: 'bold' }}>Your On-Demand Engine for Innovation</span>
+              </h1>
+              <p className="why-subtitle">
+                InTime provides deeply vetted SAP, AI, and BI experts to accelerate your projects and deliver measurable outcomes from day one.
+              </p>
+              
+              <div className="trusted-stats d-flex gap-5 mt-5 pt-3 flex-wrap justify-content-center">
+                <div>
+                  <span className="stat-number" style={{ fontSize: '2.5rem' }}>95%</span>
+                  <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem', opacity: 0.8 }}>CLIENT RETENTION</p>
+                </div>
+                <div>
+                  <span className="stat-number" style={{ fontSize: '2.5rem' }}>48hrs</span>
+                  <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem', opacity: 0.8 }}>AVERAGE DEPLOYMENT</p>
+                </div>
+                <div>
+                  <span className="stat-number gradient-text" style={{ fontSize: '2.5rem' }}>500+</span>
+                  <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem', opacity: 0.8 }}>ELITE EXPERTS</p>
+                </div>
               </div>
-              <div>
-                <span className="stat-number gradient-text" style={{ fontSize: '2.5rem' }}>500+</span>
-                <p className="hero-label mb-0 mt-2" style={{ fontSize: '0.8rem' }}>ELITE EXPERTS</p>
+
+              <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center mt-5">
+                <a href="#" className="nav-cta-btn hero-cta text-center">
+                  Submit Your Talent Requirement <span className="arrow">→</span>
+                </a>
+                <a href="#" className="nav-cta-btn hero-cta text-center" style={{ 
+                  background: 'rgba(255, 255, 255, 0.05)', 
+                  backdropFilter: 'blur(10px)', 
+                  border: '1px solid rgba(255, 255, 255, 0.1)', 
+                  color: 'white',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+                }}>
+                  Learn About Our Vetting Process
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </main>
+        </section>
 
       <div className="section-separator"></div>
 
