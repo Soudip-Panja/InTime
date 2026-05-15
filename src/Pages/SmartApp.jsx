@@ -140,22 +140,38 @@ export default function SmartApp() {
       <Navbar />
 
       <main className="sa-main-content">
-        {/* Hero Section */}
-        <section className="sa-hero-section">
-          <div className="container">
-            <div className="sa-header">
-              <div className="unified-section-label mx-auto mb-3">🚀 Smart Application Development & Modernization</div>
-              <h1 className="sa-title">
+        {/* HERO SECTION */}
+        <section className="why-hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: '80px', paddingBottom: '40px' }}>
+          
+          {/* Abstract Smart App Background */}
+          <div className="boss-ambient-bg" style={{ opacity: 0.5 }}></div>
+          <div className="boss-glow-orb orb-1" style={{ background: 'rgba(59, 130, 246, 0.12)' }}></div>
+          <div className="boss-glow-orb orb-2" style={{ background: 'rgba(16, 185, 129, 0.08)' }}></div>
+          <div className="boss-glow-orb orb-3" style={{ background: 'rgba(0, 210, 255, 0.1)' }}></div>
+          
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.15, pointerEvents: 'none', width: '100%', height: '100%' }}>
+            <div className="visual-ring ring-1" style={{ width: '800px', height: '800px', borderStyle: 'dashed', borderColor: 'rgba(59, 130, 246, 0.4)' }}></div>
+            <div className="visual-ring ring-2" style={{ width: '600px', height: '600px', borderColor: 'rgba(16, 185, 129, 0.3)' }}></div>
+            <div className="visual-ring ring-3" style={{ width: '400px', height: '400px', borderStyle: 'dashed', borderColor: 'rgba(0, 210, 255, 0.4)' }}></div>
+            <div className="visual-ring" style={{ width: '1000px', height: '1000px', animation: 'spin 30s linear infinite reverse', border: '1px solid rgba(255,255,255,0.05)' }}></div>
+          </div>
+
+          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="why-header text-center mx-auto" style={{ maxWidth: '900px' }}>
+              <div className="competitive-badge" style={{ margin: '0 auto 1.5rem' }}>
+                <Smartphone size={14} /> Smart Application Development
+              </div>
+              <h1 className="why-title">
                 Intelligent Applications: <br />
-                <span className="gradient-text">Engineered for Agility & Scalability</span>
+                <span className="gradient-text" style={{ fontWeight: 'bold' }}>Engineered for Agility & Scalability</span>
               </h1>
-              <p className="sa-subtitle">
+              <p className="why-subtitle">
                 InTime Global doesn't just write code, we engineer intelligent business solutions. Our custom-built web, mobile apps, and enterprise software applications are infused with embedded AI/BI capabilities, designed to self-optimize, integrate seamlessly, and deliver lasting business value.
               </p>
-              <div className="sa-btn-group">
-                <button className="sa-btn-primary">
-                  Discuss Your App Development Project <ArrowRight size={18} />
-                </button>
+              <div className="d-flex gap-3 justify-content-center mt-4">
+                <a href="#assessment" className="nav-cta-btn hero-cta">
+                  Discuss Your App Project <span className="arrow">→</span>
+                </a>
               </div>
             </div>
           </div>

@@ -191,22 +191,38 @@ export default function BIAnalytics() {
       <Navbar />
 
       <main className="bi-main-content">
-        {/* Hero Section */}
-        <section className="bi-hero-section">
-          <div className="container">
-            <div className="bi-header">
-              <div className="unified-section-label mx-auto mb-3">INTELLIGENCE & ANALYTICS</div>
-              <h1 className="bi-title">
+        {/* HERO SECTION */}
+        <section className="why-hero-section" style={{ minHeight: 'calc(100vh - 80px)', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: 0, paddingBottom: '40px' }}>
+          
+          {/* Abstract BI Background */}
+          <div className="boss-ambient-bg" style={{ opacity: 0.5 }}></div>
+          <div className="boss-glow-orb orb-1" style={{ background: 'rgba(0, 210, 255, 0.12)' }}></div>
+          <div className="boss-glow-orb orb-2" style={{ background: 'rgba(139, 92, 246, 0.08)' }}></div>
+          <div className="boss-glow-orb orb-3" style={{ background: 'rgba(0, 168, 253, 0.1)' }}></div>
+          
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.15, pointerEvents: 'none', width: '100%', height: '100%' }}>
+            <div className="visual-ring ring-1" style={{ width: '800px', height: '800px', borderStyle: 'dashed', borderColor: 'rgba(0, 210, 255, 0.4)' }}></div>
+            <div className="visual-ring ring-2" style={{ width: '600px', height: '600px', borderColor: 'rgba(139, 92, 246, 0.3)' }}></div>
+            <div className="visual-ring ring-3" style={{ width: '400px', height: '400px', borderStyle: 'dashed', borderColor: 'rgba(0, 168, 253, 0.4)' }}></div>
+            <div className="visual-ring" style={{ width: '1000px', height: '1000px', animation: 'spin 30s linear infinite reverse', border: '1px solid rgba(255,255,255,0.05)' }}></div>
+          </div>
+
+          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="why-header text-center mx-auto" style={{ maxWidth: '900px' }}>
+              <div className="competitive-badge" style={{ margin: '0 auto 1.5rem' }}>
+                <BarChart3 size={14} /> Intelligence & Analytics
+              </div>
+              <h1 className="why-title">
                 From Data Overload to Decisive Advantage: <br />
-                <span className="gradient-text">Intelligent BI & Predictive Analytics</span>
+                <span className="gradient-text" style={{ fontWeight: 'bold' }}>Intelligent BI & Predictive Analytics</span>
               </h1>
-              <p className="bi-subtitle">
+              <p className="why-subtitle">
                 InTime Global doesn't just visualize your data; we weaponize it. Our Business Intelligence and Predictive Analytics solutions empower your C-suite, department heads, and operational teams with real-time, AI-driven foresight for faster, smarter, and more confident data-backed decisions.
               </p>
-              <div className="hero-cta-group">
-                <button className="primary-cta">
-                  Transform Your Data Strategy
-                </button>
+              <div className="d-flex gap-3 justify-content-center mt-4">
+                <a href="#challenges" className="nav-cta-btn hero-cta">
+                  Transform Your Data Strategy <span className="arrow">→</span>
+                </a>
               </div>
             </div>
           </div>

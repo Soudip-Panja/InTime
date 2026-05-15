@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import { 
+import {
   AlertTriangle, Cloud, Database, Zap, MapPin, Brain, Headphones, CheckCircle2, ArrowRight,
   Shield, Rocket, Settings, Trophy, Users, Award, Target, Download
 } from "lucide-react";
@@ -16,27 +16,44 @@ export default function SAP() {
   return (
     <div className="page-wrapper">
       <Navbar />
-      
+
       {/* HERO SECTION */}
-      <main className="sap-hero-section text-center">
-        <div className="container">
-          <div className="sap-hero-content mx-auto d-flex flex-column align-items-center">
-            <h1 className="sap-hero-title">
+      <section className="why-hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: '80px', paddingBottom: '40px' }}>
+        
+        {/* Abstract SAP Background */}
+        <div className="boss-ambient-bg" style={{ opacity: 0.5 }}></div>
+        <div className="boss-glow-orb orb-1" style={{ background: 'rgba(14, 165, 233, 0.12)' }}></div>
+        <div className="boss-glow-orb orb-2" style={{ background: 'rgba(139, 92, 246, 0.08)' }}></div>
+        <div className="boss-glow-orb orb-3" style={{ background: 'rgba(249, 115, 22, 0.1)' }}></div>
+        
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.15, pointerEvents: 'none', width: '100%', height: '100%' }}>
+          <div className="visual-ring ring-1" style={{ width: '800px', height: '800px', borderStyle: 'dashed', borderColor: 'rgba(14, 165, 233, 0.4)' }}></div>
+          <div className="visual-ring ring-2" style={{ width: '600px', height: '600px', borderColor: 'rgba(139, 92, 246, 0.3)' }}></div>
+          <div className="visual-ring ring-3" style={{ width: '400px', height: '400px', borderStyle: 'dashed', borderColor: 'rgba(249, 115, 22, 0.4)' }}></div>
+          <div className="visual-ring" style={{ width: '1000px', height: '1000px', animation: 'spin 30s linear infinite reverse', border: '1px solid rgba(255,255,255,0.05)' }}></div>
+        </div>
+
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="why-header">
+            <div className="competitive-badge">
+              <Award size={14} /> SAP Digital Core & Cloud
+            </div>
+            <h1 className="why-title">
               Intelligent SAP: Powering Your<br />
-              <span className="sap-gradient-text">Real-Time, Resilient, and Autonomous</span><br />
+              <span className="gradient-text" style={{ fontWeight: 'bold' }}>Real-Time, Resilient, and Autonomous</span><br />
               Enterprise
             </h1>
-
-            <p className="sap-hero-description text-center mx-auto">
-              Your SAP system is more than an ERP; it's your enterprise's digital backbone. InTime Global specializes in transforming SAP landscapes – from complex S/4HANA migrations and RISE with SAP journeys to AI-driven process optimization – turning your core system into a strategic asset for growth and innovation.
+            <p className="why-subtitle">
+              Your SAP system is more than an ERP; it's your enterprise's digital backbone. InTime Global specializes in transforming SAP landscapes – from complex S/4HANA migrations and RISE with SAP journeys to AI-driven process optimization.
             </p>
-
-            <button className="sap-hero-cta mt-4">
-              Transform Your SAP Landscape
-            </button>
+            <div className="d-flex gap-3 justify-content-center mt-4">
+              <a href="#assessment" className="nav-cta-btn hero-cta">
+                Transform Your SAP Landscape <span className="arrow">→</span>
+              </a>
+            </div>
           </div>
         </div>
-      </main>
+      </section>
 
       {/* ASSESSMENT SECTION (LIGHT) */}
       <section className="sap-assessment-section">
@@ -48,7 +65,7 @@ export default function SAP() {
               <span className="sap-text-orange">or an Operational Bottleneck?</span>
             </h2>
           </div>
-          
+
           <div className="row g-4 justify-content-center mt-4">
             {/* Card 1 */}
             <div className="col-12 col-md-6">
@@ -115,29 +132,29 @@ export default function SAP() {
 
           {/* TABS HEADER */}
           <div className="sap-tabs-container mx-auto mb-4">
-            <button 
+            <button
               className={`sap-tab-btn ${activeTab === 1 ? 'active-tab-1' : ''}`}
               onClick={() => setActiveTab(1)}
             >
-              <MapPin size={18} className="me-2"/> Strategic Advisory
+              <MapPin size={18} className="me-2" /> Strategic Advisory
             </button>
-            <button 
+            <button
               className={`sap-tab-btn ${activeTab === 2 ? 'active-tab-2' : ''}`}
               onClick={() => setActiveTab(2)}
             >
-              <Cloud size={18} className="me-2"/> Implementation
+              <Cloud size={18} className="me-2" /> Implementation
             </button>
-            <button 
+            <button
               className={`sap-tab-btn ${activeTab === 3 ? 'active-tab-3' : ''}`}
               onClick={() => setActiveTab(3)}
             >
-              <Brain size={18} className="me-2"/> AI Optimization
+              <Brain size={18} className="me-2" /> AI Optimization
             </button>
-            <button 
+            <button
               className={`sap-tab-btn ${activeTab === 4 ? 'active-tab-4' : ''}`}
               onClick={() => setActiveTab(4)}
             >
-              <Headphones size={18} className="me-2"/> Managed Services
+              <Headphones size={18} className="me-2" /> Managed Services
             </button>
           </div>
 
@@ -147,32 +164,32 @@ export default function SAP() {
               <div className="sap-tab-pane fade-in">
                 <div className="d-flex align-items-center gap-3 mb-4">
                   <div className="sap-feature-icon bg-blue">
-                    <MapPin size={24} color="white"/>
+                    <MapPin size={24} color="white" />
                   </div>
                   <div>
                     <h3 className="sap-feature-title mb-1">Strategic SAP Advisory & Roadmap Development</h3>
                     <p className="sap-feature-subtitle mb-0">Aligning your SAP strategy with overarching business objectives for maximum impact.</p>
                   </div>
                 </div>
-                
+
                 <hr className="sap-divider" />
-                
+
                 <div className="row mt-4">
                   <div className="col-lg-7">
-                    <h4 className="sap-list-title"><ArrowRight size={16} className="me-2"/>Our Services</h4>
+                    <h4 className="sap-list-title"><ArrowRight size={16} className="me-2" />Our Services</h4>
                     <ul className="sap-feature-list">
-                      <li><CheckCircle2 size={18} className="sap-check icon-blue"/> SAP S/4HANA Transformation Roadmaps (Greenfield, Brownfield, Bluefield/Hybrid approaches)</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-blue"/> RISE with SAP & GROW with SAP: Strategic planning, assessment, and migration advisory</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-blue"/> SAP Business Technology Platform (BTP) strategy and utilization</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-blue"/> Intelligent Enterprise assessment and maturity modeling</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-blue"/> SAP Project Recovery and Turnaround strategy for challenged implementations</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-blue" /> SAP S/4HANA Transformation Roadmaps (Greenfield, Brownfield, Bluefield/Hybrid approaches)</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-blue" /> RISE with SAP & GROW with SAP: Strategic planning, assessment, and migration advisory</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-blue" /> SAP Business Technology Platform (BTP) strategy and utilization</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-blue" /> Intelligent Enterprise assessment and maturity modeling</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-blue" /> SAP Project Recovery and Turnaround strategy for challenged implementations</li>
                     </ul>
                   </div>
                   <div className="col-lg-5">
                     <div className="sap-benefit-box">
-                      <h4 className="sap-list-title"><ArrowRight size={16} className="me-2"/>Key Benefits</h4>
+                      <h4 className="sap-list-title"><ArrowRight size={16} className="me-2" />Key Benefits</h4>
                       <p className="sap-benefit-text">Gain a clear, actionable roadmap to a modernized, intelligent SAP landscape that drives tangible business value and positions your enterprise for future growth with reduced risk and accelerated time-to-value.</p>
-                      <a href="#" className="sap-benefit-link text-blue">40% faster transformation <ArrowRight size={14} className="ms-1"/></a>
+                      <a href="#" className="sap-benefit-link text-blue">40% faster transformation <ArrowRight size={14} className="ms-1" /></a>
                     </div>
                   </div>
                 </div>
@@ -183,31 +200,31 @@ export default function SAP() {
               <div className="sap-tab-pane fade-in">
                 <div className="d-flex align-items-center gap-3 mb-4">
                   <div className="sap-feature-icon bg-teal">
-                    <Cloud size={24} color="white"/>
+                    <Cloud size={24} color="white" />
                   </div>
                   <div>
                     <h3 className="sap-feature-title mb-1">SAP S/4HANA & Cloud Implementation Excellence</h3>
                     <p className="sap-feature-subtitle mb-0">Delivering seamless, on-time, and on-budget SAP S/4HANA implementations and cloud migrations.</p>
                   </div>
                 </div>
-                
+
                 <hr className="sap-divider" />
-                
+
                 <div className="row mt-4">
                   <div className="col-lg-7">
-                    <h4 className="sap-list-title"><ArrowRight size={16} className="me-2"/>Implementation Services</h4>
+                    <h4 className="sap-list-title"><ArrowRight size={16} className="me-2" />Implementation Services</h4>
                     <ul className="sap-feature-list">
-                      <li><CheckCircle2 size={18} className="sap-check icon-teal"/> End-to-end SAP S/4HANA (Private & Public Cloud) and ECC Implementation</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-teal"/> Complex Data Migration and System Conversion to S/4HANA</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-teal"/> Expertise across core modules: FI/CO, MM, SD, PP, HCM, EWM, TM</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-teal"/> Advanced module implementation: SuccessFactors, Ariba, Concur, IBP, SAC, Fiori UX</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-teal" /> End-to-end SAP S/4HANA (Private & Public Cloud) and ECC Implementation</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-teal" /> Complex Data Migration and System Conversion to S/4HANA</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-teal" /> Expertise across core modules: FI/CO, MM, SD, PP, HCM, EWM, TM</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-teal" /> Advanced module implementation: SuccessFactors, Ariba, Concur, IBP, SAC, Fiori UX</li>
                     </ul>
                   </div>
                   <div className="col-lg-5">
                     <div className="sap-benefit-box">
-                      <h4 className="sap-list-title"><ArrowRight size={16} className="me-2"/>Delivery Excellence</h4>
+                      <h4 className="sap-list-title"><ArrowRight size={16} className="me-2" />Delivery Excellence</h4>
                       <p className="sap-benefit-text">Achieve a stable, scalable, and high-performing SAP S/4HANA core, ready to support future growth and innovation with minimal disruption to business operations.</p>
-                      <a href="#" className="sap-benefit-link text-teal">95% on-time delivery <ArrowRight size={14} className="ms-1"/></a>
+                      <a href="#" className="sap-benefit-link text-teal">95% on-time delivery <ArrowRight size={14} className="ms-1" /></a>
                     </div>
                   </div>
                 </div>
@@ -218,32 +235,32 @@ export default function SAP() {
               <div className="sap-tab-pane fade-in">
                 <div className="d-flex align-items-center gap-3 mb-4">
                   <div className="sap-feature-icon bg-purple">
-                    <Brain size={24} color="white"/>
+                    <Brain size={24} color="white" />
                   </div>
                   <div>
                     <h3 className="sap-feature-title mb-1">Intelligent SAP Optimization & AI Integration</h3>
                     <p className="sap-feature-subtitle mb-0">Enhancing your existing SAP investment with intelligent automation and advanced analytics.</p>
                   </div>
                 </div>
-                
+
                 <hr className="sap-divider" />
-                
+
                 <div className="row mt-4">
                   <div className="col-lg-7">
-                    <h4 className="sap-list-title"><ArrowRight size={16} className="me-2"/>AI-Powered Services</h4>
+                    <h4 className="sap-list-title"><ArrowRight size={16} className="me-2" />AI-Powered Services</h4>
                     <ul className="sap-feature-list">
-                      <li><CheckCircle2 size={18} className="sap-check icon-purple"/> Integration of AI Agents (NeuraCore™/ExecuCore™ based, e.g., FinanceBot, Task Agents)</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-purple"/> Automate complex SAP workflows (order-to-cash, procure-to-pay, record-to-report)</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-purple"/> Intelligent Reporting & Analytics: Real-time BI dashboards with predictive capabilities</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-purple"/> SAP Process Mining and Optimization for continuous improvement</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-purple"/> Custom Fiori app development for enhanced user experience and mobility</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-purple" /> Integration of AI Agents (NeuraCore™/ExecuCore™ based, e.g., FinanceBot, Task Agents)</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-purple" /> Automate complex SAP workflows (order-to-cash, procure-to-pay, record-to-report)</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-purple" /> Intelligent Reporting & Analytics: Real-time BI dashboards with predictive capabilities</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-purple" /> SAP Process Mining and Optimization for continuous improvement</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-purple" /> Custom Fiori app development for enhanced user experience and mobility</li>
                     </ul>
                   </div>
                   <div className="col-lg-5">
                     <div className="sap-benefit-box">
-                      <h4 className="sap-list-title"><ArrowRight size={16} className="me-2"/>Intelligent Outcomes</h4>
+                      <h4 className="sap-list-title"><ArrowRight size={16} className="me-2" />Intelligent Outcomes</h4>
                       <p className="sap-benefit-text">Unlock new levels of efficiency, reduce manual effort by up to 70%, and gain deeper insights from your SAP data through intelligent automation and AI-driven optimization.</p>
-                      <a href="#" className="sap-benefit-link text-purple">70% manual effort reduction <ArrowRight size={14} className="ms-1"/></a>
+                      <a href="#" className="sap-benefit-link text-purple">70% manual effort reduction <ArrowRight size={14} className="ms-1" /></a>
                     </div>
                   </div>
                 </div>
@@ -254,31 +271,31 @@ export default function SAP() {
               <div className="sap-tab-pane fade-in">
                 <div className="d-flex align-items-center gap-3 mb-4">
                   <div className="sap-feature-icon bg-green">
-                    <Headphones size={24} color="white"/>
+                    <Headphones size={24} color="white" />
                   </div>
                   <div>
                     <h3 className="sap-feature-title mb-1">SAP Managed Services & Continuous Support</h3>
                     <p className="sap-feature-subtitle mb-0">Ensuring the ongoing stability, performance, and evolution of your SAP environment.</p>
                   </div>
                 </div>
-                
+
                 <hr className="sap-divider" />
-                
+
                 <div className="row mt-4">
                   <div className="col-lg-7">
-                    <h4 className="sap-list-title"><ArrowRight size={16} className="me-2"/>Support Services</h4>
+                    <h4 className="sap-list-title"><ArrowRight size={16} className="me-2" />Support Services</h4>
                     <ul className="sap-feature-list">
-                      <li><CheckCircle2 size={18} className="sap-check icon-green"/> Flexible SAP Application Management Services (AMS) Packages</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-green"/> Proactive System Monitoring, Tuning, and Performance Optimization</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-green"/> Post-Go-Live Support, End-User Training, and Change Management</li>
-                      <li><CheckCircle2 size={18} className="sap-check icon-green"/> Version Upgrades and Enhancement Pack Implementation</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-green" /> Flexible SAP Application Management Services (AMS) Packages</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-green" /> Proactive System Monitoring, Tuning, and Performance Optimization</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-green" /> Post-Go-Live Support, End-User Training, and Change Management</li>
+                      <li><CheckCircle2 size={18} className="sap-check icon-green" /> Version Upgrades and Enhancement Pack Implementation</li>
                     </ul>
                   </div>
                   <div className="col-lg-5">
                     <div className="sap-benefit-box">
-                      <h4 className="sap-list-title"><ArrowRight size={16} className="me-2"/>Continuous Value</h4>
+                      <h4 className="sap-list-title"><ArrowRight size={16} className="me-2" />Continuous Value</h4>
                       <p className="sap-benefit-text">Maximize uptime (99.9% SLA), reduce operational risk, and ensure your SAP system continuously adapts to your business needs with expert support and proactive maintenance.</p>
-                      <a href="#" className="sap-benefit-link text-green">99.9% uptime guarantee <ArrowRight size={14} className="ms-1"/></a>
+                      <a href="#" className="sap-benefit-link text-green">99.9% uptime guarantee <ArrowRight size={14} className="ms-1" /></a>
                     </div>
                   </div>
                 </div>
@@ -317,7 +334,7 @@ export default function SAP() {
                 </ul>
               </div>
             </div>
-            
+
             {/* Model 2 */}
             <div className="col-12 col-md-6 col-lg-3">
               <div className="sap-model-card sap-model-card-2">
@@ -379,7 +396,7 @@ export default function SAP() {
       <section className="sap-proof-section">
         <div className="container">
           <div className="text-center mb-5">
-            <div className="sap-badge sap-badge-blue mx-auto mb-3 text-white" style={{background: '#2563eb', border: 'none'}}>Proven Excellence</div>
+            <div className="sap-badge sap-badge-blue mx-auto mb-3 text-white" style={{ background: '#2563eb', border: 'none' }}>Proven Excellence</div>
             <h2 className="sap-section-title text-dark">
               Proof of SAP Excellence & Client Trust
             </h2>
