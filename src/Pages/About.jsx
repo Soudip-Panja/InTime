@@ -178,10 +178,9 @@ export default function About() {
       <section className="hero-section about-hero">
         <div className="container">
           <div className="hero-content mx-auto text-center" ref={heroRef}>
-            <span className="trusted-badge mx-auto mb-4" style={{ textTransform: 'none', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <Award size={14} className="me-2" />
-              Since 2013 - Trusted by 20+ Top Companies
-            </span>
+            <div className="competitive-badge" style={{ margin: '0 auto 1.5rem' }}>
+              <Award size={14} /> Since 2013 — Trusted by 20+ Top Companies
+            </div>
             <h1 className="hero-title">
               We Are <br />
               <strong className="gradient-text" style={{ fontSize: '1.2em' }}>InTime Global</strong>
