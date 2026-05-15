@@ -269,7 +269,7 @@ export default function HomeBody() {
             </div>
             
             <div className="cert-item">
-              <Medal size={20} className="cert-icon" style={{ color: '#FFD700' }} />
+              <Medal size={20} className="cert-icon" style={{ color: '#f97316' }} />
               <div className="cert-text">
                 <h4>SAP Partner</h4>
                 <p>Excellence - Middle East 2024</p>
@@ -277,7 +277,7 @@ export default function HomeBody() {
             </div>
 
             <div className="cert-item">
-              <ShieldCheck size={20} className="cert-icon" style={{ color: '#FFD700' }} />
+              <ShieldCheck size={20} className="cert-icon" style={{ color: '#8b5cf6' }} />
               <div className="cert-text">
                 <h4>UAE Central Bank</h4>
                 <p>Digital Transformation Partner</p>
@@ -285,7 +285,7 @@ export default function HomeBody() {
             </div>
 
             <div className="cert-item">
-              <Award size={20} className="cert-icon" style={{ color: '#FFD700' }} />
+              <Award size={20} className="cert-icon" style={{ color: '#06b6d4' }} />
               <div className="cert-text">
                 <h4>Microsoft AI</h4>
                 <p>Innovation Partner</p>

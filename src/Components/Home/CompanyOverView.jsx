@@ -61,7 +61,7 @@ export default function CompanyOverView() {
 
               {/* Card 2 */}
               <div className="overview-card">
-                <Users className="overview-card-icon icon-green" />
+                <Users className="overview-card-icon icon-blue" />
                 <h3 className="overview-card-title stat-title">200+</h3>
                 <div className="overview-card-subtitle">ELITE EXPERTS</div>
                 <p className="overview-card-desc">
@@ -81,7 +81,7 @@ export default function CompanyOverView() {
 
               {/* Card 4 */}
               <div className="overview-card">
-                <TrendingUp className="overview-card-icon icon-green" />
+                <TrendingUp className="overview-card-icon icon-blue" />
                 <h3 className="overview-card-title stat-title">$100M+</h3>
                 <div className="overview-card-subtitle">STRATEGIC ROI</div>
                 <p className="overview-card-desc">
