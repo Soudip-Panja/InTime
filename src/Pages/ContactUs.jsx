@@ -219,13 +219,13 @@ export default function ContactUs() {
       {/* ── HERO SECTION ── */}
       <section className="hero-section about-hero text-center position-relative overflow-hidden d-flex align-items-center" style={{ minHeight: '100vh' }}>
         <SocialBackground />
-        
+
         <div className="container position-relative" style={{ zIndex: 10, marginTop: '-60px' }}>
           <div className="hero-content mx-auto" ref={heroRef}>
-            <span className="trusted-badge hero-contact-chip mx-auto my-4" style={{ textTransform: 'none', display: 'inline-flex' }}>
+            <div className="competitive-badge mx-auto" style={{ marginBottom: '1.5rem' }}>
               <span className="status-dot me-2"></span>
               24-Hour Response Time
-            </span>
+            </div>
             <h1 className="hero-title position-relative" style={{ zIndex: 1 }}>
               Let's <br />
               <strong className="gradient-text" style={{ fontSize: '1.2em' }}>Connect</strong>
