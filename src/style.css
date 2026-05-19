@@ -2310,9 +2310,21 @@ body {
    FOOTER STYLES
    ============================================================ */
 .footer-section {
+  position: relative;
   background-color: var(--bg-shade-1);
   padding: 60px 0 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, var(--grad-start) 25%, var(--grad-mid) 50%, var(--grad-end) 75%, transparent 100%);
+  z-index: 1;
 }
 
 .footer-top {
