@@ -3,6 +3,10 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { Link } from 'react-router-dom';
 import * as THREE from 'three';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 import { 
   ChevronLeft, ChevronRight, ArrowUpRight, Cloud, Triangle, Activity, GitBranch, 
@@ -39,7 +43,20 @@ const logos = [
 
 function Carousel() {
   const trackRef = useRef(null);
+  const headerRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (headerRef.current) {
+      gsap.fromTo(headerRef.current.children,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out",
+          scrollTrigger: { trigger: headerRef.current, start: "top 85%", toggleActions: "play none none reverse" }
+        }
+      );
+    }
+  }, []);
 
   useEffect(() => {
     let animationId;
@@ -63,7 +80,7 @@ function Carousel() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="container trusted-header-container">
-        <div className="trusted-header-layout">
+        <div className="trusted-header-layout" ref={headerRef}>
           
           <div className="trusted-badge">
             <span className="status-dot"></span> TRUSTED BY FORWARD-THINKING COMPANIES
@@ -115,6 +132,32 @@ function Carousel() {
 // ==========================================
 function CompanyOverView() {
   const sectionRef = useRef(null);
+  const leftRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    if (leftRef.current) {
+      gsap.fromTo(leftRef.current.children,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out",
+          scrollTrigger: { trigger: leftRef.current, start: "top 80%", toggleActions: "play none none reverse" }
+        }
+      );
+    }
+    
+    cardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.8, delay: index * 0.1, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+  }, []);
 
   const handleMouseMove = (e) => {
     if (!sectionRef.current) return;
@@ -136,7 +179,7 @@ function CompanyOverView() {
       </div>
       <div className="container">
         <div className="overview-layout">
-          <div className="overview-left">
+          <div className="overview-left" ref={leftRef}>
             <div className="unified-section-label">COMPANY OVERVIEW</div>
             <h2 className="overview-heading">
               We Are<br />
@@ -151,25 +194,25 @@ function CompanyOverView() {
           </div>
           <div className="overview-right">
             <div className="overview-grid" onMouseMove={handleMouseMove}>
-              <div className="overview-card">
+              <div className="overview-card" ref={el => cardsRef.current[0] = el}>
                 <Globe className="overview-card-icon icon-blue" />
                 <h3 className="overview-card-title stat-title">6+</h3>
                 <div className="overview-card-subtitle">GLOBAL PRESENCE</div>
                 <p className="overview-card-desc">Countries</p>
               </div>
-              <div className="overview-card">
+              <div className="overview-card" ref={el => cardsRef.current[1] = el}>
                 <Users className="overview-card-icon icon-blue" />
                 <h3 className="overview-card-title stat-title">200+</h3>
                 <div className="overview-card-subtitle">ELITE EXPERTS</div>
                 <p className="overview-card-desc">Consultants</p>
               </div>
-              <div className="overview-card">
+              <div className="overview-card" ref={el => cardsRef.current[2] = el}>
                 <Award className="overview-card-icon icon-blue" />
                 <h3 className="overview-card-title stat-title">95%</h3>
                 <div className="overview-card-subtitle">PROVEN EXCELLENCE</div>
                 <p className="overview-card-desc">Success Rate</p>
               </div>
-              <div className="overview-card">
+              <div className="overview-card" ref={el => cardsRef.current[3] = el}>
                 <TrendingUp className="overview-card-icon icon-blue" />
                 <h3 className="overview-card-title stat-title">$100M+</h3>
                 <div className="overview-card-subtitle">STRATEGIC ROI</div>
@@ -187,11 +230,49 @@ function CompanyOverView() {
 // OurPerspective
 // ==========================================
 function OurPerspective() {
+  const contentRef = useRef(null);
+  const featureRefs = useRef([]);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      gsap.fromTo(contentRef.current.children,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out",
+          scrollTrigger: { trigger: contentRef.current, start: "top 80%", toggleActions: "play none none reverse" }
+        }
+      );
+    }
+
+    featureRefs.current.forEach((feature, index) => {
+      if (feature) {
+        gsap.fromTo(feature,
+          { opacity: 0, x: -20 },
+          {
+            opacity: 1, x: 0, duration: 0.6, delay: index * 0.1, ease: "power2.out",
+            scrollTrigger: { trigger: feature, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    if (imgRef.current) {
+      gsap.fromTo(imgRef.current,
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1, scale: 1, duration: 1, ease: "power2.out",
+          scrollTrigger: { trigger: imgRef.current, start: "top 80%", toggleActions: "play none none reverse" }
+        }
+      );
+    }
+  }, []);
+
   return (
     <section className="perspective-section">
       <div className="container">
         <div className="perspective-grid">
-          <div className="perspective-content">
+          <div className="perspective-content" ref={contentRef}>
             <div className="unified-section-label">OUR PERSPECTIVE</div>
             <h2 className="perspective-main-title">
               The Future of Enterprise Growth is <br />
@@ -202,7 +283,7 @@ function OurPerspective() {
               we help businesses transform operations, unlock insights, and scale smarter.
             </p>
             <div className="perspective-feature-list">
-              <div className="feature-item">
+              <div className="feature-item" ref={el => featureRefs.current[0] = el}>
                 <div className="feature-icon-wrapper">
                   <ShieldCheck size={22} />
                 </div>
@@ -210,7 +291,7 @@ function OurPerspective() {
                   <h4>Enterprise Systems, Optimized</h4>
                 </div>
               </div>
-              <div className="feature-item">
+              <div className="feature-item" ref={el => featureRefs.current[1] = el}>
                 <div className="feature-icon-wrapper">
                   <BarChart3 size={22} />
                 </div>
@@ -218,7 +299,7 @@ function OurPerspective() {
                   <h4>Data-Driven Decision Making</h4>
                 </div>
               </div>
-              <div className="feature-item">
+              <div className="feature-item" ref={el => featureRefs.current[2] = el}>
                 <div className="feature-icon-wrapper">
                   <Zap size={22} />
                 </div>
@@ -226,7 +307,7 @@ function OurPerspective() {
                   <h4>AI Solutions Built for Growth</h4>
                 </div>
               </div>
-              <div className="feature-item">
+              <div className="feature-item" ref={el => featureRefs.current[3] = el}>
                 <div className="feature-icon-wrapper">
                   <CheckCircle2 size={22} />
                 </div>
@@ -241,7 +322,7 @@ function OurPerspective() {
               </a>
             </div>
           </div>
-          <div className="perspective-image-container">
+          <div className="perspective-image-container" ref={imgRef}>
             <div className="perspective-image-wrapper">
               <img src={perspectiveImg} alt="Our Perspective" className="perspective-img" />
               <div className="perspective-img-overlay"></div>
@@ -568,10 +649,50 @@ function ColorBends({
 // WhyInTime
 // ==========================================
 function WhyInTime({ handleMouseMove }) {
+  const headerRef = useRef(null);
+  const itemsRef = useRef([]);
+  const testimonialsRef = useRef([]);
+
+  useEffect(() => {
+    if (headerRef.current) {
+      gsap.fromTo(headerRef.current.children,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out",
+          scrollTrigger: { trigger: headerRef.current, start: "top 80%", toggleActions: "play none none reverse" }
+        }
+      );
+    }
+
+    itemsRef.current.forEach((item, index) => {
+      if (item) {
+        gsap.fromTo(item,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.8, delay: index * 0.1, ease: "power2.out",
+            scrollTrigger: { trigger: item, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+
+    testimonialsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, scale: 0.95 },
+          {
+            opacity: 1, scale: 1, duration: 0.8, delay: index * 0.15, ease: "power2.out",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" }
+          }
+        );
+      }
+    });
+  }, []);
+
   return (
     <section className="pov-section bg-shade-3">
       <div className="container">
-        <div className="pov-header">
+        <div className="pov-header" ref={headerRef}>
           <div className="unified-section-label">WHY INTIME</div>
           <h2 className="pov-heading">
             We Bring a Point <span className="gradient-text">of View.</span>
@@ -579,7 +700,7 @@ function WhyInTime({ handleMouseMove }) {
         </div>
 
         <div className="pov-main-grid">
-          <div className="pov-item">
+          <div className="pov-item" ref={el => itemsRef.current[0] = el}>
             <div className="pov-icon-box">
               <Search size={24} className="pov-icon" />
             </div>
@@ -589,7 +710,7 @@ function WhyInTime({ handleMouseMove }) {
             </div>
           </div>
 
-          <div className="pov-item">
+          <div className="pov-item" ref={el => itemsRef.current[1] = el}>
             <div className="pov-icon-box">
               <Cpu size={24} className="pov-icon" />
             </div>
@@ -599,7 +720,7 @@ function WhyInTime({ handleMouseMove }) {
             </div>
           </div>
 
-          <div className="pov-item">
+          <div className="pov-item" ref={el => itemsRef.current[2] = el}>
             <div className="pov-icon-box">
               <Wrench size={24} className="pov-icon" />
             </div>
@@ -609,7 +730,7 @@ function WhyInTime({ handleMouseMove }) {
             </div>
           </div>
 
-          <div className="pov-item">
+          <div className="pov-item" ref={el => itemsRef.current[3] = el}>
             <div className="pov-icon-box">
               <Heart size={24} className="pov-icon" />
             </div>
@@ -627,7 +748,7 @@ function WhyInTime({ handleMouseMove }) {
         </div>
 
         <div className="testimonials-grid">
-          <div className="testimonial-card">
+          <div className="testimonial-card" ref={el => testimonialsRef.current[0] = el}>
             <Quote className="quote-icon" size={32} />
             <p className="testimonial-text">
               "Their code is clean and easy to implement. The app has great ratings across devices."
@@ -644,7 +765,7 @@ function WhyInTime({ handleMouseMove }) {
             </div>
           </div>
 
-          <div className="testimonial-card">
+          <div className="testimonial-card" ref={el => testimonialsRef.current[1] = el}>
             <Quote className="quote-icon" size={32} />
             <p className="testimonial-text">
               "Exceptional responsiveness and professionalism. Highly positive feedback from beta customers."
@@ -661,7 +782,7 @@ function WhyInTime({ handleMouseMove }) {
             </div>
           </div>
 
-          <div className="testimonial-card">
+          <div className="testimonial-card" ref={el => testimonialsRef.current[2] = el}>
             <Quote className="quote-icon" size={32} />
             <p className="testimonial-text">
               "They anticipated potential problems and recommended solutions. This a rare skill."
@@ -687,6 +808,78 @@ function WhyInTime({ handleMouseMove }) {
 // HomeBody
 // ==========================================
 function HomeBody() {
+  const practiceHeaderRef = useRef(null);
+  const practiceCardsRef = useRef([]);
+  const outcomesHeaderRef = useRef(null);
+  const outcomeCardsRef = useRef([]);
+  const partnersHeaderRef = useRef(null);
+  const partnerCardsRef = useRef([]);
+  const certRefs = useRef([]);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    if (practiceHeaderRef.current) {
+      gsap.fromTo(practiceHeaderRef.current.children,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out", scrollTrigger: { trigger: practiceHeaderRef.current, start: "top 80%", toggleActions: "play none none reverse" } }
+      );
+    }
+    practiceCardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, duration: 0.8, delay: index * 0.1, ease: "power2.out", scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" } }
+        );
+      }
+    });
+
+    if (outcomesHeaderRef.current) {
+      gsap.fromTo(outcomesHeaderRef.current.children,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out", scrollTrigger: { trigger: outcomesHeaderRef.current, start: "top 80%", toggleActions: "play none none reverse" } }
+      );
+    }
+    outcomeCardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, scale: 0.95 },
+          { opacity: 1, scale: 1, duration: 0.8, delay: (index % 3) * 0.1, ease: "power2.out", scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" } }
+        );
+      }
+    });
+
+    if (partnersHeaderRef.current) {
+      gsap.fromTo(partnersHeaderRef.current.children,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out", scrollTrigger: { trigger: partnersHeaderRef.current, start: "top 80%", toggleActions: "play none none reverse" } }
+      );
+    }
+    partnerCardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8, delay: index * 0.1, ease: "power2.out", scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none reverse" } }
+        );
+      }
+    });
+
+    certRefs.current.forEach((cert, index) => {
+      if (cert) {
+        gsap.fromTo(cert,
+          { opacity: 0, x: -20 },
+          { opacity: 1, x: 0, duration: 0.6, delay: index * 0.1, ease: "power2.out", scrollTrigger: { trigger: cert, start: "top 85%", toggleActions: "play none none reverse" } }
+        );
+      }
+    });
+
+    if (ctaRef.current) {
+      gsap.fromTo(ctaRef.current,
+        { opacity: 0, scale: 0.95 },
+        { opacity: 1, scale: 1, duration: 1, ease: "power2.out", scrollTrigger: { trigger: ctaRef.current, start: "top 80%", toggleActions: "play none none reverse" } }
+      );
+    }
+  }, []);
+
   const handleMouseMove = (e) => {
     const cards = document.querySelectorAll('.practice-card');
     for (const card of cards) {
@@ -753,7 +946,7 @@ function HomeBody() {
     <>
       <section className="practices-section">
         <div className="container">
-          <div className="practices-header">
+          <div className="practices-header" ref={practiceHeaderRef}>
             <div className="unified-section-label">OUR PRACTICES</div>
             <h2 className="practices-heading">
               One <span className="gradient-text">Engineering Standard.</span>
@@ -764,7 +957,7 @@ function HomeBody() {
           </div>
 
           <div className="practices-grid" onMouseMove={handleMouseMove}>
-            <div className="practice-card">
+            <div className="practice-card" ref={el => practiceCardsRef.current[0] = el}>
               <div className="practice-content">
                 <div className="practice-icon-box">
                   <Cpu size={32} strokeWidth={1.5} />
@@ -846,7 +1039,7 @@ function HomeBody() {
           style={{ position: 'absolute', inset: 0, opacity: 0.4 }}
         />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="outcomes-header">
+          <div className="outcomes-header" ref={outcomesHeaderRef}>
             <div className="unified-section-label">OUTCOMES</div>
             <h2 className="outcomes-heading">
               We Measure Success in Business Impact, Not Lines<br />
@@ -856,7 +1049,7 @@ function HomeBody() {
 
           <div className="outcomes-grid">
             {outcomesData.map((item, index) => (
-              <div className="outcome-card" key={index}>
+              <div className="outcome-card" key={index} ref={el => outcomeCardsRef.current[index] = el}>
                 <div className="card-border-glow"></div>
                 <div className="card-crosshairs" aria-hidden="true"></div>
                 
@@ -879,7 +1072,7 @@ function HomeBody() {
 
       <section className="partnerships-section bg-shade-2">
         <div className="container">
-          <div className="partnerships-header">
+          <div className="partnerships-header" ref={partnersHeaderRef}>
             <div className="unified-section-label">PARTNERSHIPS</div>
             <h2 className="partnerships-heading">
               Partnered With the Platforms That Power <span className="gradient-text" style={{ display: 'inline' }}>Modern<br/>Enterprise.</span>
@@ -890,7 +1083,7 @@ function HomeBody() {
           </div>
 
           <div className="partnerships-grid">
-            <div className="partner-card">
+            <div className="partner-card" ref={el => partnerCardsRef.current[0] = el}>
               <ArrowUpRight className="partner-arrow" size={24} />
               <div className="partner-logo">
                 <Cloud size={40} strokeWidth={1} />
@@ -902,7 +1095,7 @@ function HomeBody() {
               </p>
             </div>
 
-            <div className="partner-card">
+            <div className="partner-card" ref={el => partnerCardsRef.current[1] = el}>
               <ArrowUpRight className="partner-arrow" size={24} />
               <div className="partner-logo">
                 <Triangle size={40} strokeWidth={1} />
@@ -914,7 +1107,7 @@ function HomeBody() {
               </p>
             </div>
 
-            <div className="partner-card">
+            <div className="partner-card" ref={el => partnerCardsRef.current[2] = el}>
               <ArrowUpRight className="partner-arrow" size={24} />
               <div className="partner-logo">
                 <CloudLightning size={40} strokeWidth={1} />
@@ -926,7 +1119,7 @@ function HomeBody() {
               </p>
             </div>
 
-            <div className="partner-card">
+            <div className="partner-card" ref={el => partnerCardsRef.current[3] = el}>
               <ArrowUpRight className="partner-arrow" size={24} />
               <div className="partner-logo">
                 <GitBranch size={40} strokeWidth={1} />
@@ -940,7 +1133,7 @@ function HomeBody() {
           </div>
 
           <div className="certifications-row">
-            <div className="cert-item">
+            <div className="cert-item" ref={el => certRefs.current[0] = el}>
               <Trophy size={20} className="cert-icon" style={{ color: '#10b981' }} />
               <div className="cert-text">
                 <h4>$50M GCC Success</h4>
@@ -948,7 +1141,7 @@ function HomeBody() {
               </div>
             </div>
             
-            <div className="cert-item">
+            <div className="cert-item" ref={el => certRefs.current[1] = el}>
               <Medal size={20} className="cert-icon" style={{ color: '#f97316' }} />
               <div className="cert-text">
                 <h4>SAP Partner</h4>
@@ -956,7 +1149,7 @@ function HomeBody() {
               </div>
             </div>
 
-            <div className="cert-item">
+            <div className="cert-item" ref={el => certRefs.current[2] = el}>
               <ShieldCheck size={20} className="cert-icon" style={{ color: '#8b5cf6' }} />
               <div className="cert-text">
                 <h4>UAE Central Bank</h4>
@@ -964,7 +1157,7 @@ function HomeBody() {
               </div>
             </div>
 
-            <div className="cert-item">
+            <div className="cert-item" ref={el => certRefs.current[3] = el}>
               <Award size={20} className="cert-icon" style={{ color: '#06b6d4' }} />
               <div className="cert-text">
                 <h4>Microsoft AI</h4>
@@ -972,7 +1165,7 @@ function HomeBody() {
               </div>
             </div>
 
-            <div className="cert-item">
+            <div className="cert-item" ref={el => certRefs.current[4] = el}>
               <BarChart3 size={20} className="cert-icon" style={{ color: '#3b82f6' }} />
               <div className="cert-text">
                 <h4>98% Satisfaction</h4>
@@ -1016,7 +1209,7 @@ function HomeBody() {
         </div>
 
         <div className="container">
-          <div className="final-cta-box">
+          <div className="final-cta-box" ref={ctaRef}>
             <div className="card-border-glow"></div>
             <div className="card-crosshairs" aria-hidden="true"></div>
             
@@ -1052,6 +1245,16 @@ function HomeBody() {
 // ==========================================
 export default function Home() {
   const heroRef = useRef(null);
+  const heroContentRef = useRef(null);
+
+  useEffect(() => {
+    if (heroContentRef.current) {
+      gsap.fromTo(heroContentRef.current.children,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power3.out" }
+      );
+    }
+  }, []);
 
   const handleMouseMove = (e) => {
     if (!heroRef.current) return;
@@ -1076,7 +1279,7 @@ export default function Home() {
         </div>
 
         <div className="container">
-          <div className="hero-content">
+          <div className="hero-content" ref={heroContentRef}>
             <p className="hero-label">ENGINEERING FOR THE AI ERA</p>
             
             <h1 className="hero-title">
