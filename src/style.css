@@ -1185,6 +1185,7 @@ body {
   justify-content: center;
   color: var(--icon-blue);
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .feature-item:hover .feature-icon-wrapper {
@@ -2791,17 +2792,16 @@ body {
 .company-overview-section {
   position: relative;
   background-color: var(--bg-black);
-  background: radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.08), transparent 40%),
-    radial-gradient(circle at 85% 50%, rgba(0, 114, 255, 0.08), transparent 40%),
-    var(--bg-black);
+  background-image: radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 50%, rgba(0, 114, 255, 0.08), transparent 40%);
   padding: 8rem 0;
   overflow: hidden;
 }
 
 :root[data-theme='light'] .company-overview-section {
-  background: radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.05), transparent 40%),
-    radial-gradient(circle at 85% 50%, rgba(0, 114, 255, 0.05), transparent 40%),
-    var(--bg-black);
+  background-color: var(--bg-black);
+  background-image: radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.05), transparent 40%),
+    radial-gradient(circle at 85% 50%, rgba(0, 114, 255, 0.05), transparent 40%);
 }
 
 .overview-bg-blobs {
@@ -2812,6 +2812,8 @@ body {
   bottom: 0;
   pointer-events: none;
   z-index: 0;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
 .blob {
