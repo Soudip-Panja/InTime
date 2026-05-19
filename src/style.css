@@ -468,10 +468,6 @@ body {
     margin-bottom: 2.5rem;
   }
 
-  .grid-glow-container {
-    display: none;
-  }
-
   .mega-menu-container {
     display: none !important;
     width: 100%;
