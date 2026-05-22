@@ -20,6 +20,21 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState(null);
   const location = useLocation();
+  const currentPath = location.pathname;
+
+  const isAiActive = currentPath === "/boss-ai";
+  const isWhatWeDoActive = [
+    "/boss-ai",
+    "/sap",
+    "/bi-analytics",
+    "/smart-app",
+    "/strategic-tech",
+    "/enterprise-training"
+  ].includes(currentPath);
+  const isIndustriesActive = currentPath === "/industries";
+  const isInsightsActive = ["/roi", "/why-intime"].includes(currentPath);
+  const isCareersActive = currentPath === "/careers";
+  const isAboutActive = currentPath === "/about";
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "dark";
@@ -140,7 +155,7 @@ export default function Navbar() {
             <ul className="navbar-nav mx-auto">
               {/* InTime AI Link */}
               <li className="nav-item">
-                <Link className="nav-link ai-link" to="/boss-ai">
+                <Link className={`nav-link ai-link ${isAiActive ? "active" : ""}`} to="/boss-ai">
                   InTime AI
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="ai-sparkle-icon">
                     <defs>
@@ -157,7 +172,7 @@ export default function Navbar() {
 
               {/* What We Do - Mega Menu */}
               <li className="nav-item dropdown mega-dropdown hover-dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                <a className={`nav-link dropdown-toggle ${isWhatWeDoActive ? "active" : ""}`} href="#" role="button" data-bs-toggle="dropdown">
                   What We Do <ChevronDown size={14} className="dropdown-chevron" />
                 </a>
 
@@ -209,10 +224,10 @@ export default function Navbar() {
                 </div>
               </li>
 
-              <li className="nav-item"><Link className="nav-link" to="/industries">Industries</Link></li>
+              <li className="nav-item"><Link className={`nav-link ${isIndustriesActive ? "active" : ""}`} to="/industries">Industries</Link></li>
               {/* Insights - Mega Menu */}
               <li className="nav-item dropdown mega-dropdown hover-dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                <a className={`nav-link dropdown-toggle ${isInsightsActive ? "active" : ""}`} href="#" role="button" data-bs-toggle="dropdown">
                   Insights <ChevronDown size={14} className="dropdown-chevron" />
                 </a>
                 <div className="dropdown-menu mega-menu-container">
@@ -238,8 +253,8 @@ export default function Navbar() {
                   </div>
                 </div>
               </li>
-              <li className="nav-item"><Link className="nav-link" to="/careers">Careers</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
+              <li className="nav-item"><Link className={`nav-link ${isCareersActive ? "active" : ""}`} to="/careers">Careers</Link></li>
+              <li className="nav-item"><Link className={`nav-link ${isAboutActive ? "active" : ""}`} to="/about">About</Link></li>
             </ul>
 
             <div className="d-flex align-items-center gap-3">

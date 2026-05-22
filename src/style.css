@@ -126,10 +126,38 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
+  position: relative;
+  padding-bottom: 6px;
 }
 
 .custom-navbar .nav-link:hover {
   opacity: 1;
+}
+
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--grad-start), var(--grad-mid), var(--grad-end), var(--grad-start));
+  background-size: 200% auto;
+  transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.custom-navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+.custom-navbar .nav-link.active {
+  opacity: 1;
+}
+
+.custom-navbar .nav-link.active::after {
+  width: 100%;
+  animation: shimmer-underline 2s linear infinite;
 }
 
 .ai-link {
