@@ -13,6 +13,7 @@ import BossAi from "./Pages/BossAi";
 import Carrers from "./Pages/Carrers";
 import ContactUs from "./Pages/ContactUs";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import TermsAndConditions from "./Pages/TermsAndConditions";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
   {
     path: "/privacy-policy",
     element: <PrivacyPolicy />,
+  },
+  {
+    path: "/terms-conditions",
+    element: <TermsAndConditions />,
   },
 ]);
 

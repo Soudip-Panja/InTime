@@ -69,7 +69,7 @@ export default function Footer() {
             <h4 className="new-footer-heading">Legal & Support</h4>
             <ul className="new-footer-list">
               <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-              <li><a href="#">Terms of Service</a></li>
+              <li><Link to="/terms-conditions">Terms of Service</Link></li>
             </ul>
             
             <h4 className="new-footer-heading mt-lang">Languages</h4>
