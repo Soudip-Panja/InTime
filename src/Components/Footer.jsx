@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { MapPin } from 'lucide-react';
 
 export default function Footer() {
   const theme = document.documentElement.getAttribute("data-theme") || "dark";
@@ -19,17 +21,36 @@ export default function Footer() {
               <a href="https://x.com/intimeinc" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter size={18} /></a>
               <a href="https://www.linkedin.com/company/intime-it-services-private-limited" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin size={18} /></a>
             </div>
+
+            {/* Location Section */}
+            <div className="new-footer-locations" style={{ marginTop: '25px' }}>
+              <h4 className="new-footer-heading" style={{ marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <MapPin size={16} style={{ color: 'black' }} /> Locations
+              </h4>
+              <div className="new-footer-locations-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 10px', fontSize: '0.9rem', color: 'var(--text-grey)' }}>
+                <span>India</span>
+                <span className="lang-dot" style={{ opacity: 0.4 }}>&middot;</span>
+                <span>UAE</span>
+                <span className="lang-dot" style={{ opacity: 0.4 }}>&middot;</span>
+                <span>Singapore</span>
+                <span className="lang-dot" style={{ opacity: 0.4 }}>&middot;</span>
+                <span>UAE</span>
+                <span className="lang-dot" style={{ opacity: 0.4 }}>&middot;</span>
+                <span>Bangladesh</span>
+              </div>
+            </div>
           </div>
 
-          {/* Column 2: Services */}
+          {/* Column 2: What We Do */}
           <div>
-            <h4 className="new-footer-heading">Services</h4>
+            <h4 className="new-footer-heading">What We Do</h4>
             <ul className="new-footer-list">
-              <li><a href="#">AI & Automation</a></li>
-              <li><a href="#">SAP Consulting</a></li>
-              <li><a href="#">Business Intelligence</a></li>
-              <li><a href="#">Development</a></li>
-              <li><a href="#">Talent Solutions</a></li>
+              <li><Link to="/boss-ai">AI & Intelligent Automation</Link></li>
+              <li><Link to="/sap">SAP Digital Core & Cloud</Link></li>
+              <li><Link to="/bi-analytics">Business Intelligence & Analytics</Link></li>
+              <li><Link to="/smart-app">Smart Application Development</Link></li>
+              <li><Link to="/strategic-tech">Strategic Technology Talent</Link></li>
+              <li><Link to="/enterprise-training">Enterprise Training & Upskilling</Link></li>
             </ul>
           </div>
 
@@ -37,10 +58,9 @@ export default function Footer() {
           <div>
             <h4 className="new-footer-heading">Company</h4>
             <ul className="new-footer-list">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Success Stories</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/careers">Careers</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
 
