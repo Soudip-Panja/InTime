@@ -12,6 +12,7 @@ import EnterpriseTraining from "./Pages/EnterpriseTraining";
 import BossAi from "./Pages/BossAi";
 import Carrers from "./Pages/Carrers";
 import ContactUs from "./Pages/ContactUs";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <ContactUs />,
+  },
+  {
+    path: "/privacy-policy",
+    element: <PrivacyPolicy />,
   },
 ]);
 

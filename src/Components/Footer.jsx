@@ -68,7 +68,7 @@ export default function Footer() {
           <div>
             <h4 className="new-footer-heading">Legal & Support</h4>
             <ul className="new-footer-list">
-              <li><a href="#">Privacy Policy</a></li>
+              <li><Link to="/privacy-policy">Privacy Policy</Link></li>
               <li><a href="#">Terms of Service</a></li>
             </ul>
             

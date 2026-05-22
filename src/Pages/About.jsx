@@ -488,25 +488,48 @@ export default function About() {
           </div>
 
           <div className="office-grid">
-            <div className="office-card" ref={el => officeRefs.current[0] = el}>
-              <span className="office-flag">🇮🇳</span>
-              <span className="office-name">India</span>
-              <p className="small text-muted mb-0">Delivery Center</p>
+            <div className="office-card d-flex flex-column align-items-center text-center" ref={el => officeRefs.current[0] = el}>
+              <span className="office-flag" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🇮🇳</span>
+              <span className="office-name" style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '4px' }}>India</span>
+              <span style={{ color: 'var(--icon-blue)', fontWeight: '600', fontSize: '0.9rem', marginBottom: '12px' }}>Global HQ</span>
+              <p className="small text-muted mb-3" style={{ fontSize: '0.875rem', lineHeight: '1.5' }}>Technology center and primary operations</p>
+              <div className="d-flex align-items-center gap-2 mt-auto text-muted" style={{ fontSize: '0.85rem' }}>
+                <Users2 size={16} />
+                <span>150+ experts</span>
+              </div>
             </div>
-            <div className="office-card" ref={el => officeRefs.current[1] = el}>
-              <span className="office-flag">🇺🇸</span>
-              <span className="office-name">USA</span>
-              <p className="small text-muted mb-0">Strategic Office</p>
+
+            <div className="office-card d-flex flex-column align-items-center text-center" ref={el => officeRefs.current[1] = el}>
+              <span className="office-flag" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🇦🇪</span>
+              <span className="office-name" style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '4px' }}>UAE (Dubai)</span>
+              <span style={{ color: 'var(--icon-blue)', fontWeight: '600', fontSize: '0.9rem', marginBottom: '12px' }}>Middle East Hub</span>
+              <p className="small text-muted mb-3" style={{ fontSize: '0.875rem', lineHeight: '1.5' }}>Regional expansion and client services</p>
+              <div className="d-flex align-items-center gap-2 mt-auto text-muted" style={{ fontSize: '0.85rem' }}>
+                <Users2 size={16} />
+                <span>25+ consultants</span>
+              </div>
             </div>
-            <div className="office-card" ref={el => officeRefs.current[2] = el}>
-              <span className="office-flag">🇸🇬</span>
-              <span className="office-name">Singapore</span>
-              <p className="small text-muted mb-0">Regional Hub</p>
+
+            <div className="office-card d-flex flex-column align-items-center text-center" ref={el => officeRefs.current[2] = el}>
+              <span className="office-flag" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🇧🇩</span>
+              <span className="office-name" style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '4px' }}>Bangladesh</span>
+              <span style={{ color: 'var(--icon-blue)', fontWeight: '600', fontSize: '0.9rem', marginBottom: '12px' }}>Regional Office</span>
+              <p className="small text-muted mb-3" style={{ fontSize: '0.875rem', lineHeight: '1.5' }}>Development center and support</p>
+              <div className="d-flex align-items-center gap-2 mt-auto text-muted" style={{ fontSize: '0.85rem' }}>
+                <Users2 size={16} />
+                <span>30+ developers</span>
+              </div>
             </div>
-            <div className="office-card" ref={el => officeRefs.current[3] = el}>
-              <span className="office-flag">🇦🇪</span>
-              <span className="office-name">UAE</span>
-              <p className="small text-muted mb-0">Middle East Hub</p>
+
+            <div className="office-card d-flex flex-column align-items-center text-center" ref={el => officeRefs.current[3] = el}>
+              <span className="office-flag" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🇪🇺</span>
+              <span className="office-name" style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '4px' }}>Europe</span>
+              <span style={{ color: 'var(--icon-blue)', fontWeight: '600', fontSize: '0.9rem', marginBottom: '12px' }}>European Operations</span>
+              <p className="small text-muted mb-3" style={{ fontSize: '0.875rem', lineHeight: '1.5' }}>Strategic partnerships and sales</p>
+              <div className="d-flex align-items-center gap-2 mt-auto text-muted" style={{ fontSize: '0.85rem' }}>
+                <Users2 size={16} />
+                <span>15+ specialists</span>
+              </div>
             </div>
           </div>
         </div>
