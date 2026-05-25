@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import SocialBackground from '../Components/SocialBackground';
+import SEO from '../Components/SEO';
 import {
   Phone, Mail, Briefcase, MapPin, Clock,
   Send, Network, Rss, CheckCircle2
@@ -214,6 +215,11 @@ export default function ContactUs() {
 
   return (
     <div className="contact-page">
+      <SEO 
+        title="Contact InTime Global | Start Your Digital Transformation"
+        description="Get in touch with InTime Global's team of experts to discuss your upcoming SAP, BI, or AI project."
+        keywords="contact InTime, hire SAP consultants, AI consulting contact"
+      />
       <Navbar />
 
       {/* ── HERO SECTION ── */}

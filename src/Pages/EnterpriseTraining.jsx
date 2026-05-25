@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import { 
   GraduationCap, Users, BookOpen, Brain, Database, TrendingUp, Target,
   Monitor, Settings, Award, Focus, Headphones, FileText, BarChart3
@@ -109,6 +110,11 @@ export default function EnterpriseTraining() {
 
   return (
     <div className="page-wrapper" ref={contentRef}>
+      <SEO
+        title="Enterprise IT Training & Capability Building | InTime Global"
+        description="Upskill your workforce on SAP, BI, and AI tools with custom training programs designed by InTime Global's elite consultants."
+        keywords="IT training, corporate training, SAP training, BI training, workforce upskilling, InTime Global"
+      />
       <Navbar />
       
         {/* HERO SECTION */}

@@ -8358,23 +8358,59 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #ffffff;
-  border: 1px solid #eaeaea;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 8px 16px;
   border-radius: 50px;
-  color: #333333;
+  color: var(--text-white, #ffffff);
   font-size: 0.9rem;
   font-weight: 500;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 .boss-db-pill-alt svg {
+  color: var(--icon-blue, #0072ff);
+  transition: transform 0.3s ease;
+}
+
+.boss-db-pill-alt:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 114, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.boss-db-pill-alt:hover svg {
+  transform: scale(1.1);
+}
+
+/* Light mode overrides for DB pills */
+:root[data-theme='light'] .boss-db-pill-alt {
+  background: #ffffff;
+  border: 1px solid #eaeaea;
   color: #333333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+:root[data-theme='light'] .boss-db-pill-alt svg {
+  color: #333333;
+}
+
+:root[data-theme='light'] .boss-db-pill-alt:hover {
+  background: #f0f5ff;
+  border-color: #0072ff;
+}
+
+:root[data-theme='light'] .boss-db-pill-alt:hover svg {
+  color: #0072ff;
 }
 
 .boss-integration-visual-alt {
   height: 350px;
   width: 100%;
+}
+
+:root[data-theme='light'] .boss-integration-visual-alt {
   background: #ffffff !important;
   border: 1px solid #eaeaea !important;
 }
@@ -8394,7 +8430,7 @@ body {
   position: absolute;
   width: 70px;
   height: 70px;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.07);
   border: 2px solid #0072ff;
   border-radius: 50%;
   top: 50%;
@@ -8403,6 +8439,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 40px rgba(0, 114, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Light mode override for icon circle */
+:root[data-theme='light'] .image1-icon-circle {
+  background: #ffffff;
   box-shadow: 0 0 40px rgba(0, 114, 255, 0.15);
 }
 
@@ -8439,6 +8483,11 @@ body {
 
 /* Image 2: CTA Banner */
 .boss-cta-banner-alt {
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(0, 114, 255, 0.2));
+  border: 1px solid rgba(0, 168, 253, 0.3);
+}
+
+:root[data-theme='light'] .boss-cta-banner-alt {
   background: linear-gradient(135deg, #e6f0ff, #cce0ff);
   border: 1px solid #b3d1ff;
 }
@@ -8454,14 +8503,22 @@ body {
 .boss-cta-title {
   font-size: 2.8rem;
   font-weight: 600;
-  color: #080808;
+  color: var(--text-white, #ffffff);
   margin-bottom: 1rem;
+}
+
+:root[data-theme='light'] .boss-cta-title {
+  color: #080808;
 }
 
 .boss-cta-desc {
   font-size: 1.15rem;
-  color: #555555;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
+}
+
+:root[data-theme='light'] .boss-cta-desc {
+  color: #555555;
 }
 
 .boss-cta-button {
@@ -8474,9 +8531,27 @@ body {
   box-shadow: 0 15px 40px rgba(0, 114, 255, 0.3);
 }
 
-.boss-cta-button .text-dark,
-.boss-cta-button .arrow {
+/* Light mode overrides for the button */
+:root[data-theme='light'] .boss-cta-button {
+  background: #ffffff !important;
   color: #080808 !important;
+  border: 1px solid #cce0ff !important;
+  box-shadow: 0 10px 20px rgba(0, 114, 255, 0.1) !important;
+  background-image: none !important;
+}
+
+:root[data-theme='light'] .boss-cta-button::before,
+:root[data-theme='light'] .boss-cta-button::after {
+  display: none !important;
+}
+
+:root[data-theme='light'] .boss-cta-button .arrow {
+  color: #080808 !important;
+}
+
+:root[data-theme='light'] .boss-cta-button:hover {
+  background: #f4f8ff !important;
+  box-shadow: 0 15px 30px rgba(0, 114, 255, 0.15) !important;
 }
 
 /* Navbar Simple Dropdown */

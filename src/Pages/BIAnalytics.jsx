@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import {
   BarChart3,
   Database,
@@ -206,6 +207,11 @@ export default function BIAnalytics() {
 
   return (
     <div className="bi-page-wrapper" ref={contentRef}>
+      <SEO
+        title="Business Intelligence & Data Analytics | InTime Global"
+        description="Transform your raw data into actionable insights with InTime's customized Business Intelligence (BI), data warehousing, and reporting solutions."
+        keywords="Business Intelligence, BI analytics, data reporting, data warehousing, Power BI, Tableau, InTime Global"
+      />
       <div className="bi-atmosphere">
         <div className="bi-blob bi-blob-1"></div>
         <div className="bi-blob bi-blob-2"></div>

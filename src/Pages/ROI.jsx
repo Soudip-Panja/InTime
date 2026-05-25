@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import { 
   Brain, 
   TrendingUp, 
@@ -123,6 +124,11 @@ export default function ROI() {
 
   return (
     <div className="roi-page-wrapper">
+      <SEO
+        title="Enterprise ROI & Value Creation | InTime Global"
+        description="Discover how InTime Global helps enterprises achieve maximum ROI ($100M+ client value created) through strategic AI and SAP implementations."
+        keywords="IT ROI, technology investment return, business value creation, InTime ROI, enterprise engineering"
+      />
       <div className="roi-premium-bg" ref={bgGlowRef}>
         <div className="roi-glow glow-1"></div>
         <div className="roi-glow glow-2"></div>

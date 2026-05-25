@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+import SEO from '../Components/SEO';
 import {
   Rocket, TrendingUp, Globe, BookOpen, Lightbulb,
   MapPin, Clock, Briefcase, Search, Upload, Users, ChevronDown
@@ -225,6 +226,11 @@ export default function Carrers() {
 
   return (
     <>
+      <SEO 
+        title="Careers at InTime Global | Join Our Elite Team"
+        description="Explore career opportunities at InTime Global. We are looking for elite developers, SAP specialists, BI architects, and AI engineers."
+        keywords="jobs at InTime, software engineering careers, SAP careers, tech jobs"
+      />
       <Navbar />
       <div
         className="careers-page"

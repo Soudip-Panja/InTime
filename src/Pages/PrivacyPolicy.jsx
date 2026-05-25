@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+import SEO from '../Components/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Clock, Mail } from 'lucide-react';
 import gsap from 'gsap';
@@ -198,6 +199,11 @@ export default function PrivacyPolicy() {
 
     return (
         <div className="privacy-page-wrapper" style={wrapperStyle} ref={pageRef}>
+            <SEO 
+                title="Privacy Policy | InTime Global"
+                description="Read the privacy policy of InTime Global to understand how we collect, use, and protect your personal data."
+                keywords="privacy policy, data protection, data privacy"
+            />
             {/* Scope Smooth Scroll Styles */}
             <style>{`
         html {

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+import SEO from '../Components/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Clock, Mail } from 'lucide-react';
 import gsap from 'gsap';
@@ -199,6 +200,11 @@ export default function TermsAndConditions() {
 
     return (
         <div className="terms-page-wrapper" style={wrapperStyle} ref={pageRef}>
+            <SEO 
+                title="Terms & Conditions | InTime Global"
+                description="Read the terms and conditions for using the InTime Global website and our services."
+                keywords="terms and conditions, user agreement, legal terms"
+            />
             {/* Scope Smooth Scroll Styles */}
             <style>{`
         html {

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+import SEO from "../Components/SEO";
 import { 
   Building2, 
   Factory, 
@@ -187,6 +188,11 @@ export default function Industries() {
 
   return (
     <div className="industries-page" ref={sectionRef} onMouseMove={handleMouseMove}>
+      <SEO
+        title="Industries We Serve | Enterprise Tech Solutions | InTime Global"
+        description="Explore our custom technology solutions tailored for key industries including finance, retail, energy, healthcare, and logistics."
+        keywords="industry solutions, retail IT, financial software, healthcare technology, logistics IT, InTime Global"
+      />
       <Navbar />
       
       {/* Icon Gradient Definition */}

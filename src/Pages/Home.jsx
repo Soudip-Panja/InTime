@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import { Link } from 'react-router-dom';
 import * as THREE from 'three';
 import gsap from "gsap";
@@ -1267,6 +1268,11 @@ export default function Home() {
 
   return (
     <div className="page-wrapper">
+      <SEO
+        title="InTime Global | SAP, BI & AI Engineering Solutions"
+        description="InTime Global is a leading enterprise technology partner. We empower organizations worldwide with elite SAP, Business Intelligence (BI) Analytics, and AI engineering services."
+        keywords="SAP solutions, AI engineering, BI analytics, InTime Global, digital transformation, IT consulting"
+      />
       <Navbar />
       
       <main 

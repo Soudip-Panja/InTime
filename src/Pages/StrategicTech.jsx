@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import { 
   Users, Target, Clock, AlertTriangle, TrendingDown, 
   Database, Brain, BarChart3, Shield, TrendingUp, Zap, FileText 
@@ -98,6 +99,11 @@ export default function StrategicTech() {
 
   return (
     <div className="page-wrapper" ref={contentRef}>
+      <SEO
+        title="Strategic Technology Consulting | InTime Global"
+        description="Align your business strategy with modern technology solutions. InTime provides IT roadmap planning, cloud architecture, and legacy modernization."
+        keywords="IT consulting, technology strategy, cloud architecture, digital roadmap, InTime Global"
+      />
       <Navbar />
       
         {/* HERO SECTION */}

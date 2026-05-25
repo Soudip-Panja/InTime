@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import {
   AlertTriangle, Cloud, Database, Zap, MapPin, Brain, Headphones, CheckCircle2, ArrowRight,
   Shield, Rocket, Settings, Trophy, Users, Award, Target, Download
@@ -92,6 +93,11 @@ export default function SAP() {
 
   return (
     <div className="page-wrapper">
+      <SEO
+        title="SAP Enterprise Solutions & Integration | InTime Global"
+        description="Unlock the full potential of your enterprise with InTime's SAP integration, migration, customization, and consulting services."
+        keywords="SAP consulting, SAP ERP, SAP migration, SAP integration, enterprise planning, InTime Global"
+      />
       <Navbar />
 
       {/* HERO SECTION */}

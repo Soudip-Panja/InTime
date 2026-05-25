@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import { 
   Rocket, 
   Target, 
@@ -172,6 +173,11 @@ export default function About() {
 
   return (
     <div className="about-page">
+      <SEO
+        title="About InTime Global | Digital Transformation Architects"
+        description="Learn about InTime Global, our mission, and our elite team of 200+ consultants delivering enterprise-grade SAP, BI, and AI solutions globally."
+        keywords="About InTime, InTime team, technology consulting team, enterprise IT experts, digital transformation"
+      />
       <Navbar />
       
       {/* Hero Section */}

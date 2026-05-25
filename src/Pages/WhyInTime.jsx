@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import {
   Search,
   Cpu,
@@ -129,6 +130,11 @@ export default function WhyInTimePage() {
 
   return (
     <div className="why-page-wrapper" ref={contentRef}>
+      <SEO
+        title="Why Choose InTime Global | Our Engineering Perspective"
+        description="Find out why forward-thinking companies trust InTime Global. We diagnose before we build and combine AI-native speed with enterprise-grade rigor."
+        keywords="Why InTime, technology partner, software engineering standards, IT delivery quality, InTime Global"
+      />
       <Navbar />
 
       <main className="why-main-content">

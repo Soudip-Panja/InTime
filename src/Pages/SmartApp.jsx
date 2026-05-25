@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import { 
   Code2, 
   Smartphone, 
@@ -205,6 +206,11 @@ export default function SmartApp() {
 
   return (
     <div className="sa-page-wrapper">
+      <SEO
+        title="Smart App Development & Modernization | InTime Global"
+        description="Build fast, scalable, and responsive mobile and web applications with our award-winning custom app development teams."
+        keywords="app development, mobile apps, web applications, custom software development, InTime Global"
+      />
       <Navbar />
 
       <main className="sa-main-content">

@@ -23,6 +23,7 @@ import {
 import { Link } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+import SEO from '../Components/SEO';
 
 
 export default function BossAi() {
@@ -51,6 +52,11 @@ export default function BossAi() {
 
   return (
     <>
+      <SEO 
+        title="BOSS AI | Autonomous Business Intelligence & Operations"
+        description="Discover BOSS AI, our proprietary autonomous business intelligence platform that automates complex data operations and decision-making."
+        keywords="BOSS AI, autonomous BI, AI operations, AI business intelligence"
+      />
       <Navbar />
       <div className="boss-page-container" style={{ '--bg-mouse-x': `${mousePos.x}px`, '--bg-mouse-y': `${mousePos.y}px` }}>
       {/* Background Elements */}
@@ -305,8 +311,8 @@ export default function BossAi() {
                <p className="boss-cta-desc mx-auto mb-4" style={{ maxWidth: '600px' }}>
                  Implement the centralized AI layer that unifies operations, intelligence, and communication in one platform.
                </p>
-               <button className="nav-cta-btn bg-white text-dark border-0 boss-cta-button">
-                 <span className="text-dark">Schedule Boss AI Demo</span> <ArrowRight size={18} className="arrow text-dark" />
+               <button className="nav-cta-btn boss-cta-button">
+                 <span>Schedule Boss AI Demo</span> <ArrowRight size={18} className="arrow" />
                </button>
              </div>
           </div>
